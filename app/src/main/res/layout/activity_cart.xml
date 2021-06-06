@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".CartActivity">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/payment_method"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your Cart:"
+            android:padding="20dp"
+            android:textSize="40sp"
+            android:textColor="@color/dark_green"
+            android:fontFamily="cursive"/>
+
+        <TextView
+            android:id="@+id/order_items"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-light"
+            android:text="Your Selected Meal(s):"
+            android:textColor="@color/dark_green"
+            android:textSize="20sp"
+            android:layout_below="@+id/payment_method"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:padding="20dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/order_items"
+            android:background="@color/white"/>
+
+        <TextView
+            android:id="@+id/order_quantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-light"
+            android:text="select serving quantity:"
+            android:textColor="@color/dark_green"
+            android:textSize="20sp"
+            android:layout_below="@+id/quantity"/>
+
+        <Spinner
+            android:id="@+id/quantity"
+            android:layout_width="163dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/recycler_view"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:background="@android:drawable/btn_dropdown"
+            android:spinnerMode="dropdown" />
+
+
+        <TextView
+            android:id="@+id/order_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-light"
+            android:text="Order total:"
+            android:textColor="@color/dark_green"
+            android:textSize="20sp"
+            android:layout_below="@+id/quantity"/>
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/order_total"
+            android:layout_marginTop="2dp"
+            android:fontFamily="sans-serif-light"
+            android:padding="20dp"
+            android:text="R0.00"
+            android:textColor="@color/dark_purple"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_pay"
+            android:layout_width="213dp"
+            android:layout_height="52dp"
+            android:layout_below="@+id/tv_price"
+            android:layout_gravity="center_horizontal"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/customizations"
+            android:backgroundTint="@color/light_purple"
+            android:text="Proceed to payment"
+            android:textColor="@color/dark_purple"
+            android:textSize="20dp" />
+
+        <ImageView
+            android:layout_width="526dp"
+            android:layout_height="178dp"
+            android:layout_below="@+id/btn_pay"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/banner" />
+
+    </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

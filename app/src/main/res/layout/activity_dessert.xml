@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DessertActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/dark_green"
+                android:fontFamily="cursive"
+                android:textSize="40dp"
+                android:text="Dessert Menu:"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/dark_green"
+                android:fontFamily="sans-serif-light"
+                android:textSize="20dp"
+                android:text="Please select an option:"/>
+
+            <ImageView
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@drawable/fish1"/>
+
+            <ImageView
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@drawable/fish2"/>
+
+            <ImageView
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@drawable/fish3"/>
+
+            <ImageView
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@drawable/fish4"/>
+
+            <ImageView
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@drawable/fish5"/>
+
+            <ImageView
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@drawable/fish6"/>
+
+            <ImageView
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@drawable/fish7"/>
+
+            <ImageView
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@drawable/fish8"/>
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
