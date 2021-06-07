@@ -32,52 +32,39 @@
 
 
             <ImageView
+                android:id="@+id/soup1"
                 android:background="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:src="@drawable/fish1"/>
+                android:src="@drawable/soup1"/>
 
             <ImageView
+                android:id="@+id/soup2"
                 android:background="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:src="@drawable/fish2"/>
+                android:src="@drawable/soup2"/>
 
             <ImageView
+                android:id="@+id/soup3"
                 android:background="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:src="@drawable/fish3"/>
+                android:src="@drawable/soup3"/>
 
             <ImageView
+                android:id="@+id/soup4"
                 android:background="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:src="@drawable/fish4"/>
+                android:src="@drawable/soup4"/>
 
             <ImageView
+                android:id="@+id/soup5"
                 android:background="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:src="@drawable/fish5"/>
-
-            <ImageView
-                android:background="@color/white"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:src="@drawable/fish6"/>
-
-            <ImageView
-                android:background="@color/white"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:src="@drawable/fish7"/>
-
-            <ImageView
-                android:background="@color/white"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:src="@drawable/fish8"/>
+                android:src="@drawable/soup5"/>
 
         </LinearLayout>
     </ScrollView>

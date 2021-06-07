@@ -31,52 +31,88 @@
                 android:text="Please select an option:"/>
 
             <ImageView
+                android:id="@+id/meat1"
                 android:background="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:src="@drawable/meat1"/>
 
             <ImageView
+                android:id="@+id/meat2"
                 android:background="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:src="@drawable/meat2"/>
 
             <ImageView
+                android:id="@+id/meat3"
                 android:background="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:src="@drawable/meat3"/>
 
             <ImageView
+                android:id="@+id/meat4"
                 android:background="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:src="@drawable/meat4"/>
 
             <ImageView
+                android:id="@+id/meat5"
                 android:background="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:src="@drawable/meat5"/>
 
             <ImageView
+                android:id="@+id/meat6"
                 android:background="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:src="@drawable/meat6"/>
 
             <ImageView
+                android:id="@+id/meat7"
                 android:background="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:src="@drawable/meat7"/>
 
             <ImageView
+                android:id="@+id/meat8"
                 android:background="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:src="@drawable/meat8"/>
+
+            <ImageView
+                android:id="@+id/meat9"
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@drawable/meat9"/>
+
+            <ImageView
+                android:id="@+id/meat10"
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@drawable/meat10"/>
+
+            <ImageView
+                android:id="@+id/meat11"
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@drawable/meat11"/>
+
+            <ImageView
+                android:id="@+id/meat12"
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@drawable/meat12"/>
 
         </LinearLayout>
     </ScrollView>

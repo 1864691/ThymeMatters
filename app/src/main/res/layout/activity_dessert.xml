@@ -31,52 +31,18 @@
                 android:text="Please select an option:"/>
 
             <ImageView
+                android:id="@+id/dessert1"
                 android:background="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:src="@drawable/fish1"/>
+                android:src="@drawable/dessert1"/>
 
             <ImageView
+                android:id="@+id/dessert2"
                 android:background="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:src="@drawable/fish2"/>
-
-            <ImageView
-                android:background="@color/white"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:src="@drawable/fish3"/>
-
-            <ImageView
-                android:background="@color/white"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:src="@drawable/fish4"/>
-
-            <ImageView
-                android:background="@color/white"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:src="@drawable/fish5"/>
-
-            <ImageView
-                android:background="@color/white"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:src="@drawable/fish6"/>
-
-            <ImageView
-                android:background="@color/white"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:src="@drawable/fish7"/>
-
-            <ImageView
-                android:background="@color/white"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:src="@drawable/fish8"/>
+                android:src="@drawable/dessert2"/>
 
         </LinearLayout>
     </ScrollView>
