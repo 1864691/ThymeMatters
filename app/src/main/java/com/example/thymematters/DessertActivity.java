@@ -23,14 +23,14 @@ public class DessertActivity extends AppCompatActivity {
         Dessert1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(DessertActivity.this, CartActivity.class));
+                startActivity(new Intent(DessertActivity.this, PlaceOrderActivity.class));
                 finish();
             }
         });
         Dessert2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(DessertActivity.this, CartActivity.class));
+                startActivity(new Intent(DessertActivity.this, PlaceOrderActivity.class));
                 finish();
             }
         });

@@ -43,84 +43,84 @@ public class MeatActivity extends AppCompatActivity {
         Meat1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MeatActivity.this, CartActivity.class));
+                startActivity(new Intent(MeatActivity.this, PlaceOrderActivity.class));
                 finish();
             }
         });
         Meat2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MeatActivity.this, CartActivity.class));
+                startActivity(new Intent(MeatActivity.this, PlaceOrderActivity.class));
                 finish();
             }
         });
         Meat3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MeatActivity.this, CartActivity.class));
+                startActivity(new Intent(MeatActivity.this, PlaceOrderActivity.class));
                 finish();
             }
         });
         Meat4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MeatActivity.this, CartActivity.class));
+                startActivity(new Intent(MeatActivity.this, PlaceOrderActivity.class));
                 finish();
             }
         });
         Meat5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MeatActivity.this, CartActivity.class));
+                startActivity(new Intent(MeatActivity.this, PlaceOrderActivity.class));
                 finish();
             }
         });
         Meat6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MeatActivity.this, CartActivity.class));
+                startActivity(new Intent(MeatActivity.this, PlaceOrderActivity.class));
                 finish();
             }
         });
         Meat7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MeatActivity.this, CartActivity.class));
+                startActivity(new Intent(MeatActivity.this, PlaceOrderActivity.class));
                 finish();
             }
         });
         Meat8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MeatActivity.this, CartActivity.class));
+                startActivity(new Intent(MeatActivity.this, PlaceOrderActivity.class));
                 finish();
             }
         });
         Meat9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MeatActivity.this, CartActivity.class));
+                startActivity(new Intent(MeatActivity.this, PlaceOrderActivity.class));
                 finish();
             }
         });
         Meat10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MeatActivity.this, CartActivity.class));
+                startActivity(new Intent(MeatActivity.this, PlaceOrderActivity.class));
                 finish();
             }
         });
         Meat11.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MeatActivity.this, CartActivity.class));
+                startActivity(new Intent(MeatActivity.this, PlaceOrderActivity.class));
                 finish();
             }
         });
         Meat12.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MeatActivity.this, CartActivity.class));
+                startActivity(new Intent(MeatActivity.this, PlaceOrderActivity.class));
                 finish();
             }
         });

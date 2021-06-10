@@ -5,29 +5,25 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
-public class PaymentActivity extends AppCompatActivity {
+public class Order_Confirmed extends AppCompatActivity {
 
-
-    Button btn_finish;
+    TextView track_order;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_payment);
+        setContentView(R.layout.activity_order_confirmed);
 
-        btn_finish = findViewById(R.id.btn_finish);
+//        track_order.findViewById(R.id.track_order);
 
-        btn_finish.setOnClickListener(new View.OnClickListener() {
+      /*  track_order.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(PaymentActivity.this, Order_Confirmed.class));
+                startActivity(new Intent(Order_Confirmed.this, Order_Confirmed.class));
                 finish();
             }
-        });
-
-
+        });*/
     }
 }

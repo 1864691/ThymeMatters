@@ -42,77 +42,77 @@ public class FishActivity extends AppCompatActivity {
         Fish1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(FishActivity.this, CartActivity.class));
+                startActivity(new Intent(FishActivity.this, PlaceOrderActivity.class));
                 finish();
             }
         });
         Fish2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(FishActivity.this, CartActivity.class));
+                startActivity(new Intent(FishActivity.this, PlaceOrderActivity.class));
                 finish();
             }
         });
         Fish3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(FishActivity.this, CartActivity.class));
+                startActivity(new Intent(FishActivity.this, PlaceOrderActivity.class));
                 finish();
             }
         });
         Fish4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(FishActivity.this, CartActivity.class));
+                startActivity(new Intent(FishActivity.this, PlaceOrderActivity.class));
                 finish();
             }
         });
         Fish5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(FishActivity.this, CartActivity.class));
+                startActivity(new Intent(FishActivity.this, PlaceOrderActivity.class));
                 finish();
             }
         });
         Fish6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(FishActivity.this, CartActivity.class));
+                startActivity(new Intent(FishActivity.this, PlaceOrderActivity.class));
                 finish();
             }
         });
         Fish7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(FishActivity.this, CartActivity.class));
+                startActivity(new Intent(FishActivity.this, PlaceOrderActivity.class));
                 finish();
             }
         });
         Fish8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(FishActivity.this, CartActivity.class));
+                startActivity(new Intent(FishActivity.this, PlaceOrderActivity.class));
                 finish();
             }
         });
         Fish9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(FishActivity.this, CartActivity.class));
+                startActivity(new Intent(FishActivity.this, PlaceOrderActivity.class));
                 finish();
             }
         });
         Fish10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(FishActivity.this, CartActivity.class));
+                startActivity(new Intent(FishActivity.this, PlaceOrderActivity.class));
                 finish();
             }
         });
         Fish11.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(FishActivity.this, CartActivity.class));
+                startActivity(new Intent(FishActivity.this, PlaceOrderActivity.class));
                 finish();
             }
         });

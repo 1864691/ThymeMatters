@@ -44,84 +44,84 @@ public class VegetarianActivity extends AppCompatActivity {
         Veg1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(VegetarianActivity.this, CartActivity.class));
+                startActivity(new Intent(VegetarianActivity.this, PlaceOrderActivity.class));
                 finish();
             }
         });
         Veg2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(VegetarianActivity.this, CartActivity.class));
+                startActivity(new Intent(VegetarianActivity.this, PlaceOrderActivity.class));
                 finish();
             }
         });
         Veg3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(VegetarianActivity.this, CartActivity.class));
+                startActivity(new Intent(VegetarianActivity.this, PlaceOrderActivity.class));
                 finish();
             }
         });
         Veg4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(VegetarianActivity.this, CartActivity.class));
+                startActivity(new Intent(VegetarianActivity.this, PlaceOrderActivity.class));
                 finish();
             }
         });
         Veg5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(VegetarianActivity.this, CartActivity.class));
+                startActivity(new Intent(VegetarianActivity.this, PlaceOrderActivity.class));
                 finish();
             }
         });
         Veg6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(VegetarianActivity.this, CartActivity.class));
+                startActivity(new Intent(VegetarianActivity.this, PlaceOrderActivity.class));
                 finish();
             }
         });
         Veg7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(VegetarianActivity.this, CartActivity.class));
+                startActivity(new Intent(VegetarianActivity.this, PlaceOrderActivity.class));
                 finish();
             }
         });
         Veg8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(VegetarianActivity.this, CartActivity.class));
+                startActivity(new Intent(VegetarianActivity.this, PlaceOrderActivity.class));
                 finish();
             }
         });
         Veg9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(VegetarianActivity.this, CartActivity.class));
+                startActivity(new Intent(VegetarianActivity.this, PlaceOrderActivity.class));
                 finish();
             }
         });
         Veg10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(VegetarianActivity.this, CartActivity.class));
+                startActivity(new Intent(VegetarianActivity.this, PlaceOrderActivity.class));
                 finish();
             }
         });
         Veg11.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(VegetarianActivity.this, CartActivity.class));
+                startActivity(new Intent(VegetarianActivity.this, PlaceOrderActivity.class));
                 finish();
             }
         });
         Veg12.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(VegetarianActivity.this, CartActivity.class));
+                startActivity(new Intent(VegetarianActivity.this, PlaceOrderActivity.class));
                 finish();
             }
         });

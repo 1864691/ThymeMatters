@@ -29,35 +29,35 @@ public class SoupActivity extends AppCompatActivity {
         Soup1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SoupActivity.this, CartActivity.class));
+                startActivity(new Intent(SoupActivity.this, PlaceOrderActivity.class));
                 finish();
             }
         });
         Soup2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SoupActivity.this, CartActivity.class));
+                startActivity(new Intent(SoupActivity.this, PlaceOrderActivity.class));
                 finish();
             }
         });
         Soup3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SoupActivity.this, CartActivity.class));
+                startActivity(new Intent(SoupActivity.this, PlaceOrderActivity.class));
                 finish();
             }
         });
         Soup4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SoupActivity.this, CartActivity.class));
+                startActivity(new Intent(SoupActivity.this, PlaceOrderActivity.class));
                 finish();
             }
         });
         Soup5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SoupActivity.this, CartActivity.class));
+                startActivity(new Intent(SoupActivity.this, PlaceOrderActivity.class));
                 finish();
             }
         });
