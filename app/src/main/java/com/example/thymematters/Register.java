@@ -75,7 +75,7 @@ public class Register extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.btn_Login).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btn_Register).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //open register screen

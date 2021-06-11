@@ -147,46 +147,7 @@
         android:background="@color/light_purple"
         android:layout_below="@+id/tv_date"/>
 
-    <TextView
-        android:id="@+id/tv_payment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/btn_date"
-        android:padding="10dp"
-        android:text="Please select a method of payment:"
-        android:textColor="@color/dark_green"
-        android:textSize="20dp"/>
 
-    <RadioGroup
-        android:id="@+id/rg_payment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_payment"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="28dp">
-
-        <RadioButton
-            android:id="@+id/rad_eft"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_payment"
-            android:padding="20dp"
-            android:shadowRadius="@color/light_purple"
-            android:text="EFT"
-            android:textColor="@color/dark_purple"
-            android:textSize="20sp" />
-
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/rad_eft"
-            android:padding="20dp"
-            android:shadowRadius="@color/light_purple"
-            android:text="Cash on delivery"
-            android:textColor="@color/dark_purple"
-            android:textSize="20sp" />
-
-    </RadioGroup>
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"

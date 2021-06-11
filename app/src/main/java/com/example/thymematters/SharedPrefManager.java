@@ -24,7 +24,7 @@ public class SharedPrefManager {
     private static final String KEY_PRICE = "keypositive";
     private static final String KEY_ADDITIONAL_NOTES = "keydate";
     private static final String KEY_PAID_STATUS = "keytotal";
-    private static final String KEY_DELIVERY_STATUS = "keypositive";
+    private static final String KEY_ORDER_STATUS = "keypositive";
 
     private static SharedPrefManager mInstance;
     private static Context mCtx;
@@ -105,7 +105,7 @@ public class SharedPrefManager {
                 sharedPreferences.getString(KEY_PAYMENT_METHOD, null),
                 sharedPreferences.getString(KEY_ADDITIONAL_NOTES, null),
                 sharedPreferences.getString(KEY_PAID_STATUS, null),
-                sharedPreferences.getString(KEY_DELIVERY_STATUS, null)
+                sharedPreferences.getString(KEY_ORDER_STATUS, null)
         );
     }
 
