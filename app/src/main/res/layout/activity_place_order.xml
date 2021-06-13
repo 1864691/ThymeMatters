@@ -145,7 +145,8 @@
         android:text="Select delivery date"
         android:textColor="@color/dark_purple"
         android:background="@color/light_purple"
-        android:layout_below="@+id/tv_date"/>
+        android:layout_below="@+id/tv_date"
+        android:padding="5dp"/>
 
 
 
