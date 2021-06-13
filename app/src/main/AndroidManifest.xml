@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.thymematters">
 
     <application
@@ -10,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ThymeMatters">
-        <activity android:name=".CartActivity"></activity>
+        <activity android:name=".TrackOrder"></activity>
+        <activity android:name=".Order_Confirmed" />
+        <activity android:name=".PlaceOrderActivity" />
+        <activity android:name=".CartActivity" />
         <activity android:name=".PaymentActivity" />
         <activity android:name=".DessertActivity" />
         <activity android:name=".VegetarianActivity" />

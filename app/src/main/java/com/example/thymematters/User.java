@@ -3,14 +3,14 @@ package com.example.thymematters;
 public class User {
 
     private int id;
-    private String FName, LName, DeliveryAddress, Contact_No, email;
+    private String FName, LName, DeliveryAddress, Contact_No, Email;
 
-    public User(int id, String username, String email, String gender) {
+    public User(int id, String FName, String LName, String DeliveryAddress, String Contact_No, String Email) {
         this.id = id;
         this.FName = FName;
         this.LName = LName;
         this.DeliveryAddress = DeliveryAddress;
-        this.email = email;
+        this.Email = Email;
         this.Contact_No = Contact_No;
     }
 
@@ -23,7 +23,7 @@ public class User {
     }
 
     public String getEmail() {
-        return email;
+        return Email;
     }
 
     public String getContact_No() {
