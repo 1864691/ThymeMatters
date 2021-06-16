@@ -42,9 +42,9 @@ public class PlaceOrderActivity extends AppCompatActivity {
         category.setAdapter(category_adapter);
 
         meal = findViewById(R.id.spin_meal);
-        String[] meals = new String[]{"Soup", "Fish", "Meat", "Vegetarian", "Dessert"};
+        String[] meals = new String[]{"Creamy Mushroom Tuna Steaks", "Crumbed Sole", "Sesame Coated Tuna Poke Bowl", "Hake Curry in Coconut Milk", "Thai Style Fish Cakes"};
         ArrayAdapter<String> meal_adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, meals);
-        category.setAdapter(meal_adapter);
+        meal.setAdapter(meal_adapter);
 
         pay = findViewById(R.id.btn_pay);
         date = findViewById(R.id.date);

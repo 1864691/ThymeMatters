@@ -99,13 +99,22 @@
     </com.google.android.material.appbar.AppBarLayout>
 
 
+    <ImageView
+        android:id="@+id/cart_item"
+        android:layout_width="match_parent"
+        android:layout_height="328dp"
+        android:layout_below="@+id/appbar"
+        android:layout_marginTop="-104dp"
+        android:src="@drawable/cartitem" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="418dp"
         android:layout_above="@+id/btn_pay"
         android:layout_below="@id/appbar"
-        android:layout_marginBottom="0dp"
+        android:layout_marginTop="87dp"
+        android:layout_marginBottom="5dp"
         android:scrollbars="vertical">
 
     </androidx.recyclerview.widget.RecyclerView>
