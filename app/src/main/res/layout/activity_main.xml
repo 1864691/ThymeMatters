@@ -113,7 +113,7 @@
         android:text="Thyme to unleash your inner chef"
         android:textColor="@color/light_green"
         android:textFontWeight="@android:integer/config_longAnimTime"
-        android:textSize="30dp"
+        android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintLeft_toLeftOf="parent"

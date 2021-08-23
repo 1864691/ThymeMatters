@@ -1,9 +1,14 @@
 package com.example.thymematters;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -65,5 +70,58 @@ public class HomeActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }// edit this for our sql database
+    /*public void onLogoutClick(){
+        DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                switch (which) {
+                    case DialogInterface.BUTTON_POSITIVE:
+
+                        FirebaseAuth.getInstance().signOut();
+                        startActivity(new Intent(HomeActivity.this, LandingActivity.class));
+                        Toast.makeText(getApplicationContext(),"Logout Successful",Toast.LENGTH_SHORT).show();
+                        finish();
+
+                        break;
+
+                    case DialogInterface.BUTTON_NEGATIVE:
+                        break;
+                }
+
+            }
+        };
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
+        builder.setMessage("Are you sure you want to Logout ?")
+                .setNegativeButton("No", dialogClickListener)
+                .setPositiveButton("Yes", dialogClickListener)
+                .show();
+
+    }*/
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.logout:
+                //onLogoutClick();
+                startActivity(new Intent(HomeActivity.this, MainActivity.class));
+                Toast.makeText(getApplicationContext(),"Logout Successful",Toast.LENGTH_SHORT).show();
+                finish();
+                return true;
+
+            case R.id.view_orders:
+                startActivity(new Intent(HomeActivity.this, CartActivity.class));
+                finish();
+                return true;
+        }
+        return false;
     }
 }
