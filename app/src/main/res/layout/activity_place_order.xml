@@ -83,7 +83,7 @@
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
         android:background="@android:drawable/btn_dropdown"
-        android:spinnerMode="dropdown" />
+        android:spinnerMode="dropdown"/>
 
 
     <TextView
