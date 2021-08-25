@@ -29,102 +29,134 @@
                 android:src="@drawable/logo"/>
 
             <TextView
-                android:layout_width="291dp"
+                android:layout_width="251dp"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
                 android:text="THYME MATTERS"
                 android:textColor="@color/dark_green"
                 android:textSize="20dp" />
 
+            <ImageView
+                android:id="@+id/menu_btn"
+                android:layout_width="80dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/appbar"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/menu" />
+
 
         </LinearLayout>
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appbar"
-        android:background="@color/white"
-        android:layout_below="@id/ActionBar"
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ActionBar"
+        android:layout_marginTop="0dp"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
 
         <LinearLayout
-            android:orientation="horizontal"
+            android:id="@+id/cart_total"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:background="#338AA347"
-            android:layout_height="match_parent">
+            android:orientation="vertical">
 
 
-            <LinearLayout
+
+            <TextView
+                android:id="@+id/cart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:text="Your cart:"
+                android:textColor="@color/dark_green"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/cart"
-                    android:textStyle="bold"
-                    android:layout_width="match_parent"
-                    android:layout_height="20dp"
-                    android:text="Your cart:"
-                    android:textSize="15dp"
-                    android:textColor="@color/dark_green"
-                    android:fontFamily="sans-serif-light"/>
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:id="@+id/items"
-                    android:layout_width="match_parent"
-                    android:layout_height="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
                     android:text="Items:"
-                    android:textStyle="bold"
-                    android:textSize="10dp"
                     android:textColor="@color/dark_green"
-                    android:fontFamily="sans-serif-light"/>
+                    android:textSize="15dp" />
 
+                <TextView
+                    android:id="@+id/num_items"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginRight="0dp"
+                    android:textSize="15dp"
+                    android:textColor="@color/dark_green"
+                    android:layout_toEndOf="@+id/items"
+                    android:text="2" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txt_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:text="Total:"
+                    android:textColor="@color/dark_green"
+                    android:textSize="15dp"/>
 
                 <TextView
                     android:id="@+id/price"
-                    android:layout_width="match_parent"
-                    android:layout_height="15dp"
-                    android:text="Total:"
-                    android:textStyle="bold"
-                    android:textSize="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginStart="9dp"
+                    android:layout_marginRight="0dp"
+                    android:textSize="15dp"
                     android:textColor="@color/dark_green"
-                    android:fontFamily="sans-serif-light"/>
+                    android:layout_toEndOf="@+id/txt_price"
+                    android:text="R700" />
 
-            </LinearLayout>
+            </RelativeLayout>
 
         </LinearLayout>
 
-
-    </com.google.android.material.appbar.AppBarLayout>
-
-
-    <ImageView
-        android:id="@+id/cart_item"
-        android:layout_width="match_parent"
-        android:layout_height="328dp"
-        android:layout_below="@+id/appbar"
-        android:layout_marginTop="-104dp"
-        android:src="@drawable/cartitem" />
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="418dp"
+        android:layout_height="486dp"
         android:layout_above="@+id/btn_pay"
-        android:layout_below="@id/appbar"
-        android:layout_marginTop="87dp"
-        android:layout_marginBottom="5dp"
-        android:scrollbars="vertical">
+        android:layout_below="@+id/price"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp"
+        android:scrollbars="vertical"
+        tools:ignore="NotSibling">
 
     </androidx.recyclerview.widget.RecyclerView>
 
     <Button
         android:id="@+id/btn_pay"
         android:layout_width="match_parent"
-        android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:layout_marginBottom="0dp"
         android:backgroundTint="@color/light_purple"
         android:text="Checkout"
         android:textColor="@color/dark_purple"

@@ -5,88 +5,71 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AdminHome">
+    tools:context=".help_change_account_details">
+
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/txt_help3"
+        android:layout_width="252dp"
+        android:layout_height="160dp"
+        android:fontFamily="sans-serif-light"
+        android:text="1. Click on the menu button at the top right of this page\n\n2. Scroll down and select the 'view my account details' option\n\n3. Edit your details"
+        android:textAlignment="center"
+        android:textColor="@color/light_purple"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.593" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="18dp"
+        android:layout_marginTop="36dp"
+        android:text="Need to update your personal information?"
+        android:textColor="@color/light_green"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.115"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_help2" />
+
+    <TextView
+        android:id="@+id/txt_help"
+        android:layout_width="354dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:text="Below are steps you can follow to update your personal details:"
+        android:textColor="@color/dark_green"
+        android:textSize="12dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.28"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.32" />
+
+    <TextView
+        android:id="@+id/txt_help2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="cursive"
-        android:text="Welcome"
-        android:textColor="@color/dark_green"
-        android:textFontWeight="@android:integer/config_longAnimTime"
-        android:textSize="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.148" />
-
-    <Button
-        android:id="@+id/view_reports2"
-        android:layout_width="275dp"
-        android:layout_height="70dp"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center_horizontal"
-        android:backgroundTint="@color/light_green"
-        android:text="view reports"
-        android:textSize="15dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/imageView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/category"
-        app:layout_constraintVertical_bias="0.676" />
-
-    <Button
-        android:id="@+id/edit_menu"
-        android:layout_width="275dp"
-        android:layout_height="70dp"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center_horizontal"
-        android:backgroundTint="@color/light_green"
-        android:text="Edit Menu"
-        android:textSize="15dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/imageView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/category"
-        app:layout_constraintVertical_bias="0.428" />
-
-    <TextView
-        android:id="@+id/category"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-light"
         android:gravity="center_horizontal"
-        android:text="what would you like to do?"
+        android:text="We are here to help"
         android:textAlignment="center"
         android:textColor="@color/dark_green"
-        android:textSize="15dp"
+        android:textSize="30dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.244" />
-
-    <Button
-        android:id="@+id/view_orders"
-        android:layout_width="275dp"
-        android:layout_height="70dp"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center_horizontal"
-        android:backgroundTint="@color/light_green"
-        android:text="view orders"
-        android:textSize="15dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/imageView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/category"
-        app:layout_constraintVertical_bias="0.183" />
+        app:layout_constraintVertical_bias="0.165" />
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/ActionBar"
@@ -112,7 +95,7 @@
                 android:layout_width="251dp"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
-                android:text="THYME MATTERS (Admin)"
+                android:text="THYME MATTERS"
                 android:textColor="@color/dark_green"
                 android:textSize="20dp" />
 

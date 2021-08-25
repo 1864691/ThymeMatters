@@ -9,12 +9,18 @@
 
 
     <item
-        android:id="@+id/Order_Hisory"
+        android:id="@+id/Order_History"
         android:title="View order history"/>
+
+    <item
+        android:id="@+id/favorites"
+        android:title="My favorites"
+        android:icon="@drawable/favorite"/>
 
     <item
         android:id="@+id/help"
         android:title="Help"/>
+
 
     <item
         android:id="@+id/logout"

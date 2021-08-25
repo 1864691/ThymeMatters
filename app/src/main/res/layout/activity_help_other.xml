@@ -5,7 +5,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".help_page">
+    tools:context=".help_other">
+
+    <Button
+        android:id="@+id/help_query"
+        android:layout_width="256dp"
+        android:layout_height="43dp"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:backgroundTint="@color/light_green"
+        android:text="submit query"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/imageView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="0.97" />
+
+
+    <EditText
+        android:id="@+id/edit_text"
+        android:background="@drawable/border"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="116dp"
+        android:backgroundTint="@color/white"
+        android:hint="eg: How do I track my order"
+        android:inputType="textPersonName|textCapWords"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_help" />
 
     <TextView
         android:id="@+id/txt_help"
@@ -13,37 +43,79 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-light"
         android:gravity="center_horizontal"
-        android:text="Welcome to the help center\nwhat can we assist you with?"
+        android:text="What's on your mind?"
         android:textAlignment="center"
-        android:textColor="@color/light_green"
-        android:textSize="18dp"
+        android:textColor="@color/dark_green"
+        android:textSize="15dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.059"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.145" />
+        app:layout_constraintVertical_bias="0.251" />
 
+    <TextView
+        android:id="@+id/txt_help2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="cursive"
+        android:gravity="center_horizontal"
+        android:text="We are here to help"
+        android:textAlignment="center"
+        android:textColor="@color/dark_green"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.149" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="18dp"
+        android:layout_marginTop="8dp"
+        android:text="Please be as specific as possible"
+        android:textColor="@color/grey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.078"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="210dp"
-        android:layout_height="29dp"
-        android:layout_marginTop="36dp"
-        android:text="Top questions on Thyme Matters"
+        android:layout_width="wrap_content"
+        android:layout_height="18dp"
+        android:layout_marginTop="80dp"
+        android:text="Give us the details"
         android:textColor="@color/dark_green"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.089"
+        app:layout_constraintHorizontal_bias="0.054"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_help" />
+
+    <EditText
+        android:id="@+id/edit_text2"
+        android:background="@drawable/border"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="120dp"
+        android:backgroundTint="@color/white"
+        android:hint="Add your response here "
+        android:inputType="textPersonName|textCapWords"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="330dp"
         android:layout_height="52dp"
-        android:layout_marginTop="316dp"
+        android:layout_marginTop="232dp"
         android:text="Thank you for your patience, please note that we value your support and we will respond to you within 24 hours via email/sms"
         android:textAlignment="center"
         android:textColor="@color/dark_green"
@@ -52,64 +124,6 @@
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_help" />
-
-    <Button
-        android:layout_width="378dp"
-        android:layout_height="41dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="16dp"
-        android:backgroundTint="@color/light_purple"
-        android:text="how do i change my delivery address?"
-        android:textSize="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="378dp"
-        android:layout_height="41dp"
-        android:layout_marginTop="60dp"
-        android:backgroundTint="@color/light_purple"
-        android:layout_marginEnd="16dp"
-        android:text="how do i change my delivery date?"
-        android:textSize="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="378dp"
-        android:layout_height="41dp"
-        android:layout_marginEnd="16dp"
-        android:backgroundTint="@color/light_purple"
-        android:text="how do i change my personal details?"
-        android:textSize="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="378dp"
-        android:layout_height="41dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="16dp"
-        android:backgroundTint="@color/light_purple"
-        android:text="how do i change my portion size?"
-        android:textSize="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="378dp"
-        android:layout_height="41dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="16dp"
-        android:backgroundTint="@color/light_purple"
-        android:text="other"
-        android:textSize="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/ActionBar"

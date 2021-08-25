@@ -55,7 +55,7 @@
 
         android:layout_width="364dp"
         android:layout_height="60dp"
-        android:text="Please note that your details will be verified by authenticated personal before you are certified as an administrator"
+        android:text="Please note that your details will be verified by authenticated personnel before you are certified as an administrator"
         android:textAlignment="center"
         android:textColor="@color/dark_green"
         android:textSize="15dp"

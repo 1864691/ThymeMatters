@@ -25,12 +25,20 @@
                 android:src="@drawable/logo"/>
 
             <TextView
-                android:layout_width="291dp"
+                android:layout_width="251dp"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
                 android:text="THYME MATTERS"
                 android:textColor="@color/dark_green"
                 android:textSize="20dp" />
+
+            <ImageView
+                android:id="@+id/menu_btn"
+                android:layout_width="80dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/appbar"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/menu" />
 
 
         </LinearLayout>
