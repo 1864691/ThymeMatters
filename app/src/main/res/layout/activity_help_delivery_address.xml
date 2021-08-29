@@ -8,7 +8,7 @@
     tools:context=".help_delivery_address">
 
     <Button
-        android:id="@+id/help_query"
+        android:id="@+id/btn_confirm_address_change"
         android:layout_width="256dp"
         android:layout_height="43dp"
         android:layout_centerHorizontal="true"
@@ -24,7 +24,7 @@
 
 
     <EditText
-        android:id="@+id/edit_text"
+        android:id="@+id/et_new_address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -100,7 +100,7 @@
             android:orientation="vertical">
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler_view12"
+                android:id="@+id/RV_UsersOrders"
                 android:layout_width="match_parent"
                 android:layout_height="730dp"
                 android:layout_alignParentBottom="true"
