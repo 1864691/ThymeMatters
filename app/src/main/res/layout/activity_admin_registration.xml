@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Register">
+    tools:context=".AdminRegistration">
 
     <Button
         android:id="@+id/btn_Register"
@@ -19,7 +19,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.867" />
+        app:layout_constraintVertical_bias="0.875" />
 
     <Button
         android:id="@+id/btn_return"
@@ -51,20 +51,20 @@
         app:layout_constraintVertical_bias="0.194" />
 
     <TextView
-        android:id="@+id/textView6"
-        android:layout_width="228dp"
-        android:layout_height="54dp"
-        android:gravity="center"
-        android:text="Let's get cooking!"
+        android:id="@+id/textView"
+
+        android:layout_width="364dp"
+        android:layout_height="60dp"
+        android:text="Please note that your details will be verified by authenticated personnel before you are certified as an administrator"
+        android:textAlignment="center"
         android:textColor="@color/dark_green"
-        android:textSize="25dp"
-        android:textStyle="bold"
+        android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.172"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.051" />
+        app:layout_constraintVertical_bias="0.787" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -73,32 +73,11 @@
         android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.055"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.028"
+        app:layout_constraintVertical_bias="0.046"
         app:srcCompat="@drawable/logo" />
-
-    <EditText
-        android:id="@+id/et_DeliveryAddress"
-        android:drawableLeft="@drawable/ic_baseline_streetview_24"
-        android:padding="5dp"
-        android:drawablePadding="15dp"
-        android:layout_marginLeft="7dp"
-        android:layout_marginRight="7dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/rounded_edit_text"
-        android:ems="10"
-        android:hint="Delivery Address"
-        android:inputType="textPersonName"
-        android:textColorHint="@color/dark_green"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.457"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.4" />
 
     <EditText
         android:id="@+id/et_FName"
@@ -142,93 +121,93 @@
 
     <EditText
         android:id="@+id/et_EmailAddress"
-        android:drawableLeft="@drawable/ic_baseline_email_24"
-        android:padding="5dp"
-        android:drawablePadding="15dp"
-        android:layout_marginLeft="7dp"
-        android:layout_marginRight="7dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"
         android:background="@drawable/rounded_edit_text"
+        android:drawableLeft="@drawable/ic_baseline_email_24"
+        android:drawablePadding="15dp"
         android:ems="10"
         android:hint="Email Address"
         android:inputType="textEmailAddress"
-        android:textColorHint="@color/dark_green"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.457"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.469" />
-
-    <EditText
-        android:id="@+id/et_Password"
-        android:drawableLeft="@drawable/ic_baseline_lock_24"
         android:padding="5dp"
-        android:drawablePadding="15dp"
-        android:layout_marginLeft="7dp"
-        android:layout_marginRight="7dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/rounded_edit_text"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPassword"
         android:textColorHint="@color/dark_green"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.457"
+        app:layout_constraintHorizontal_bias="0.538"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.606" />
-
-    <EditText
-        android:id="@+id/et_ConfirmPassword"
-        android:drawableLeft="@drawable/ic_baseline_lock_24"
-        android:padding="5dp"
-        android:drawablePadding="15dp"
-        android:layout_marginLeft="7dp"
-        android:layout_marginRight="7dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-       android:background="@drawable/rounded_edit_text"
-        android:ems="10"
-        android:hint="Confirm Password"
-        android:inputType="textPassword"
-        android:textColorHint="@color/dark_green"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.462"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.673" />
+        app:layout_constraintVertical_bias="0.409" />
 
     <EditText
         android:id="@+id/et_Phone"
-        android:drawableLeft="@drawable/ic_baseline_phone_24"
-        android:padding="5dp"
-        android:drawablePadding="15dp"
-        android:layout_marginLeft="7dp"
-        android:layout_marginRight="7dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"
         android:background="@drawable/rounded_edit_text"
+        android:drawableLeft="@drawable/ic_baseline_phone_24"
+        android:drawablePadding="15dp"
         android:ems="10"
         android:hint="Contact Number"
         android:inputType="phone"
+        android:padding="5dp"
         android:textColorHint="@color/dark_green"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.462"
+        app:layout_constraintHorizontal_bias="0.461"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.537" />
+        app:layout_constraintVertical_bias="0.483" />
+
+    <EditText
+        android:id="@+id/et_Password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"
+        android:background="@drawable/rounded_edit_text"
+        android:drawableLeft="@drawable/ic_baseline_lock_24"
+        android:drawablePadding="15dp"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:padding="5dp"
+        android:textColorHint="@color/dark_green"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.552" />
+
+    <EditText
+        android:id="@+id/et_ConfirmPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"
+        android:background="@drawable/rounded_edit_text"
+        android:drawableLeft="@drawable/ic_baseline_lock_24"
+        android:drawablePadding="15dp"
+        android:ems="10"
+        android:hint="Confirm Password"
+        android:inputType="textPassword"
+        android:padding="5dp"
+        android:textColorHint="@color/dark_green"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.619" />
 
     <CheckBox
         android:id="@+id/checkBoxPwd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="4dp"
         android:text="Show password"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"

@@ -5,6 +5,15 @@
         <item name="colorPrimary">@color/light_green</item>
         <item name="colorPrimaryDark">@color/dark_green</item>
         <item name="colorAccent">@color/green</item>
+        <item name="android:colorBackground">@color/white</item>
+        <item name="colorButtonNormal">@color/light_green</item>
+        <item name="colorError">@color/error_red</item>
+        <item name="android:textColor">@color/black</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="MenuStyle" parent="Theme.AppCompat.Light">
+        <item name = "android:background">@android:color/white</item>
+    </style>
+
 </resources>
