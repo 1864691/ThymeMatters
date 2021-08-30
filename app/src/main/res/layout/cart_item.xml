@@ -43,7 +43,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:layout_marginStart="3dp"
+                android:textStyle="bold"
+                android:layout_marginStart="5dp"
                 android:layout_marginEnd="103dp"
                 android:layout_toEndOf="@+id/txt_meal_name"
                 android:text="hake and chips "
@@ -61,7 +62,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Delivery date:"
-            android:textSize="15sp"
+            android:textSize="10dp"
             android:id="@+id/txt_delivery_date" />
 
             <TextView
@@ -69,78 +70,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="119dp"
-                android:text="25 August 2021" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/txt_serving_size"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_marginBottom="0dp"
-                android:text="Serving Size:"
-                android:textSize="15sp" />
-
-            <TextView
-                android:id="@+id/serving_size"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="88dp"
-                android:text="4" />
-
-            <TextView
-                android:id="@+id/txt_quantity"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginEnd="92dp"
-                android:layout_marginBottom="0dp"
-                android:text="Qty:"
-                android:textSize="15sp" />
-
-            <Button
-                android:id="@+id/decrease"
-                android:layout_width="30dp"
-                android:layout_height="20dp"
-                android:layout_marginEnd="1dp"
-                android:layout_toStartOf="@+id/integer_number"
-                android:text="-"
-                android:textSize="3dp"/>
-
-            <EditText
-                android:id="@+id/integer_number"
-                android:layout_width="30dp"
-                android:layout_height="20dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginLeft="40dp"
-                android:layout_marginTop="2dp"
-                android:layout_marginEnd="1dp"
-                android:layout_marginRight="40dp"
-                android:layout_marginBottom="0dp"
-                android:layout_toStartOf="@+id/increase"
-                android:text="0"
-                android:inputType="number"
-                android:textColor="@color/black"
-                android:textSize="70sp"
-                android:textStyle="bold" />
-
-            <Button
-                android:id="@+id/increase"
-                android:layout_width="30dp"
-                android:layout_height="20dp"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="0dp"
-                android:text="+" />
+                android:layout_marginStart="5dp"
+                android:layout_marginRight="0dp"
+                android:layout_toEndOf="@+id/txt_delivery_date"
+                android:text="25 August 2021"
+                android:textSize="10dp" />
 
         </RelativeLayout>
 
@@ -149,28 +83,129 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+
+            <TextView
+                android:id="@+id/txt_delivery_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delivery Address:"
+                android:textSize="10dp" />
+
+            <TextView
+                android:id="@+id/tv_delivery_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="100dp"
+                android:layout_toEndOf="@+id/txt_delivery_address"
+                android:text="53 3rd ave southdale road "
+                android:textSize="10dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txt_serving_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Serving Size:"
+                android:textSize="10dp" />
+
+            <TextView
+                android:id="@+id/delivery_date2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="242dp"
+                android:layout_marginRight="5dp"
+                android:layout_toEndOf="@+id/txt_serving_size"
+                android:text="4"
+                android:textSize="10dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="20dp">
+
+
+            <TextView
+                android:id="@+id/txt_notes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Additional Notes:"
+                android:textSize="10dp" />
+
+            <TextView
+                android:id="@+id/tv_notes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="100dp"
+                android:layout_toEndOf="@+id/txt_notes"
+                android:text="None"
+                android:textSize="10dp" />
+
+            <TextView
+                android:id="@+id/txt_quantity"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="50dp"
+                android:layout_marginBottom="0dp"
+                android:text="Qty:"
+                android:textSize="10sp" />
+
+            <Spinner
+                android:id="@+id/spin_qty"
+                android:layout_width="50dp"
+                android:layout_height="20dp"
+                android:layout_alignRight="@+id/txt_quantity"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="0dp"
+                android:background="@android:drawable/btn_dropdown"
+                android:spinnerMode="dropdown" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
             <TextView
                 android:id="@+id/txt_meal_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Price:"
-                android:textSize="15sp" />
-
+                android:text="Total Price:"
+                android:textSize="10dp" />
 
             <TextView
                 android:id="@+id/meal_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="40dp"
-                android:text="R350" />
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="100dp"
+                android:layout_toEndOf="@+id/txt_meal_price"
+                android:text="R350"
+                android:textSize="10dp" />
 
             <ImageView
                 android:id="@+id/delete"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="14dp"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
+                android:layout_marginEnd="0dp"
+                android:layout_marginRight="0dp"
                 android:src="@drawable/ic_baseline_delete_24" />
 
         </RelativeLayout>

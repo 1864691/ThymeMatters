@@ -17,8 +17,14 @@ public class SharedPrefManager {
     private static final String KEY_PHONE = "phone";
     private static final String KEY_ADDRESS = "address";
 
+    private static final String KEY_ADMIN_ID = "admin_id";
+    private static final String KEY_ADMIN_FNAME = "admin_fname";
+    private static final String KEY_ADMIN_LNAME = "admin_lname";
+    private static final String KEY_ADMIN_EMAIL = "admin_email";
+    private static final String KEY_ADMIN_PHONE = "admin_phone";
+
     private static final String KEY_MEAL_CATEGORY = "category";
-    private static final String KEY_MEAL_NAME = "meal-name";
+    private static final String KEY_MEAL_NAME = "meal_name";
     private static final String KEY_SERVING_SIZE = "serving_size";
     private static final String KEY_DELIVERY_DATE = "delivery_date";
     private static final String KEY_PLACEMENT_DATE = "placement_date";
@@ -44,8 +50,16 @@ public class SharedPrefManager {
         return mInstance;
     }
 
-    //method to let the user login
-    //this method will store the user data in shared preferences
+    //method to let the admin login
+    //this method will store the admin data in shared preferences
+    public void adminLogin(Admin admin) {
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt(KEY_ADMIN_ID, admin.getAdminId());
+        editor.putString(KEY_ADMIN_EMAIL, admin.getAdmin_Email_Address());
+        editor.apply();
+    }
+
     public void userLogin(User user) {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -80,6 +94,11 @@ public class SharedPrefManager {
         return sharedPreferences.getString(KEY_EMAIL, null) != null;
     }
 
+    public boolean isAdminLoggedIn() {
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return sharedPreferences.getString(KEY_ADMIN_EMAIL, null) != null;
+    }
+
     //FIX THIS FOR THYME MATTERS TO CHECK IF USER HAS PLACED AN ORDER
     /*public boolean isCheckedIn() {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
@@ -97,6 +116,17 @@ public class SharedPrefManager {
                 sharedPreferences.getString(KEY_ADDRESS, null),
                 sharedPreferences.getString(KEY_EMAIL, null),
                 sharedPreferences.getString(KEY_PHONE, null)
+        );
+    }
+
+    public Admin getAdmin() {
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return new Admin(
+                sharedPreferences.getInt(KEY_ADMIN_ID, -1),
+                sharedPreferences.getString(KEY_ADMIN_FNAME, null),
+                sharedPreferences.getString(KEY_ADMIN_LNAME, null),
+                sharedPreferences.getString(KEY_ADMIN_EMAIL, null),
+                sharedPreferences.getString(KEY_ADMIN_PHONE, null)
         );
     }
 

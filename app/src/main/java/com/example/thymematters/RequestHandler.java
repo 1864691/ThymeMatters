@@ -24,7 +24,6 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 
-
 public class RequestHandler {
     //this method will send a post request to the specified url
     //in the hashmap we have the data to be sent to the server in keyvalue pairs
@@ -88,7 +87,7 @@ public class RequestHandler {
         return result.toString();
     }
 
-    public void doRequest(final Activity a, final String url_method, final serverRequests SR) {
+    public void doRequest( final Activity a, final String url_method, final serverRequests SR) {
         OkHttpClient client = new OkHttpClient();
 
         Request request = new Request.Builder()
@@ -118,3 +117,5 @@ public class RequestHandler {
     }
 
 }
+
+

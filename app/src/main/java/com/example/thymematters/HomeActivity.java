@@ -20,6 +20,7 @@ public class HomeActivity extends AppCompatActivity {
     TextView Vegetarian;
     TextView Dessert;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -117,8 +118,23 @@ public class HomeActivity extends AppCompatActivity {
                 finish();
                 return true;
 
-            case R.id.view_orders:
+            case R.id.View_Account://create account page
+                startActivity(new Intent(HomeActivity.this, UserAccountDetails.class));
+                finish();
+                return true;
+
+            case R.id.Order_History:
                 startActivity(new Intent(HomeActivity.this, CartActivity.class));
+                finish();
+                return true;
+
+            case R.id.help:
+                startActivity(new Intent(HomeActivity.this, help_page.class));
+                finish();
+                return true;
+
+            case R.id.favorites:
+                startActivity(new Intent(HomeActivity.this, favorites.class));
                 finish();
                 return true;
         }

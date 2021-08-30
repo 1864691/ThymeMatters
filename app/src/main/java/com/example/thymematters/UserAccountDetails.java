@@ -8,12 +8,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-public class help_other extends AppCompatActivity {
+public class UserAccountDetails extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_help_other);
+        setContentView(R.layout.activity_user_account_details);
     }
 
     @Override
@@ -27,28 +27,28 @@ public class help_other extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.logout:
                 //onLogoutClick();
-                startActivity(new Intent(help_other.this, MainActivity.class));
+                startActivity(new Intent(UserAccountDetails.this, MainActivity.class));
                 Toast.makeText(getApplicationContext(),"Logout Successful",Toast.LENGTH_SHORT).show();
                 finish();
                 return true;
 
             case R.id.View_Account://create account page
-                startActivity(new Intent(help_other.this, UserAccountDetails.class));
+                startActivity(new Intent(UserAccountDetails.this, UserAccountDetails.class));
                 finish();
                 return true;
 
             case R.id.Order_History:
-                startActivity(new Intent(help_other.this, CartActivity.class));
+                startActivity(new Intent(UserAccountDetails.this, CartActivity.class));
                 finish();
                 return true;
 
             case R.id.help:
-                startActivity(new Intent(help_other.this, help_page.class));
+                startActivity(new Intent(UserAccountDetails.this, help_page.class));
                 finish();
                 return true;
 
             case R.id.favorites:
-                startActivity(new Intent(help_other.this, favorites.class));
+                startActivity(new Intent(UserAccountDetails.this, favorites.class));
                 finish();
                 return true;
         }
