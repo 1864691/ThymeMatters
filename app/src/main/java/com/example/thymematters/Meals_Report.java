@@ -18,29 +18,27 @@ import com.anychart.enums.LegendLayout;
 import java.util.ArrayList;
 import java.util.List;
 
-
-public class TestReport extends AppCompatActivity {
+public class Meals_Report extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test_report);
+        setContentView(R.layout.activity_meals_report);
 
         AnyChartView anyChartView = findViewById(R.id.any_chart_view);
+        anyChartView.setProgressBar(findViewById(R.id.progress_bar));
 
         Pie pie = AnyChart.pie();
 
         pie.setOnClickListener(new ListenersInterface.OnClickListener(new String[]{"x", "value"}) {
             @Override
             public void onClick(Event event) {
-                Toast.makeText(TestReport.this, event.getData().get("x") + ":" + event.getData().get("value"), Toast.LENGTH_SHORT).show();
+                Toast.makeText(Meals_Report.this, event.getData().get("x") + ":" + event.getData().get("value"), Toast.LENGTH_SHORT).show();
             }
         });
 
-        int num = 6371664;
-
         List<DataEntry> data = new ArrayList<>();
-        data.add(new ValueDataEntry("Apples", num));
+        data.add(new ValueDataEntry("Apples", 6371664));
         data.add(new ValueDataEntry("Pears", 789622));
         data.add(new ValueDataEntry("Bananas", 7216301));
         data.add(new ValueDataEntry("Grapes", 1486621));
@@ -63,7 +61,5 @@ public class TestReport extends AppCompatActivity {
                 .align(Align.CENTER);
 
         anyChartView.setChart(pie);
-
-
     }
 }

@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ThymeMatters">
-        <activity android:name=".favorites"></activity>
+        <activity android:name=".Customer_Report"></activity>
+        <activity android:name=".Meals_Report" />
+        <activity android:name=".Sales_Report" />
+        <activity android:name=".favorites" />
         <activity android:name=".help_other" />
         <activity android:name=".help_change_account_details" />
         <activity android:name=".help_delivery_date" />
