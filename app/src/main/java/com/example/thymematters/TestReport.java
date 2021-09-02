@@ -37,10 +37,10 @@ public class TestReport extends AppCompatActivity {
             }
         });
 
-        int num = 6371664;
+
 
         List<DataEntry> data = new ArrayList<>();
-        data.add(new ValueDataEntry("Apples", num));
+        data.add(new ValueDataEntry("Apples", 6371664));
         data.add(new ValueDataEntry("Pears", 789622));
         data.add(new ValueDataEntry("Bananas", 7216301));
         data.add(new ValueDataEntry("Grapes", 1486621));

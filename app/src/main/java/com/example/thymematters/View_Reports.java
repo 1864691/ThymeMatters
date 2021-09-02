@@ -2,8 +2,10 @@ package com.example.thymematters;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -55,5 +57,29 @@ public class View_Reports extends AppCompatActivity {
 //                finish();
 //            }
 //        });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.logout:
+                //onLogoutClick();
+                startActivity(new Intent(View_Reports.this, MainActivity.class));
+                Toast.makeText(getApplicationContext(),"Logout Successful",Toast.LENGTH_SHORT).show();
+                finish();
+                return true;
+
+            case R.id.view_orders://create account page
+                startActivity(new Intent(View_Reports.this, View_Orders.class));
+                finish();
+                return true;
+
+            case R.id.View_Admin_Account:
+                startActivity(new Intent(View_Reports.this, AdminAccountDetails.class));
+                finish();
+                return true;
+
+        }
+        return false;
     }
 }
