@@ -4,8 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 public class VegetarianActivity extends AppCompatActivity {
 
@@ -125,5 +128,44 @@ public class VegetarianActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.logout:
+                //onLogoutClick();
+                startActivity(new Intent(VegetarianActivity.this, MainActivity.class));
+                Toast.makeText(getApplicationContext(),"Logout Successful",Toast.LENGTH_SHORT).show();
+                finish();
+                return true;
+
+            case R.id.View_Account://create account page
+                startActivity(new Intent(VegetarianActivity.this, UserAccountDetails.class));
+                finish();
+                return true;
+
+            case R.id.Order_History:
+                startActivity(new Intent(VegetarianActivity.this, CartActivity.class));
+                finish();
+                return true;
+
+            case R.id.help:
+                startActivity(new Intent(VegetarianActivity.this, help_page.class));
+                finish();
+                return true;
+
+            case R.id.favorites:
+                startActivity(new Intent(VegetarianActivity.this, favorites.class));
+                finish();
+                return true;
+        }
+        return false;
     }
 }

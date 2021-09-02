@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".help_page">
 
+
     <TextView
         android:id="@+id/txt_help"
         android:layout_width="wrap_content"
@@ -20,17 +21,63 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.145" />
+        app:layout_constraintVertical_bias="0.071" />
 
+    <Button
+        android:id="@+id/change_delivery"
+        android:layout_width="378dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="12dp"
+        android:backgroundTint="@color/light_purple"
+        android:text="how do i change my delivery address?"
+        android:textSize="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <Button
+        android:id="@+id/change_date"
+        android:layout_width="378dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="12dp"
+        android:backgroundTint="@color/light_purple"
+        android:text="how do i change my delivery date?"
+        android:textSize="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <Button
+        android:id="@+id/change_personal_details"
+        android:layout_width="378dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="12dp"
+        android:backgroundTint="@color/light_purple"
+        android:text="how do i change my personal details?"
+        android:textSize="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/change_date" />
+
+    <Button
+        android:id="@+id/change_other"
+        android:layout_width="378dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="12dp"
+        android:backgroundTint="@color/light_purple"
+        android:text="other"
+        android:textSize="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/change_personal_details" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="210dp"
         android:layout_height="29dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="32dp"
         android:text="Top questions on Thyme Matters"
         android:textColor="@color/dark_green"
         android:textStyle="bold"
@@ -52,94 +99,6 @@
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_help" />
-
-    <Button
-        android:id="@+id/change_delivery"
-        android:layout_width="378dp"
-        android:layout_height="41dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="16dp"
-        android:backgroundTint="@color/light_purple"
-        android:text="how do i change my delivery address?"
-        android:textSize="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-    <Button
-        android:id="@+id/change_date"
-        android:layout_width="378dp"
-        android:layout_height="41dp"
-        android:layout_marginTop="60dp"
-        android:backgroundTint="@color/light_purple"
-        android:layout_marginEnd="16dp"
-        android:text="how do i change my delivery date?"
-        android:textSize="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-    <Button
-        android:id="@+id/change_personal_details"
-        android:layout_width="378dp"
-        android:layout_height="41dp"
-        android:layout_marginEnd="16dp"
-        android:backgroundTint="@color/light_purple"
-        android:text="how do i change my personal details?"
-        android:textSize="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/change_date" />
-
-    <Button
-        android:id="@+id/change_other"
-        android:layout_width="378dp"
-        android:layout_height="41dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="16dp"
-        android:backgroundTint="@color/light_purple"
-        android:text="other"
-        android:textSize="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/change_personal_details" />
-
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/ActionBar"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@color/white"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:id="@+id/logo"
-                android:layout_width="80dp"
-                android:layout_height="50dp"
-                android:layout_below="@+id/appbar"
-                android:layout_centerHorizontal="true"
-                android:src="@drawable/logo" />
-
-            <TextView
-                android:layout_width="251dp"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:text="THYME MATTERS"
-                android:textColor="@color/dark_green"
-                android:textSize="20dp" />
-
-            <ImageView
-                android:id="@+id/menu_btn"
-                android:layout_width="80dp"
-                android:layout_height="50dp"
-                android:layout_below="@+id/appbar"
-                android:layout_centerHorizontal="true"
-                android:src="@drawable/menu" />
-
-
-        </LinearLayout>
-
-    </com.google.android.material.appbar.AppBarLayout>
 
 
     <ImageView

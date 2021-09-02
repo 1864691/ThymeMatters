@@ -84,6 +84,15 @@ public class Register extends AppCompatActivity {
             }
         });
 
+        findViewById(R.id.btn_return).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //open register screen
+                finish();
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            }
+        });
+
     }
 
     private void registerUser() {
@@ -138,7 +147,7 @@ public class Register extends AppCompatActivity {
         }
 
         //if it passes all the validations
-//changed string to void
+
         class RegisterUser extends AsyncTask<Void, Void, String> {
 
             private ProgressBar progressBar;
@@ -167,8 +176,8 @@ public class Register extends AppCompatActivity {
             protected void onPreExecute() {
                 super.onPreExecute();
                 //displaying the progress bar while user registers on the server
-                //progressBar = (ProgressBar) findViewById(R.id.progressBar);
-                //progressBar.setVisibility(View.VISIBLE);
+                progressBar = (ProgressBar) findViewById(R.id.progressBar);
+                progressBar.setVisibility(View.VISIBLE);
             }
 
             @Override

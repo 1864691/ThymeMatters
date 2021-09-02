@@ -8,17 +8,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-public class TrackOrder extends AppCompatActivity {
+public class AdminAccountDetails extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_track_order);
+        setContentView(R.layout.activity_admin_account_details);
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu){
-        getMenuInflater().inflate(R.menu.menu, menu);
+    public boolean onCreateOptionsMenu(Menu admin_menu){
+        getMenuInflater().inflate(R.menu.admin_menu, admin_menu);
         return true;
     }
 
@@ -27,30 +27,21 @@ public class TrackOrder extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.logout:
                 //onLogoutClick();
-                startActivity(new Intent(TrackOrder.this, MainActivity.class));
+                startActivity(new Intent(AdminAccountDetails.this, MainActivity.class));
                 Toast.makeText(getApplicationContext(),"Logout Successful",Toast.LENGTH_SHORT).show();
                 finish();
                 return true;
 
-            case R.id.View_Account://create account page
-                startActivity(new Intent(TrackOrder.this, CartActivity.class));
+            case R.id.view_orders://create account page
+                startActivity(new Intent(AdminAccountDetails.this, View_Orders.class));
                 finish();
                 return true;
 
-            case R.id.Order_History:
-                startActivity(new Intent(TrackOrder.this, CartActivity.class));
+            case R.id.View_Admin_Account:
+                startActivity(new Intent(AdminAccountDetails.this, AdminAccountDetails.class));
                 finish();
                 return true;
 
-            case R.id.help:
-                startActivity(new Intent(TrackOrder.this, help_page.class));
-                finish();
-                return true;
-
-            case R.id.favorites:
-                startActivity(new Intent(TrackOrder.this, favorites.class));
-                finish();
-                return true;
         }
         return false;
     }

@@ -5,29 +5,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AdminRegistration">
+    tools:context=".AdminAccountDetails">
 
     <Button
-        android:id="@+id/btn_Admin_Register"
+        android:id="@+id/btn_Register"
         android:layout_width="193dp"
         android:layout_height="50dp"
         android:background="@drawable/customizations"
         android:backgroundTint="@color/dark_green"
-        android:text="Confirm"
+        android:text="Confirm changes"
         android:textColor="@color/background_green"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.875" />
+        app:layout_constraintVertical_bias="0.867" />
 
     <Button
-        android:id="@+id/btn_Admin_Return"
+        android:id="@+id/btn_return"
         android:layout_width="193dp"
         android:layout_height="50dp"
         android:backgroundTint="@color/dark_green"
         android:background="@drawable/customizations"
-        android:text="Return to Admin login"
+        android:text="Cancel"
         android:textColor="@color/background_green"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,7 +40,7 @@
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Please fill out your details below:"
+        android:text="Edit your details below:"
         android:textColor="@color/light_green"
         android:textSize="17dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -49,22 +49,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.194" />
-
-    <TextView
-        android:id="@+id/textView"
-
-        android:layout_width="364dp"
-        android:layout_height="60dp"
-        android:text="Please note that your details will be verified by authenticated personnel before you are certified as an administrator"
-        android:textAlignment="center"
-        android:textColor="@color/dark_green"
-        android:textSize="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.489"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.787" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -76,11 +60,11 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.046"
+        app:layout_constraintVertical_bias="0.03"
         app:srcCompat="@drawable/logo" />
 
     <EditText
-        android:id="@+id/et_Admin_FName"
+        android:id="@+id/et_FName"
         android:drawableLeft="@drawable/ic_baseline_person_24"
         android:padding="5dp"
         android:drawablePadding="15dp"
@@ -100,7 +84,7 @@
         app:layout_constraintVertical_bias="0.262" />
 
     <EditText
-        android:id="@+id/et_Admin_LName"
+        android:id="@+id/et_LName"
         android:drawableLeft="@drawable/ic_baseline_person_24"
         android:padding="5dp"
         android:drawablePadding="15dp"
@@ -120,7 +104,7 @@
         app:layout_constraintVertical_bias="0.335" />
 
     <EditText
-        android:id="@+id/et_Admin_EmailAddress"
+        android:id="@+id/et_EmailAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="7dp"
@@ -135,13 +119,13 @@
         android:textColorHint="@color/dark_green"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.538"
+        app:layout_constraintHorizontal_bias="0.076"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.409" />
+        app:layout_constraintVertical_bias="0.407" />
 
     <EditText
-        android:id="@+id/et_Admin_Phone"
+        android:id="@+id/et_Phone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="7dp"
@@ -156,13 +140,13 @@
         android:textColorHint="@color/dark_green"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintHorizontal_bias="0.076"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.483" />
+        app:layout_constraintVertical_bias="0.476" />
 
     <EditText
-        android:id="@+id/et_Admin_Password"
+        android:id="@+id/et_ConfirmPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="7dp"
@@ -171,19 +155,19 @@
         android:drawableLeft="@drawable/ic_baseline_lock_24"
         android:drawablePadding="15dp"
         android:ems="10"
-        android:hint="Password"
+        android:hint="New Password"
         android:inputType="textPassword"
         android:padding="5dp"
         android:textColorHint="@color/dark_green"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintHorizontal_bias="0.076"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.552" />
+        app:layout_constraintVertical_bias="0.613" />
 
     <EditText
-        android:id="@+id/et_Admin_ConfirmPassword"
+        android:id="@+id/et_Password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="7dp"
@@ -192,28 +176,28 @@
         android:drawableLeft="@drawable/ic_baseline_lock_24"
         android:drawablePadding="15dp"
         android:ems="10"
-        android:hint="Confirm Password"
+        android:hint="Old Password"
         android:inputType="textPassword"
         android:padding="5dp"
         android:textColorHint="@color/dark_green"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintHorizontal_bias="0.076"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.619" />
+        app:layout_constraintVertical_bias="0.546" />
 
     <CheckBox
-        android:id="@+id/checkBoxAdminPwd"
+        android:id="@+id/checkBoxPwd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="16dp"
         android:text="Show password"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.953"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_Admin_ConfirmPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/et_ConfirmPassword" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

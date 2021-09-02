@@ -1,5 +1,7 @@
 package com.example.thymematters;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -16,78 +18,64 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 
-import androidx.appcompat.app.AppCompatActivity;
+public class AdminLogin extends AppCompatActivity {
 
-import com.techyourchance.threadposter.UiThreadPoster;
-
-public class MainActivity extends AppCompatActivity {
-
-    EditText email;
-    EditText password;
-    Button btn_Login;
-    TextView tRegister;
-    TextView tAdminLogin;
+    EditText admin_email;
+    EditText admin_password;
+    Button btn_Admin_Login;
+    TextView tAdmin_Register;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_admin_login);
 
-        email = (EditText) findViewById(R.id.TV_email);
-        password = (EditText) findViewById(R.id.TV_password);
-        btn_Login = findViewById(R.id.btn_Login);
-        tRegister = findViewById(R.id.tRegister);
-        tAdminLogin = findViewById(R.id.tAdminLogin);
+        admin_email = (EditText) findViewById(R.id.TV_Admin_email);
+        admin_password = (EditText) findViewById(R.id.TV_Admin_password);
+        btn_Admin_Login = findViewById(R.id.btn_Admin_Login);
+        tAdmin_Register = findViewById(R.id.tAdmin_Register);
 
         //user clicks on login button
-        btn_Login.setOnClickListener(new View.OnClickListener() {
+        btn_Admin_Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                userLogin();
+                adminLogin();
             }
         });
         //user not registered clicks on register text view
-        tRegister.setOnClickListener(new View.OnClickListener() {
+        tAdmin_Register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, Register.class));
-                finish();
-            }
-        });
-
-        tAdminLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, AdminLogin.class));
+                startActivity(new Intent(AdminLogin.this, AdminRegistration.class));
                 finish();
             }
         });
     }
 
-    //method to login user
-    private void userLogin() {
+    //method to login admin
+    private void adminLogin() {
         //first getting the values
-        final String Email = email.getText().toString();
-        final String Password = password.getText().toString();
+        final String Admin_Email = admin_email.getText().toString();
+        final String Admin_Password = admin_password.getText().toString();
         //validating inputs
-        if (TextUtils.isEmpty(Email)) {
-            email.setError("Please enter your email");
-            email.requestFocus();
+        if (TextUtils.isEmpty(Admin_Email)) {
+            admin_email.setError("Please enter your email");
+            admin_email.requestFocus();
             return;
         }
 
-        if (TextUtils.isEmpty(Password)) {
-            password.setError("Please enter your password");
-            password.requestFocus();
+        if (TextUtils.isEmpty(Admin_Password)) {
+            admin_password.setError("Please enter your password");
+            admin_password.requestFocus();
             return;
         }
 
         //if everything is fine
         //user gets logged in and data gets saved
         //depricated means theres a better code existing and i must use that
-        class UserLogin extends AsyncTask<Void, Void, String> {
-    //Step 1:
-    // UI progress bar pops up while data is being fetched and validated
+        class adminLogin extends AsyncTask<Void, Void, String> {
+            //Step 1:
+            // UI progress bar pops up while data is being fetched and validated
             ProgressBar progressBar;
 
             @Override
@@ -96,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
                 progressBar = (ProgressBar) findViewById(R.id.progressBar);
                 progressBar.setVisibility(View.VISIBLE);
             }
-     /// step 2:
+            /// step 2:
             ///this all gets done in background ?
             @Override
             protected void onPostExecute(String s) {
@@ -113,24 +101,23 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
 
                         //getting the user from the response
-                        JSONObject userJson = obj.getJSONObject("user");
+                        JSONObject userJson = obj.getJSONObject("admin");
 
                         //creating a new user object
-                        User user = new User(
-                                userJson.getInt("User_id"),
-                                userJson.getString("FName"),
-                                userJson.getString("LName"),
-                                userJson.getString("DeliveryAddress"),
-                                userJson.getString("Email_Address"),
-                                userJson.getString("Contact_Number")
+                        Admin admin = new Admin(
+                                userJson.getInt("admin_id"),
+                                userJson.getString("admin_fname"),
+                                userJson.getString("admin_lname"),
+                                userJson.getString("admin_email"),
+                                userJson.getString("admin_contact_no")
                         );
 
                         //storing the user in shared preferences
-                        SharedPrefManager.getInstance(getApplicationContext()).userLogin(user);
+                        SharedPrefManager.getInstance(getApplicationContext()).adminLogin(admin);
 
                         //starting the main activity
                         finish();
-                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        startActivity(new Intent(getApplicationContext(), AdminHome.class));
                     } else {
                         Toast.makeText(getApplicationContext(), "Invalid email address or password", Toast.LENGTH_SHORT).show();
                     }
@@ -138,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
             }
- /// in back ground of step 2: requesting the infor from the database
+            /// in back ground of step 2: requesting the infor from the database
             @Override
             protected String doInBackground(Void... voids) {
                 //creating request handler object
@@ -146,17 +133,15 @@ public class MainActivity extends AppCompatActivity {
 
                 //creating request parameters
                 HashMap<String, String> params = new HashMap<>();
-                params.put("email", Email);
-                params.put("password", Password);
+                params.put("admin_email", Admin_Email);
+                params.put("admin_password", Admin_Password);
 
                 //returing the response
-                return requestHandler.sendPostRequest(URLs.URL_LOGIN, params);
+                return requestHandler.sendPostRequest(URLs.URL_LOGIN_ADMIN, params);
             }
         }
 
-        UserLogin ul = new UserLogin();
-        ul.execute();
+        adminLogin Al = new adminLogin();
+        Al.execute();
     }
-
-
 }
