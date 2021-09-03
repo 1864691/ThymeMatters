@@ -16,4 +16,29 @@
         <item name = "android:background">@android:color/white</item>
     </style>
 
+    <!--These styles are for sylable toasts-->
+
+    <style name="invalidLogin">
+        <item name="stColorBackground">#F34C4C </item>
+        <item name="stTextBold">true</item>
+        <item name="stTextColor">@color/white</item>
+        <item name="stStrokeWidth">1dp</item>
+        <item name="stStrokeColor">#F34C4C</item>
+        <item name="stRadius">30dp</item>
+        <item name="stIconStart">@drawable/ic_baseline_error_outline_24</item>
+
+
+    </style>
+    <style name="noInternet">
+        <item name="stColorBackground">@color/black </item>
+        <item name="stTextBold">true</item>
+        <item name="stTextColor">@color/white</item>
+        <item name="stStrokeWidth">1dp</item>
+        <item name="stStrokeColor">@color/black</item>
+        <item name="stRadius">30dp</item>
+        <item name="stIconStart">@drawable/ic_no_internet</item>
+
+
+    </style>
+
 </resources>

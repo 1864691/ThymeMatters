@@ -23,6 +23,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.muddzdev.styleabletoast.StyleableToast;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -160,7 +162,7 @@ public class Register extends AppCompatActivity {
 
         //Check if network is available: https://stackoverflow.com/questions/4238921/detect-whether-there-is-an-internet-connection-available-on-android
         boolean networkAvailable = isNetworkAvailable();
-        if(!networkAvailable){ Toast.makeText(getApplicationContext(),"No internet connection",Toast.LENGTH_LONG).show(); return;}
+        if(!networkAvailable){ StyleableToast.makeText(Register.this, "No internet connection", Toast.LENGTH_LONG, R.style.noInternet).show(); return;}
 
         //Send Request
 
@@ -194,7 +196,7 @@ public class Register extends AppCompatActivity {
                             //If reponse is "Email not available", toast to say not available:
                             if(myResponse.equals("Email not available")){
                                 progressDialog.dismiss();
-                                Toast.makeText(getApplicationContext(),"Email is already in use",Toast.LENGTH_LONG).show();
+                                StyleableToast.makeText(Register.this, "This email is already in use", Toast.LENGTH_LONG, R.style.invalidLogin).show();
                             }
 
                             //Else the response will say "Registration Success", user is added
