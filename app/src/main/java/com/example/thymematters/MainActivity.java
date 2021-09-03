@@ -18,7 +18,7 @@ import java.util.HashMap;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.techyourchance.threadposter.UiThreadPoster;
+//import com.techyourchance.threadposter.UiThreadPoster;
 
 public class MainActivity extends AppCompatActivity {
 

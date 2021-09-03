@@ -1,6 +1,10 @@
 package com.example.thymematters;
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -22,23 +26,33 @@ import androidx.appcompat.app.AppCompatActivity;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.util.HashMap;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.HttpUrl;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public class Register extends AppCompatActivity {
 
     EditText FName, LName, Delivery_Address, Email, Phone, Password, ConfirmPassword;
     CheckBox Show_Password;
     Button btn_Register, btn_return;
-    ProgressBar progressBar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        //Get references to register button and return to login button:
         btn_Register = (Button) findViewById(R.id.btn_Register);
         btn_return = (Button) findViewById(R.id.btn_return);
 
+        //Get references to all fields
         FName = (EditText) findViewById(R.id.et_FName);
         LName = (EditText) findViewById(R.id.et_LName);
         Delivery_Address = (EditText) findViewById(R.id.et_DeliveryAddress);
@@ -48,6 +62,8 @@ public class Register extends AppCompatActivity {
         ConfirmPassword = (EditText) findViewById(R.id.et_ConfirmPassword);
         Show_Password = (CheckBox) findViewById(R.id.checkBoxPwd);
 
+
+        //Set show password checkbox to make passwords visible if clicked and hidden if clicked again:
         Show_Password.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -63,39 +79,13 @@ public class Register extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.btn_Register).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //if user pressed on button register
-                //for now for prototype just move to main page
-                finish();
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                //here we will register the user to server
-                //registerUser();
-            }
-        });
 
-        findViewById(R.id.btn_Register).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //open register screen
-                finish();
-                startActivity(new Intent(getApplicationContext(), HomeActivity.class));
-            }
-        });
 
-        findViewById(R.id.btn_return).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //open register screen
-                finish();
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
-            }
-        });
+
 
     }
 
-    private void registerUser() {
+    public void doClickRegister(View v){
         final String FNAME = FName.getText().toString();
         final String LNAME = LName.getText().toString();
         final String EMAIL = Email.getText().toString();
@@ -103,6 +93,7 @@ public class Register extends AppCompatActivity {
         final String PHONE = Phone.getText().toString();
         final String PASSWORD = Password.getText().toString();
         final String CONFIRM_PASSWORD = ConfirmPassword.getText().toString();
+
         //first we will do the validations
 
         if (TextUtils.isEmpty(FNAME)) {
@@ -145,88 +136,99 @@ public class Register extends AppCompatActivity {
             ConfirmPassword.requestFocus();
             return;
         }
+        if(!TextUtils.equals(CONFIRM_PASSWORD, PASSWORD)){
+            //Passwords dont match:
+            Password.setError("Passwords do not match");
+            Password.requestFocus();
+            return;
+        }
 
         //if it passes all the validations
+        //Send network request to 000webhost for insertion of new user (Customer)
+        //Define URL:
+        HttpUrl.Builder urlBuilder = HttpUrl.parse("https://thymematters.000webhostapp.com/REGISTER/CUSTOMER_REGISTER.php").newBuilder();
 
-        class RegisterUser extends AsyncTask<Void, Void, String> {
+        //If you want to add query parameters:
+        urlBuilder.addQueryParameter("first_name", FNAME);
+        urlBuilder.addQueryParameter("last_name", LNAME);
+        urlBuilder.addQueryParameter("del_address", DELIVERY_ADDRESS);
+        urlBuilder.addQueryParameter("email", EMAIL);
+        urlBuilder.addQueryParameter("cust_contact_no", PHONE);
+        urlBuilder.addQueryParameter("cust_password", PASSWORD);
 
-            private ProgressBar progressBar;
+        String url = urlBuilder.build().toString();
 
+        //Check if network is available: https://stackoverflow.com/questions/4238921/detect-whether-there-is-an-internet-connection-available-on-android
+        boolean networkAvailable = isNetworkAvailable();
+        if(!networkAvailable){ Toast.makeText(getApplicationContext(),"No internet connection",Toast.LENGTH_LONG).show(); return;}
+
+        //Send Request
+
+        //Initialise progree bar: https://stackoverflow.com/questions/15083226/waiting-progress-bar-in-android
+        //Progress Bar Functions: https://www.journaldev.com/9652/android-progressdialog-example
+        final ProgressDialog progressDialog = ProgressDialog.show(this, "Registering", "Please wait...");
+
+
+        OkHttpClient client = new OkHttpClient();
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+
+        client.newCall(request).enqueue(new Callback() {
             @Override
-            protected String doInBackground(Void... voids) {
-                //creating request handler object
-                RequestHandler requestHandler = new RequestHandler();
-
-                //creating request parameters
-                HashMap<String, String> params = new HashMap<>();
-                params.put("FName", FNAME);
-                params.put("LName", LNAME);
-                params.put("Email", EMAIL);
-                params.put("Phone", PHONE);
-                params.put("Delivery_Address", DELIVERY_ADDRESS);
-                params.put("Password", PASSWORD);
-                params.put("ConfirmPassword", CONFIRM_PASSWORD);
-
-
-                //returning the response
-                return requestHandler.sendPostRequest(URLs.URL_REGISTER, params);
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
             }
 
             @Override
-            protected void onPreExecute() {
-                super.onPreExecute();
-                //displaying the progress bar while user registers on the server
-                progressBar = (ProgressBar) findViewById(R.id.progressBar);
-                progressBar.setVisibility(View.VISIBLE);
-            }
+            public void onResponse( Call call,  Response response) throws IOException {
+                if (response.isSuccessful()){
+                    final String myResponse = response.body().string();
 
-            @Override
-            protected void onPostExecute(String s) {
-                super.onPostExecute(s);
-                //hiding the progressbar after completion
-                progressBar.setVisibility(View.GONE);
+                    Register.this.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
 
-                try {
-                    //converting response to json object
-                    JSONObject obj = new JSONObject(s);
+                            //Process Response Here:
+
+                            //If reponse is "Email not available", toast to say not available:
+                            if(myResponse.equals("Email not available")){
+                                progressDialog.dismiss();
+                                Toast.makeText(getApplicationContext(),"Email is already in use",Toast.LENGTH_LONG).show();
+                            }
+
+                            //Else the response will say "Registration Success", user is added
+                            else{
+                                progressDialog.dismiss();
+                                Toast.makeText(getApplicationContext(),"Registration Success",Toast.LENGTH_LONG).show();
+                            }
 
 
-                    //if no error in response
-                    if (!obj.getBoolean("error")) {
-                        Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
 
-                        //getting the user from the response
-                        JSONObject userJson = obj.getJSONObject("user");
-
-                        //creating a new user object
-                        User user = new User(
-                                userJson.getInt("id"),
-                                userJson.getString("fname"),
-                                userJson.getString("lname"),
-                                userJson.getString("delivery_address"),
-                                userJson.getString("email"),
-                                userJson.getString("contact_no")
-
-                        );
-
-                        //storing the user in shared preferences
-                        SharedPrefManager.getInstance(getApplicationContext()).userLogin(user);
-
-                        //starting the main menu activity (when register button is clicked)
-                        finish();
-                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
-
-                    } else {
-                        Toast.makeText(getApplicationContext(), "Some error occurred", Toast.LENGTH_SHORT).show();
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
+                        }
+                    });
                 }
+
             }
-        }
-        //executing the async task
-        RegisterUser ru = new RegisterUser();
-        ru.execute();
+        });
+
+    }
+    public void doReturn_to_Login(View v){
+
+    }
+
+    private void registerUser() {
+
+
+
+
+    }
+
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
 }
