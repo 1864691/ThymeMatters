@@ -104,6 +104,7 @@
 
     <EditText
         android:id="@+id/et_FName"
+        android:inputType="text"
         android:drawableLeft="@drawable/ic_baseline_person_24"
         android:padding="5dp"
         android:drawablePadding="15dp"
@@ -124,6 +125,7 @@
 
     <EditText
         android:id="@+id/et_LName"
+        android:inputType="text"
         android:drawableLeft="@drawable/ic_baseline_person_24"
         android:padding="5dp"
         android:drawablePadding="15dp"

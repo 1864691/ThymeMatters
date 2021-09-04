@@ -13,7 +13,8 @@
         android:layout_height="50dp"
         android:background="@drawable/customizations"
         android:backgroundTint="@color/dark_green"
-        android:text="Confirm"
+        android:text="Request Registration"
+        android:onClick="doRequestRegistration"
         android:textColor="@color/background_green"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,6 +29,7 @@
         android:backgroundTint="@color/dark_green"
         android:background="@drawable/customizations"
         android:text="Return to Admin login"
+        android:onClick="doReturn_to_AdminLogin"
         android:textColor="@color/background_green"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -53,8 +55,9 @@
     <TextView
         android:id="@+id/textView"
 
-        android:layout_width="364dp"
+        android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:layout_margin="5dp"
         android:text="Please note that your details will be verified by authenticated personnel before you are certified as an administrator"
         android:textAlignment="center"
         android:textColor="@color/dark_green"
@@ -81,6 +84,7 @@
 
     <EditText
         android:id="@+id/et_Admin_FName"
+        android:inputType="text"
         android:drawableLeft="@drawable/ic_baseline_person_24"
         android:padding="5dp"
         android:drawablePadding="15dp"
@@ -101,6 +105,7 @@
 
     <EditText
         android:id="@+id/et_Admin_LName"
+        android:inputType="text"
         android:drawableLeft="@drawable/ic_baseline_person_24"
         android:padding="5dp"
         android:drawablePadding="15dp"

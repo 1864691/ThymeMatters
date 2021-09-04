@@ -162,7 +162,7 @@ public class Register extends AppCompatActivity {
 
         //Check if network is available: https://stackoverflow.com/questions/4238921/detect-whether-there-is-an-internet-connection-available-on-android
         boolean networkAvailable = isNetworkAvailable();
-        if(!networkAvailable){ StyleableToast.makeText(Register.this, "No internet connection", Toast.LENGTH_LONG, R.style.noInternet).show(); return;}
+        if(!networkAvailable){ StyleableToast.makeText(Register.this, "No Internet Connection", Toast.LENGTH_LONG, R.style.noInternet).show(); return;}
 
         //Send Request
 
@@ -196,13 +196,15 @@ public class Register extends AppCompatActivity {
                             //If reponse is "Email not available", toast to say not available:
                             if(myResponse.equals("Email not available")){
                                 progressDialog.dismiss();
-                                StyleableToast.makeText(Register.this, "This email is already in use", Toast.LENGTH_LONG, R.style.invalidLogin).show();
+                                StyleableToast.makeText(Register.this, "This Email is Already in Use", Toast.LENGTH_LONG, R.style.invalidLogin).show();
+                                Email.setError("This Email is already in use");
+                                Email.requestFocus();
                             }
 
                             //Else the response will say "Registration Success", user is added
                             else{
                                 progressDialog.dismiss();
-                                Toast.makeText(getApplicationContext(),"Registration Success",Toast.LENGTH_LONG).show();
+                                StyleableToast.makeText(Register.this, "Registration Successful", Toast.LENGTH_LONG, R.style.success).show();
                             }
 
 
@@ -216,15 +218,13 @@ public class Register extends AppCompatActivity {
 
     }
     public void doReturn_to_Login(View v){
+        Intent backToLogin = new Intent(Register.this,MainActivity.class);
+        finish();
+        startActivity(backToLogin);
 
     }
 
-    private void registerUser() {
 
-
-
-
-    }
 
     private boolean isNetworkAvailable() {
         ConnectivityManager connectivityManager
