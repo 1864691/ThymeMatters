@@ -53,4 +53,16 @@
 
     </style>
 
+    <style name="adminAwaitingCertification">
+        <item name="stColorBackground">@color/dark_purple </item>
+        <item name="stTextBold">true</item>
+        <item name="stTextColor">@color/white</item>
+        <item name="stStrokeWidth">1dp</item>
+        <item name="stStrokeColor">@color/dark_purple</item>
+        <item name="stRadius">30dp</item>
+        <item name="stIconStart">@drawable/ic_baseline_error_outline_24</item>
+
+
+    </style>
+
 </resources>
