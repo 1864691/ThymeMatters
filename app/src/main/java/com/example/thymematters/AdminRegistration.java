@@ -2,8 +2,10 @@ package com.example.thymematters;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -194,9 +196,25 @@ public class AdminRegistration extends AppCompatActivity {
                             }
 
                             //Else the response will say "Admin Registration Request Sent", user is added
-                            else{
+                            else {
                                 progressDialog.dismiss();
-                                StyleableToast.makeText(AdminRegistration.this, "Admin Registration Request Successful", Toast.LENGTH_LONG, R.style.success).show();
+                                StyleableToast.makeText(AdminRegistration.this, "Registration Request Sent", Toast.LENGTH_LONG, R.style.success).show();
+                                new AlertDialog.Builder(AdminRegistration.this, R.style.AlertDialogTheme)
+                                        .setTitle("Notice")
+                                        .setMessage("Thank you for requesting to register as an Administrator. Login will be made available once you are certified.")
+                                        .setCancelable(false)
+                                        //.setNegativeButton("NO",null)
+                                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+
+                                            public void onClick(DialogInterface arg0, int arg1) {
+                                                //customer_home_screen.super.onBackPressed();
+                                                Intent backToLogin = new Intent(AdminRegistration.this, AdminLogin.class);
+                                                startActivity(backToLogin);
+                                                finish();
+                                            }
+                                        }).create().show();
+
+
                             }
 
 

@@ -1,7 +1,9 @@
 package com.example.thymematters;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -205,6 +207,20 @@ public class Register extends AppCompatActivity {
                             else{
                                 progressDialog.dismiss();
                                 StyleableToast.makeText(Register.this, "Registration Successful", Toast.LENGTH_LONG, R.style.success).show();
+                                new AlertDialog.Builder(Register.this,R.style.AlertDialogTheme)
+                                        .setTitle("Thank-you!")
+                                        .setMessage("You have successfully registered as a new Customer. You may now sign in.")
+                                        .setCancelable(false)
+
+                                        //.setNegativeButton("NO",null)
+                                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+
+                                            public void onClick(DialogInterface arg0, int arg1) {
+                                                //customer_home_screen.super.onBackPressed();
+                                                Intent back_to_login = new Intent(Register.this,MainActivity.class);
+                                                startActivity(back_to_login); finish();
+                                            }
+                                        }).create().show();
                             }
 
 
