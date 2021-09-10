@@ -24,12 +24,17 @@ public class VegetarianActivity extends AppCompatActivity {
     ImageView Veg10;
     ImageView Veg11;
     ImageView Veg12;
+    String CustID_FromIntent;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vegetarian);
+
+        //Initially retrieve customer unique id from intent:
+        CustID_FromIntent = fetchCustID();
+        Toast.makeText(this,CustID_FromIntent, Toast.LENGTH_LONG).show();
 
         Veg1= findViewById(R.id.veg1);
         Veg2 = findViewById(R.id.veg2);
@@ -167,5 +172,13 @@ public class VegetarianActivity extends AppCompatActivity {
                 return true;
         }
         return false;
+    }
+
+    //Initially, this method is called upon opening this acity to rtrieve customers unique id from intent
+    public String fetchCustID(){
+
+        Intent getIntent = getIntent();
+        String custID = getIntent.getStringExtra("CUST_ID");
+        return custID;
     }
 }

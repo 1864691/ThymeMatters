@@ -24,11 +24,16 @@ public class FishActivity extends AppCompatActivity {
     ImageView Fish9;
     ImageView Fish10;
     ImageView Fish11;
+    String CustID_FromIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fish);
+
+        //Initially retrieve customer unique id from intent:
+        CustID_FromIntent = fetchCustID();
+        Toast.makeText(this,CustID_FromIntent, Toast.LENGTH_LONG).show();
 
         Fish1 = findViewById(R.id.fish1);
         Fish2 = findViewById(R.id.fish2);
@@ -158,5 +163,13 @@ public class FishActivity extends AppCompatActivity {
                 return true;
         }
         return false;
+    }
+
+    //Initially, this method is called upon opening this acity to rtrieve customers unique id from intent
+    public String fetchCustID(){
+
+        Intent getIntent = getIntent();
+        String custID = getIntent.getStringExtra("CUST_ID");
+        return custID;
     }
 }

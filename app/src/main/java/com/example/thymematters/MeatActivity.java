@@ -24,11 +24,16 @@ public class MeatActivity extends AppCompatActivity {
     ImageView Meat10;
     ImageView Meat11;
     ImageView Meat12;
+    String CustID_FromIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meat);
+
+        //Initially retrieve customer unique id from intent:
+        CustID_FromIntent = fetchCustID();
+        Toast.makeText(this,CustID_FromIntent, Toast.LENGTH_LONG).show();
 
         Meat1 = findViewById(R.id.meat1);
         Meat2= findViewById(R.id.meat2);
@@ -166,5 +171,13 @@ public class MeatActivity extends AppCompatActivity {
                 return true;
         }
         return false;
+    }
+
+    //Initially, this method is called upon opening this acity to rtrieve customers unique id from intent
+    public String fetchCustID(){
+
+        Intent getIntent = getIntent();
+        String custID = getIntent.getStringExtra("CUST_ID");
+        return custID;
     }
 }

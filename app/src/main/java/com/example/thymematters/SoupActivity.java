@@ -17,11 +17,16 @@ public class SoupActivity extends AppCompatActivity {
     ImageView Soup3;
     ImageView Soup4;
     ImageView Soup5;
+    String CustID_FromIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_soup);
+
+        //Initially retrieve customer unique id from intent:
+        CustID_FromIntent = fetchCustID();
+        Toast.makeText(this,CustID_FromIntent, Toast.LENGTH_LONG).show();
 
         Soup1 = findViewById(R.id.soup1);
         Soup2 = findViewById(R.id.soup2);
@@ -103,5 +108,13 @@ public class SoupActivity extends AppCompatActivity {
                 return true;
         }
         return false;
+    }
+
+    //Initially, this method is called upon opening this acity to rtrieve customers unique id from intent
+    public String fetchCustID(){
+
+        Intent getIntent = getIntent();
+        String custID = getIntent.getStringExtra("CUST_ID");
+        return custID;
     }
 }
