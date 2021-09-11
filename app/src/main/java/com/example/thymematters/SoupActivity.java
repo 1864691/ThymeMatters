@@ -56,7 +56,7 @@ public class SoupActivity extends AppCompatActivity {
         Toast.makeText(this,CustID_FromIntent, Toast.LENGTH_LONG).show();
 
         //Send request to fetch all soup meals from meals table:
-        //Send network request to 000webhost for login of customer:
+        //Send network request to 000webhost:
         //Define URL:
         HttpUrl.Builder urlBuilder = HttpUrl.parse("https://thymematters.000webhostapp.com/LOAD_MEALS_FOR_CUSTOMER/CUSTOMER_LOAD_MEALS.php").newBuilder();
 
@@ -103,10 +103,6 @@ public class SoupActivity extends AppCompatActivity {
                                 e.printStackTrace();
                             }
 
-
-
-
-                            //Toast.makeText(SoupActivity.this,myResponse, Toast.LENGTH_LONG).show();
                             progressDialog.dismiss();
 
                         }
@@ -194,6 +190,7 @@ public class SoupActivity extends AppCompatActivity {
             PopulateImageViewFromURL.DownloadImageTask k = new PopulateImageViewFromURL.DownloadImageTask(PIC_OF_FOOD_ITEM);
             k.execute(myJSONArray.getJSONObject(i).getString("MEAL_PICTURE_LINK"));
             ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,800);
+            //ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             PIC_OF_FOOD_ITEM.setLayoutParams(params);
 
 
