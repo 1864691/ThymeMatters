@@ -67,4 +67,8 @@ dependencies {
 
     implementation 'com.techyourchance:threadposter:1.0.1'
     compileOnly 'com.mcxiaoke.volley:library-aar:1.0.0'
+
+    implementation 'com.squareup.okhttp3:okhttp:4.1.0'
+    //Stylable toasts:
+    implementation 'com.muddzdev:styleabletoast:2.2.3'
 }
