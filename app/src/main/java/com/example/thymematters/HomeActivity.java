@@ -132,6 +132,14 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(new Intent(HomeActivity.this, favorites.class));
                 finish();
                 return true;
+
+            case R.id.cart:
+                Intent goToCart = new Intent(HomeActivity.this,CartActivity.class);
+                goToCart.putExtra("CUST_ID",CustID_FromIntent);
+                startActivity(goToCart);
+
+
+                return true;
         }
         return false;
     }

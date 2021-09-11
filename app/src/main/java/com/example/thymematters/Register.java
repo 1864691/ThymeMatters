@@ -208,8 +208,8 @@ public class Register extends AppCompatActivity {
                                 progressDialog.dismiss();
                                 StyleableToast.makeText(Register.this, "Registration Successful", Toast.LENGTH_LONG, R.style.success).show();
                                 new AlertDialog.Builder(Register.this,R.style.AlertDialogTheme)
-                                        .setTitle("Thank-you!")
-                                        .setMessage("You have successfully registered as a new Customer. You may now sign in.")
+                                        .setTitle("Registered")
+                                        .setMessage("You have successfully registered as a new customer. You may now sign in.")
                                         .setCancelable(false)
 
                                         //.setNegativeButton("NO",null)

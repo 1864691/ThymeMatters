@@ -141,6 +141,14 @@ public class MeatActivity extends AppCompatActivity {
                 startActivity(new Intent(MeatActivity.this, favorites.class));
                 finish();
                 return true;
+
+            case R.id.cart:
+                Intent goToCart = new Intent(MeatActivity.this,CartActivity.class);
+                goToCart.putExtra("CUST_ID",CustID_FromIntent);
+                startActivity(goToCart);
+
+
+                return true;
         }
         return false;
     }
@@ -187,7 +195,15 @@ public class MeatActivity extends AppCompatActivity {
             PIC_OF_FOOD_ITEM.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(MeatActivity.this,"You clicked on "+MEAL_NAME,Toast.LENGTH_LONG).show();
+                    //Send customer to Add_Item_To_Cart.java in order to select serving size, give additional notes.
+                    //NB: The customer unique id and meal unique id must be sent to this activity with intents
+                    Intent goToAddItemToCart = new Intent(MeatActivity.this,Add_Item_To_Cart.class);
+                    //Pass data to Add Item to Cart page:
+                    goToAddItemToCart.putExtra("CUST_ID",CustID_FromIntent);
+                    goToAddItemToCart.putExtra("MEAL_ID",MEAL_ID);
+                    goToAddItemToCart.putExtra("MEAL_NAME",MEAL_NAME);
+                    goToAddItemToCart.putExtra("IS_SOUP","NO");
+                    startActivity(goToAddItemToCart);
                 }
             });
 
