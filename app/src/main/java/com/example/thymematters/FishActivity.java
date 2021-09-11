@@ -2,123 +2,110 @@ package com.example.thymematters;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.muddzdev.styleabletoast.StyleableToast;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.util.Timer;
+import java.util.TimerTask;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.HttpUrl;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+
 public class FishActivity extends AppCompatActivity {
 
-    ImageView Fish1;
-    ImageView Fish2;
-    ImageView Fish3;
-    ImageView Fish4;
-    ImageView Fish5;
-    ImageView Fish6;
-    ImageView Fish7;
-    ImageView Fish8;
-    ImageView Fish9;
-    ImageView Fish10;
-    ImageView Fish11;
+    String CustID_FromIntent;
+    LinearLayout main_container;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fish);
 
-        Fish1 = findViewById(R.id.fish1);
-        Fish2 = findViewById(R.id.fish2);
-        Fish3 = findViewById(R.id.fish3);
-        Fish4 = findViewById(R.id.fish4);
-        Fish5 = findViewById(R.id.fish5);
-        Fish6 = findViewById(R.id.fish6);
-        Fish7 = findViewById(R.id.fish7);
-        Fish8 = findViewById(R.id.fish8);
-        Fish9 = findViewById(R.id.fish9);
-        Fish10 = findViewById(R.id.fish10);
-        Fish11 = findViewById(R.id.fish11);
+        //Initially retrieve customer unique id from intent:
+        CustID_FromIntent = fetchCustID();
+        Toast.makeText(this,CustID_FromIntent, Toast.LENGTH_LONG).show();
 
-        Fish1.setOnClickListener(new View.OnClickListener() {
+        //Send request to fetch all fish meals from meals table:
+        //Send network request to 000webhost:
+        //Define URL:
+        HttpUrl.Builder urlBuilder = HttpUrl.parse("https://thymematters.000webhostapp.com/LOAD_MEALS_FOR_CUSTOMER/CUSTOMER_LOAD_MEALS.php").newBuilder();
+
+        //If you want to add query parameters:
+        urlBuilder.addQueryParameter("meal_category_name","Fish");
+        //urlBuilder.addQueryParameter("password",Password);
+
+        String url = urlBuilder.build().toString();
+        //Check if network is available: https://stackoverflow.com/questions/4238921/detect-whether-there-is-an-internet-connection-available-on-android
+        boolean networkAvailable = isNetworkAvailable();
+        if(!networkAvailable){ StyleableToast.makeText(FishActivity.this, "No Internet Connection", Toast.LENGTH_LONG, R.style.noInternet).show(); return;}
+
+        //Send Request
+
+        //Initialise progree bar: https://stackoverflow.com/questions/15083226/waiting-progress-bar-in-android
+        //Progress Bar Functions: https://www.journaldev.com/9652/android-progressdialog-example
+        final ProgressDialog progressDialog = ProgressDialog.show(this, "Fetching Fish Meals", "Please wait...");
+
+        OkHttpClient client = new OkHttpClient();
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+
+        client.newCall(request).enqueue(new Callback() {
             @Override
-            public void onClick(View v) {
-                startActivity(new Intent(FishActivity.this, PlaceOrderActivity.class));
-                finish();
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse( Call call,  Response response) throws IOException {
+                if (response.isSuccessful()){
+                    final String myResponse = response.body().string();
+
+                    FishActivity.this.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+
+                            //Process Response Here:
+                            try{
+                                JSON_meals_output(myResponse);
+                            }
+                            catch(JSONException e){
+                                e.printStackTrace();
+                            }
+
+                            progressDialog.dismiss();
+
+                        }
+                    });
+                }
+
             }
         });
-        Fish2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(FishActivity.this, PlaceOrderActivity.class));
-                finish();
-            }
-        });
-        Fish3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(FishActivity.this, PlaceOrderActivity.class));
-                finish();
-            }
-        });
-        Fish4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(FishActivity.this, PlaceOrderActivity.class));
-                finish();
-            }
-        });
-        Fish5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(FishActivity.this, PlaceOrderActivity.class));
-                finish();
-            }
-        });
-        Fish6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(FishActivity.this, PlaceOrderActivity.class));
-                finish();
-            }
-        });
-        Fish7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(FishActivity.this, PlaceOrderActivity.class));
-                finish();
-            }
-        });
-        Fish8.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(FishActivity.this, PlaceOrderActivity.class));
-                finish();
-            }
-        });
-        Fish9.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(FishActivity.this, PlaceOrderActivity.class));
-                finish();
-            }
-        });
-        Fish10.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(FishActivity.this, PlaceOrderActivity.class));
-                finish();
-            }
-        });
-        Fish11.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(FishActivity.this, PlaceOrderActivity.class));
-                finish();
-            }
-        });
+
+
 
     }
     @Override
@@ -156,7 +143,85 @@ public class FishActivity extends AppCompatActivity {
                 startActivity(new Intent(FishActivity.this, favorites.class));
                 finish();
                 return true;
+
+            case R.id.cart:
+                Intent goToCart = new Intent(FishActivity.this,CartActivity.class);
+                goToCart.putExtra("CUST_ID",CustID_FromIntent);
+                startActivity(goToCart);
+
+
+                return true;
         }
         return false;
+    }
+
+    //Initially, this method is called upon opening this acity to rtrieve customers unique id from intent
+    public String fetchCustID(){
+
+        Intent getIntent = getIntent();
+        String custID = getIntent.getStringExtra("CUST_ID");
+        return custID;
+    }
+
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
+
+    public void JSON_meals_output (String json_string) throws JSONException {
+        final ProgressDialog dialog = new ProgressDialog(FishActivity.this);
+        dialog.setTitle("Fetching Fish Meals");
+        dialog.setMessage("Please wait...");
+        dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        dialog.setIndeterminate(true);
+        dialog.setCancelable(false);
+        dialog.show();
+        LinearLayout MAIN_LAYOUT = (LinearLayout)findViewById(R.id.ll_mainbox) ;
+        //This method creates imageviews for all the meals along with onclicks for each to order them:
+        JSONArray myJSONArray = new JSONArray(json_string);
+        for(int i = 0 ; i < myJSONArray.length();i++){
+            JSONObject myJSONObject = myJSONArray.getJSONObject(i);
+            String MEAL_ID = myJSONObject.getString("MEAL_ID");
+            String MEAL_NAME = myJSONObject.getString("MEAL_NAME");
+            ImageView PIC_OF_FOOD_ITEM = new ImageView(FishActivity.this);
+            PopulateImageViewFromURL.DownloadImageTask k = new PopulateImageViewFromURL.DownloadImageTask(PIC_OF_FOOD_ITEM);
+            k.execute(myJSONArray.getJSONObject(i).getString("MEAL_PICTURE_LINK"));
+            //ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,800);
+            ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 800);
+            PIC_OF_FOOD_ITEM.setLayoutParams(params);
+
+
+            //And create onClick for each item:
+            PIC_OF_FOOD_ITEM.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    //Send customer to Add_Item_To_Cart.java in order to select serving size, give additional notes.
+                    //NB: The customer unique id and meal unique id must be sent to this activity with intents
+                    Intent goToAddItemToCart = new Intent(FishActivity.this,Add_Item_To_Cart.class);
+                    //Pass data to Add Item to Cart page:
+                    goToAddItemToCart.putExtra("CUST_ID",CustID_FromIntent);
+                    goToAddItemToCart.putExtra("MEAL_ID",MEAL_ID);
+                    goToAddItemToCart.putExtra("MEAL_NAME",MEAL_NAME);
+                    goToAddItemToCart.putExtra("IS_SOUP","NO");
+                    startActivity(goToAddItemToCart);
+                }
+            });
+
+            MAIN_LAYOUT.addView(PIC_OF_FOOD_ITEM);
+        }
+
+        long delayInMillis = 4000;
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                dialog.dismiss();
+            }
+        }, delayInMillis);
+
+
     }
 }

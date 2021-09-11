@@ -35,6 +35,7 @@
         android:background="@drawable/customizations"
         android:backgroundTint="@color/dark_green"
         android:text="Login"
+        android:onClick="doAdminLogin"
         android:textColor="@color/background_green"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -89,7 +90,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.683" />
+        app:layout_constraintVertical_bias="0.698" />
 
     <TextView
         android:id="@+id/textView14"

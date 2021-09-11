@@ -12,6 +12,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.muddzdev.styleabletoast.StyleableToast;
+
 public class HomeActivity extends AppCompatActivity {
 
     TextView Soup;
@@ -19,12 +21,21 @@ public class HomeActivity extends AppCompatActivity {
     TextView Meat;
     TextView Vegetarian;
     TextView Dessert;
+    String CustID_FromIntent;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        //Initially retrieve customer unique id from intent:
+        CustID_FromIntent = fetchCustID();
+        Toast.makeText(this,CustID_FromIntent, Toast.LENGTH_LONG).show();
+
+
+
+
 
         Soup = findViewById(R.id.soup);
         Fish = findViewById(R.id.fish);
@@ -35,79 +46,63 @@ public class HomeActivity extends AppCompatActivity {
         Fish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(HomeActivity.this, FishActivity.class));
-                finish();
+                Intent fish = new Intent(HomeActivity.this,FishActivity.class);
+                fish.putExtra("CUST_ID",CustID_FromIntent);
+                startActivity(fish);
+
             }
         });
 
         Meat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(HomeActivity.this, MeatActivity.class));
-                finish();
+                Intent meat = new Intent(HomeActivity.this,MeatActivity.class);
+                meat.putExtra("CUST_ID",CustID_FromIntent);
+                startActivity(meat);
+
             }
         });
 
         Soup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(HomeActivity.this, SoupActivity.class));
-                finish();
+                Intent soup = new Intent(HomeActivity.this,SoupActivity.class);
+                soup.putExtra("CUST_ID",CustID_FromIntent);
+                startActivity(soup);
+
             }
         });
 
         Vegetarian.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(HomeActivity.this, VegetarianActivity.class));
-                finish();
+                Intent vegetarian = new Intent(HomeActivity.this,VegetarianActivity.class);
+                vegetarian.putExtra("CUST_ID",CustID_FromIntent);
+                startActivity(vegetarian);
+
             }
         });
 
         Dessert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(HomeActivity.this, DessertActivity.class));
-                finish();
+                Intent dessert = new Intent(HomeActivity.this,DessertActivity.class);
+                dessert.putExtra("CUST_ID",CustID_FromIntent);
+                startActivity(dessert);
             }
         });
-    }// edit this for our sql database
-    /*public void onLogoutClick(){
-        DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
+    }
 
-                switch (which) {
-                    case DialogInterface.BUTTON_POSITIVE:
 
-                        FirebaseAuth.getInstance().signOut();
-                        startActivity(new Intent(HomeActivity.this, LandingActivity.class));
-                        Toast.makeText(getApplicationContext(),"Logout Successful",Toast.LENGTH_SHORT).show();
-                        finish();
-
-                        break;
-
-                    case DialogInterface.BUTTON_NEGATIVE:
-                        break;
-                }
-
-            }
-        };
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
-        builder.setMessage("Are you sure you want to Logout ?")
-                .setNegativeButton("No", dialogClickListener)
-                .setPositiveButton("Yes", dialogClickListener)
-                .show();
-
-    }*/
-
+    //For the customer menu at top right
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
 
+
+    //For the customer menu at top right
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
@@ -137,7 +132,40 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(new Intent(HomeActivity.this, favorites.class));
                 finish();
                 return true;
+
+            case R.id.cart:
+                Intent goToCart = new Intent(HomeActivity.this,CartActivity.class);
+                goToCart.putExtra("CUST_ID",CustID_FromIntent);
+                startActivity(goToCart);
+
+
+                return true;
         }
         return false;
+    }
+
+    //Initially, this method is called upon opening this acity to rtrieve customers unique id from intent
+    public String fetchCustID(){
+
+        Intent getIntent = getIntent();
+        String custID = getIntent.getStringExtra("CUST_ID");
+        return custID;
+    }
+
+    //Override back button click
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this,R.style.AlertDialogTheme)
+                .setTitle("Logout?")
+                .setMessage("Are you sure you would like to log out?")
+                .setNegativeButton("NO",null)
+                .setPositiveButton("YES", new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        HomeActivity.super.onBackPressed();
+                        Intent backToLogin = new Intent(HomeActivity.this,MainActivity.class);
+                        startActivity(backToLogin); finish();
+                    }
+                }).create().show();
     }
 }

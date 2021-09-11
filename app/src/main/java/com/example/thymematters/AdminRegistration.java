@@ -2,7 +2,13 @@ package com.example.thymematters;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -16,26 +22,38 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.muddzdev.styleabletoast.StyleableToast;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.util.HashMap;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.HttpUrl;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public class AdminRegistration extends AppCompatActivity {
 
     EditText Admin_FName, Admin_LName, Admin_Email, Admin_Phone, Admin_Password, Admin_ConfirmPassword;
     CheckBox Show_Admin_Password;
     Button btn_Admin_Register, btn_Admin_Return;
-    ProgressBar progressBar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_registration);
 
+        //Get references to register button and return to login button:
         btn_Admin_Register = (Button) findViewById(R.id.btn_Admin_Register);
         btn_Admin_Return = (Button) findViewById(R.id.btn_Admin_Return);
 
+        //Get references to all fields
         Admin_FName = (EditText) findViewById(R.id.et_Admin_FName);
         Admin_LName = (EditText) findViewById(R.id.et_Admin_LName);
         Admin_Email = (EditText) findViewById(R.id.et_Admin_EmailAddress);
@@ -44,6 +62,8 @@ public class AdminRegistration extends AppCompatActivity {
         Admin_ConfirmPassword = (EditText) findViewById(R.id.et_Admin_ConfirmPassword);
         Show_Admin_Password = (CheckBox) findViewById(R.id.checkBoxAdminPwd);
 
+
+        //Set show password checkbox to make passwords visible if clicked and hidden if clicked again:
         Show_Admin_Password.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -59,45 +79,21 @@ public class AdminRegistration extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.btn_Admin_Return).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //open register screen
-                finish();
-                startActivity(new Intent(getApplicationContext(), AdminLogin.class));
-            }
-        });
 
-        findViewById(R.id.btn_Admin_Register).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //if user pressed on button register
-                //for now for prototype just move to main page
-                finish();
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                //here we will register the user to server
-                //registerUser();
-            }
-        });
 
-        findViewById(R.id.btn_Admin_Register).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //open register screen
-                finish();
-                startActivity(new Intent(getApplicationContext(), AdminHome.class));
-            }
-        });
+
 
     }
 
-    private void registerUser() {
+
+    public void doRequestRegistration(View v){
         final String ADMIN_FNAME = Admin_FName.getText().toString();
         final String ADMIN_LNAME = Admin_LName.getText().toString();
         final String ADMIN_EMAIL = Admin_Email.getText().toString();
         final String ADMIN_PHONE = Admin_Phone.getText().toString();
         final String ADMIN_PASSWORD = Admin_Password.getText().toString();
         final String ADMIN_CONFIRM_PASSWORD = Admin_ConfirmPassword.getText().toString();
+
         //first we will do the validations
 
         if (TextUtils.isEmpty(ADMIN_FNAME)) {
@@ -136,86 +132,111 @@ public class AdminRegistration extends AppCompatActivity {
             return;
         }
 
-        //if it passes all the validations
-//edit this to be for admin
-        // php file not made for this yet
-        class RegisterAdmin extends AsyncTask<Void, Void, String> {
-
-            private ProgressBar progressBar;
-
-            @Override
-            protected String doInBackground(Void... voids) {
-                //creating request handler object
-                RequestHandler requestHandler = new RequestHandler();
-
-                //creating request parameters
-                HashMap<String, String> params = new HashMap<>();
-                params.put("Admin_FName", ADMIN_FNAME);
-                params.put("Admin_LName", ADMIN_LNAME);
-                params.put("Admin_Email", ADMIN_EMAIL);
-                params.put("Admin_Phone", ADMIN_PHONE);
-                params.put("Admin_Password", ADMIN_PASSWORD);
-                params.put("Admin_ConfirmPassword", ADMIN_CONFIRM_PASSWORD);
-
-
-                //returning the response
-                return requestHandler.sendPostRequest(URLs.URL_REGISTER_ADMIN, params);
-            }
-
-            @Override
-            protected void onPreExecute() {
-                super.onPreExecute();
-                //displaying the progress bar while user registers on the server
-                progressBar = (ProgressBar) findViewById(R.id.progressBar);
-                progressBar.setVisibility(View.VISIBLE);
-            }
-
-            @Override
-            protected void onPostExecute(String s) {
-                super.onPostExecute(s);
-                //hiding the progressbar after completion
-                progressBar.setVisibility(View.GONE);
-
-                try {
-                    //converting response to json object
-                    JSONObject obj = new JSONObject(s);
-
-
-                    //if no error in response
-                    if (!obj.getBoolean("error")) {
-                        Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
-
-                        //getting the user from the response
-                        JSONObject userJson = obj.getJSONObject("admin");
-
-                        //creating a new user object
-                        Admin admin = new Admin(
-                                userJson.getInt("admin_id"),
-                                userJson.getString("admin_fname"),
-                                userJson.getString("admin_lname"),
-                                userJson.getString("admin_email"),
-                                userJson.getString("admin_contact_no")
-
-                        );
-
-                        //storing the user in shared preferences
-                        ///create a admin class
-                        SharedPrefManager.getInstance(getApplicationContext()).adminLogin(admin);
-
-                        //starting the main menu activity (when register button is clicked)
-                        finish();
-                        startActivity(new Intent(getApplicationContext(), AdminHome.class));
-
-                    } else {
-                        Toast.makeText(getApplicationContext(), "Some error occurred", Toast.LENGTH_SHORT).show();
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
+        if(!TextUtils.equals(ADMIN_PASSWORD, ADMIN_CONFIRM_PASSWORD)){
+            //Passwords dont match:
+            Admin_Password.setError("Passwords do not match");
+            Admin_Password.requestFocus();
+            return;
         }
-        //executing the async task
-        RegisterAdmin ra = new RegisterAdmin();
-        ra.execute();
+
+        //if it passes all the validations
+        //Send network request to 000webhost for insertion of new administrator.
+        //Define URL:
+        HttpUrl.Builder urlBuilder = HttpUrl.parse("https://thymematters.000webhostapp.com/REGISTER/ADMIN_REGISTER.php").newBuilder();
+
+        //If you want to add query parameters:
+        urlBuilder.addQueryParameter("first_name", ADMIN_FNAME);
+        urlBuilder.addQueryParameter("last_name", ADMIN_LNAME);
+
+        urlBuilder.addQueryParameter("email", ADMIN_EMAIL);
+        urlBuilder.addQueryParameter("admin_contact_no", ADMIN_PHONE);
+        urlBuilder.addQueryParameter("admin_password", ADMIN_PASSWORD);
+
+        String url = urlBuilder.build().toString();
+
+        //Check if network is available: https://stackoverflow.com/questions/4238921/detect-whether-there-is-an-internet-connection-available-on-android
+        boolean networkAvailable = isNetworkAvailable();
+        if(!networkAvailable){ StyleableToast.makeText(AdminRegistration.this, "No Internet Connection", Toast.LENGTH_LONG, R.style.noInternet).show(); return;}
+
+        //Send Request
+
+        //Initialise progree bar: https://stackoverflow.com/questions/15083226/waiting-progress-bar-in-android
+        //Progress Bar Functions: https://www.journaldev.com/9652/android-progressdialog-example
+        final ProgressDialog progressDialog = ProgressDialog.show(this, "Requesting Admin Registration", "Please wait...");
+
+
+        OkHttpClient client = new OkHttpClient();
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse( Call call,  Response response) throws IOException {
+                if (response.isSuccessful()){
+                    final String myResponse = response.body().string();
+
+                    AdminRegistration.this.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+
+                            //Process Response Here:
+
+                            //If reponse is "Email not available", toast to say not available:
+                            if(myResponse.equals("Email not available")){
+                                progressDialog.dismiss();
+                                StyleableToast.makeText(AdminRegistration.this, "This Email is Already in Use", Toast.LENGTH_LONG, R.style.invalidLogin).show();
+                                Admin_Email.setError("This Email is already in use");
+                                Admin_Email.requestFocus();
+                            }
+
+                            //Else the response will say "Admin Registration Request Sent", user is added
+                            else {
+                                progressDialog.dismiss();
+                                StyleableToast.makeText(AdminRegistration.this, "Registration Request Sent", Toast.LENGTH_LONG, R.style.success).show();
+                                new AlertDialog.Builder(AdminRegistration.this, R.style.AlertDialogTheme)
+                                        .setTitle("Notice")
+                                        .setMessage("Thank you for requesting to register as an Administrator. Login will be made available once you are certified.")
+                                        .setCancelable(false)
+                                        //.setNegativeButton("NO",null)
+                                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+
+                                            public void onClick(DialogInterface arg0, int arg1) {
+                                                //customer_home_screen.super.onBackPressed();
+                                                Intent backToLogin = new Intent(AdminRegistration.this, AdminLogin.class);
+                                                startActivity(backToLogin);
+                                                finish();
+                                            }
+                                        }).create().show();
+
+
+                            }
+
+
+
+                        }
+                    });
+                }
+
+            }
+        });
+
+    }
+    public void doReturn_to_AdminLogin(View v){
+        Intent goToAdminLoginScreen = new Intent(AdminRegistration.this,AdminLogin.class);
+        finish();
+        startActivity(goToAdminLoginScreen);
+
+    }
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 }
