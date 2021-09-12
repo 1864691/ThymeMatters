@@ -64,4 +64,7 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:4.1.0'
     //Stylable toasts:
     implementation 'com.muddzdev:styleabletoast:2.2.3'
+
+    androidTestCompile 'junit:junit:4.12'
+    testCompile 'junit:junit:4.12'
 }

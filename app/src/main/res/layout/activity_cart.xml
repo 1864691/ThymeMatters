@@ -10,9 +10,11 @@
     android:orientation="vertical">
 
     <LinearLayout
+        android:id="@+id/topPiece"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="0dp"
+
         android:background="@color/white"
         android:orientation="horizontal">
 
@@ -21,7 +23,11 @@
             android:id="@+id/cart_total"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#338AA347"
+            android:paddingLeft="11dp"
+            android:paddingRight="11dp"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:background="@color/cart_item_background"
             android:orientation="vertical">
 
 
@@ -96,18 +102,29 @@
 
     </LinearLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view"
+    <ScrollView
+        android:id="@+id/scrollview"
         android:layout_width="match_parent"
-        android:layout_height="486dp"
-        android:layout_above="@+id/btn_pay"
-        android:layout_below="@+id/price"
-        android:layout_marginTop="0dp"
-        android:layout_marginBottom="0dp"
-        android:scrollbars="vertical"
-        tools:ignore="NotSibling">
+        android:layout_height="match_parent"
 
-    </androidx.recyclerview.widget.RecyclerView>
+        android:layout_below="@+id/topPiece"
+        android:layout_above="@id/btn_pay">
+
+
+        <LinearLayout
+            android:id="@+id/ll_mainbox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
 
     <Button
         android:id="@+id/btn_pay"
