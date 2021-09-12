@@ -35,7 +35,7 @@ public class CartItemCustomView extends LinearLayout {
 
         //Create main horizontal layout: (ie. The one with the 3 boxes inside it.
         LinearLayout main_horizontal = new LinearLayout(p);
-        LayoutParams main_horizontal_params = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, dpToPx(150,p));
+        LayoutParams main_horizontal_params = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, dpToPx(190,p));
         main_horizontal.setLayoutParams(main_horizontal_params);
         main_horizontal.setOrientation(LinearLayout.HORIZONTAL);
         //main_horizontal.setBackgroundResource(R.color.white);

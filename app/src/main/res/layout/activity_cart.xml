@@ -57,7 +57,7 @@
                     android:textSize="15dp" />
 
                 <TextView
-                    android:id="@+id/num_items"
+                    android:id="@+id/txtNum_items"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -66,7 +66,7 @@
                     android:textSize="15dp"
                     android:textColor="@color/dark_green"
                     android:layout_toEndOf="@+id/items"
-                    android:text="2" />
+                    android:text="" />
 
             </RelativeLayout>
 
@@ -85,7 +85,7 @@
                     android:textSize="15dp"/>
 
                 <TextView
-                    android:id="@+id/price"
+                    android:id="@+id/txtTotalPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -94,7 +94,7 @@
                     android:textSize="15dp"
                     android:textColor="@color/dark_green"
                     android:layout_toEndOf="@+id/txt_price"
-                    android:text="R700" />
+                    android:text="" />
 
             </RelativeLayout>
 

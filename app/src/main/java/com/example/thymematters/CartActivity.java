@@ -3,7 +3,11 @@ package com.example.thymematters;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,9 +22,23 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.Calendar;
+import com.muddzdev.styleabletoast.StyleableToast;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.util.Calendar;
+import java.util.Timer;
+import java.util.TimerTask;
+
+import okhttp3.Call;
+import okhttp3.Callback;
 import okhttp3.HttpUrl;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public class CartActivity extends AppCompatActivity {
 
@@ -77,7 +95,74 @@ public class CartActivity extends AppCompatActivity {
         //Send request to fetch all cart items from CustomerCurrentCartTable:
         //Send network request to 000webhost:
         //Define URL:
-        HttpUrl.Builder urlBuilder = HttpUrl.parse("https://thymematters.000webhostapp.com/LOAD_MEALS_FOR_CUSTOMER/CUSTOMER_LOAD_MEALS.php").newBuilder();
+        HttpUrl.Builder urlBuilder = HttpUrl.parse("https://thymematters.000webhostapp.com/CUSTOMER_CART/LOAD_CART_ITEMS.php").newBuilder();
+        //If you want to add query parameters:
+        urlBuilder.addQueryParameter("cust_id",CustID_FromIntent);
+        //urlBuilder.addQueryParameter("password",Password);
+
+        String url = urlBuilder.build().toString();
+        //Check if network is available: https://stackoverflow.com/questions/4238921/detect-whether-there-is-an-internet-connection-available-on-android
+        boolean networkAvailable = isNetworkAvailable();
+        if(!networkAvailable){ StyleableToast.makeText(CartActivity.this, "No Internet Connection", Toast.LENGTH_LONG, R.style.noInternet).show(); return;}
+
+        //Send Request
+
+        //Initialise progree bar: https://stackoverflow.com/questions/15083226/waiting-progress-bar-in-android
+        //Progress Bar Functions: https://www.journaldev.com/9652/android-progressdialog-example
+        final ProgressDialog progressDialog = ProgressDialog.show(this, "Loading Cart Items", "Please wait...");
+
+        OkHttpClient client = new OkHttpClient();
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse( Call call,  Response response) throws IOException {
+                if (response.isSuccessful()){
+                    final String myResponse = response.body().string();
+
+                    CartActivity.this.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+
+                            if (myResponse.equals("no_cart_items")){
+                                progressDialog.dismiss();
+                                Toast.makeText(CartActivity.this,"Your cart is empty",Toast.LENGTH_LONG).show();
+                                //Set TEXTVIEWS FOR NUMITEMS AND TOTALPRICE:
+                                TextView noItems = (TextView)findViewById(R.id.txtNum_items); noItems.setText("0");
+                                TextView totalPrice = (TextView)findViewById(R.id.txtTotalPrice); totalPrice.setText("R 0");
+
+
+                            }
+                            else{
+                                //Customer has cart items
+
+                                try {
+                                    JSON_cart_items_output(myResponse);
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                            progressDialog.dismiss();
+
+
+
+
+
+
+
+                        }
+                    });
+                }
+
+            }
+        });
 
 
 
@@ -141,4 +226,77 @@ public class CartActivity extends AppCompatActivity {
         String custID = getIntent.getStringExtra("CUST_ID");
         return custID;
     }
+
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
+
+    public void JSON_cart_items_output(String json_string) throws JSONException {
+        int TOTALPRICE = 0;
+        int NUMITEMS = 0;
+        final ProgressDialog dialog = new ProgressDialog(CartActivity.this);
+        dialog.setTitle("Loading Cart Items");
+        dialog.setMessage("Please wait...");
+        dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        dialog.setIndeterminate(true);
+        dialog.setCancelable(false);
+        dialog.show();
+        LinearLayout MAIN_LAYOUT = (LinearLayout)findViewById(R.id.ll_mainbox) ;
+        JSONArray myJSONArray = new JSONArray(json_string);
+        for(int i = 0 ; i < myJSONArray.length();i++) {
+            JSONObject myJSONObject = myJSONArray.getJSONObject(i);
+            String MEAL_NAME = myJSONObject.getString("MEAL_NAME");
+            String ADDITIONAL_NOTES = myJSONObject.getString("ADDITIONAL_NOTES");
+            String SERVING_SIZE = myJSONObject.getString("SERVING_SIZE");
+            String PRICE = myJSONObject.getString("ITEM_TOTAL_COST");
+            ImageView PIC_OF_FOOD_ITEM = new ImageView(CartActivity.this);
+            PopulateImageViewFromURL.DownloadImageTask k = new PopulateImageViewFromURL.DownloadImageTask(PIC_OF_FOOD_ITEM);
+            k.execute(myJSONArray.getJSONObject(i).getString("MEAL_PICTURE_LINK"));
+
+            //Sets num of items at top of page
+            NUMITEMS = NUMITEMS + 1;
+
+            //Sets Price at top of page:
+            TOTALPRICE = TOTALPRICE + Integer.parseInt(PRICE);
+
+
+            //Create delete bin image view:
+            ImageView bin_delete_from_cart = new ImageView(this);
+            bin_delete_from_cart.setImageResource(R.drawable.ic_baseline_delete_24);
+
+            //Before putting delete bin into custom layout, define an on click for customer to remove item from cart
+            bin_delete_from_cart.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    // Your code.
+                    Toast.makeText(CartActivity.this,"This item will be deleted here",Toast.LENGTH_LONG).show();
+                }
+            });
+
+
+
+            //Make Custom layout:
+            CartItemCustomView cart_item_instance = new CartItemCustomView(this,PIC_OF_FOOD_ITEM,MEAL_NAME,ADDITIONAL_NOTES,SERVING_SIZE,PRICE,bin_delete_from_cart);
+            MAIN_LAYOUT.addView(cart_item_instance);
+
+        }
+
+        //Set TEXTVIEWS FOR NUMITEMS AND TOTALPRICE:
+        TextView noItems = (TextView)findViewById(R.id.txtNum_items); noItems.setText(Integer.toString(NUMITEMS));
+        TextView totalPrice = (TextView)findViewById(R.id.txtTotalPrice); totalPrice.setText("R "+ Integer.toString(TOTALPRICE));
+
+
+        long delayInMillis = 4000;
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                dialog.dismiss();
+            }
+        }, delayInMillis);
+    }
+
 }
+
