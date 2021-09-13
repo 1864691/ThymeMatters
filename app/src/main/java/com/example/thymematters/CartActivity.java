@@ -2,9 +2,11 @@ package com.example.thymematters;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -45,6 +47,8 @@ public class CartActivity extends AppCompatActivity {
     Button pay;
     String CustID_FromIntent;
     LinearLayout refMainContainer;
+    int TOTALPRICE = 0;
+    int NUMITEMS = 0;
 
 
     @Override
@@ -235,8 +239,8 @@ public class CartActivity extends AppCompatActivity {
     }
 
     public void JSON_cart_items_output(String json_string) throws JSONException {
-        int TOTALPRICE = 0;
-        int NUMITEMS = 0;
+        //int TOTALPRICE = 0;
+        //int NUMITEMS = 0;
         final ProgressDialog dialog = new ProgressDialog(CartActivity.this);
         dialog.setTitle("Loading Cart Items");
         dialog.setMessage("Please wait...");
@@ -252,6 +256,7 @@ public class CartActivity extends AppCompatActivity {
             String ADDITIONAL_NOTES = myJSONObject.getString("ADDITIONAL_NOTES");
             String SERVING_SIZE = myJSONObject.getString("SERVING_SIZE");
             String PRICE = myJSONObject.getString("ITEM_TOTAL_COST");
+            String CUST_CURR_CART_ITEM_ID = myJSONObject.getString("CUST_CURR_CART_ITEM_ID");
             ImageView PIC_OF_FOOD_ITEM = new ImageView(CartActivity.this);
             PopulateImageViewFromURL.DownloadImageTask k = new PopulateImageViewFromURL.DownloadImageTask(PIC_OF_FOOD_ITEM);
             k.execute(myJSONArray.getJSONObject(i).getString("MEAL_PICTURE_LINK"));
@@ -271,7 +276,82 @@ public class CartActivity extends AppCompatActivity {
             bin_delete_from_cart.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     // Your code.
-                    Toast.makeText(CartActivity.this,"This item will be deleted here",Toast.LENGTH_LONG).show();
+
+                    new AlertDialog.Builder(CartActivity.this,R.style.AlertDialogTheme)
+                            .setTitle("Remove Meal from Cart")
+                            .setMessage("Are you sure you would like to remove "+'"'+MEAL_NAME+'"'+" from your cart?")
+                            .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+
+                                    //Do nothing
+
+                                }
+                            })
+
+                            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+
+                                public void onClick(DialogInterface arg0, int arg1) {
+                                    //Send request to delete this cart item and then after deletion load new instance of this activity
+
+                                    HttpUrl.Builder urlBuilder = HttpUrl.parse("https://thymematters.000webhostapp.com/CUSTOMER_CART/DELETE_ITEM_FROM_CUSTOMER_CURRENT_CART.php").newBuilder();
+                                    urlBuilder.addQueryParameter("cust_curr_cart_item_id", CUST_CURR_CART_ITEM_ID);
+
+                                    String url = urlBuilder.build().toString();
+
+                                    //Sending request:
+                                    OkHttpClient client = new OkHttpClient();
+                                    Request request = new Request.Builder()
+                                            .url(url)
+                                            .build();
+
+                                    client.newCall(request).enqueue(new Callback() {
+                                        @Override
+                                        public void onFailure(Call call, IOException e) {
+                                            e.printStackTrace();
+                                        }
+
+                                        @Override
+                                        public void onResponse( Call call,  Response response) throws IOException {
+                                            if (response.isSuccessful()){
+                                                final String myResponse = response.body().string();
+
+                                                CartActivity.this.runOnUiThread(new Runnable() {
+                                                    @Override
+                                                    public void run() {
+                                                        //Successfuly deleted cart item
+                                                        StyleableToast.makeText(CartActivity.this, "Removed from cart", Toast.LENGTH_LONG, R.style.success).show();
+                                                        //Load new instance of current activity and end this one:
+                                                        Intent goToCart = new Intent(CartActivity.this,CartActivity.class);
+                                                        goToCart.putExtra("CUST_ID",CustID_FromIntent);
+                                                        startActivity(goToCart); finish();
+
+
+                                                    }
+                                                });
+                                            }
+
+                                        }
+                                    });
+                                }
+                            }).create().show();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 }
             });
 
@@ -296,6 +376,32 @@ public class CartActivity extends AppCompatActivity {
                 dialog.dismiss();
             }
         }, delayInMillis);
+    }
+
+    //The following method is for the customer to checkout (ie. To place their order)
+    public void doCHECKOUT(View v){
+
+        //If cart is empty, customer cannot checkout
+        if(NUMITEMS==0){
+            StyleableToast.makeText(CartActivity.this, "Your cart is empty", Toast.LENGTH_LONG, R.style.adminAwaitingCertification).show(); return;
+        }
+
+        //If internet is off, customer cannot checkout.
+        boolean networkAvailable = isNetworkAvailable();
+        if(!networkAvailable){ StyleableToast.makeText(CartActivity.this, "No Internet Connection", Toast.LENGTH_LONG, R.style.noInternet).show(); return;}
+
+        //If both above ifs pass, it means the customer has something in their cart, they have internet connection AND they wish to checkout:
+        //Intent parameters to be passed to checkout activity:
+            //Customer_ID from intent was already declared in oncreate.
+            //Order_Total_Price already declared - it is called TOTALPRICE
+
+        Intent check_out = new Intent(CartActivity.this,Checkout.class);
+        check_out.putExtra("CUST_ID",CustID_FromIntent);
+        check_out.putExtra("TOTALPRICE",Integer.toString(TOTALPRICE));
+        startActivity(check_out);
+
+
+
     }
 
 }
