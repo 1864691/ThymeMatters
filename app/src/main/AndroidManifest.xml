@@ -11,7 +11,8 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.ThymeMatters">
-        <activity android:name=".Add_Item_To_Cart"></activity>
+        <activity android:name=".Checkout"></activity>
+        <activity android:name=".Add_Item_To_Cart" />
         <activity android:name=".UserAccountDetails" />
         <activity android:name=".AdminAccountDetails" />
         <activity android:name=".AdminLogin" />
