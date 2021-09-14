@@ -2,6 +2,8 @@ package com.example.thymematters;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -12,11 +14,20 @@ import android.widget.Toast;
 
 public class help_page extends AppCompatActivity {
 
+
+
     Button change_delivery, change_other, change_date, change_personal_details;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_help_page);
+
+
+
+
+
+
+
 
 
         change_delivery = findViewById(R.id.change_delivery);
@@ -95,4 +106,6 @@ public class help_page extends AppCompatActivity {
         }
         return false;
     }
+
+
 }
