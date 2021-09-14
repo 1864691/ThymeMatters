@@ -114,7 +114,15 @@ public class CustomerViewOrderHistory extends AppCompatActivity {
                     CustomerViewOrderHistory.this.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
+
                             progressDialog.dismiss();
+                            if(myResponse.equals("no_orders")){
+                                StyleableToast.makeText(CustomerViewOrderHistory.this, "You have not logged any orders", Toast.LENGTH_LONG, R.style.invalidLogin).show();
+                                return;
+                            }
+
+
+
                             try {
                                 JSON_Orders_Output(myResponse);
                             } catch (JSONException e) {
