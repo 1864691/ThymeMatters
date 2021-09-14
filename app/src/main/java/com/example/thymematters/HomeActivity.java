@@ -119,8 +119,10 @@ public class HomeActivity extends AppCompatActivity {
                 return true;
 
             case R.id.Order_History:
-                startActivity(new Intent(HomeActivity.this, CartActivity.class));
-                finish();
+
+                Intent order_history = new Intent(HomeActivity.this,CustomerViewOrderHistory.class);
+                order_history.putExtra("CUST_ID",CustID_FromIntent);
+                startActivity(order_history);
                 return true;
 
             case R.id.help:
