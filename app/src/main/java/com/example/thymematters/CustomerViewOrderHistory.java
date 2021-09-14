@@ -167,6 +167,8 @@ public class CustomerViewOrderHistory extends AppCompatActivity {
             String DELIVERY_DATE = myJSONObject.getString("ORDER_DELIVERY_DATE");
             String DELIVERY_ADDRESS = myJSONObject.getString("ORDER_DELIVERY_ADDRESS");
 
+            String payment_status_for_next_activity = PAYMENT_STATUS;
+
             //Payment status:
             if(PAYMENT_STATUS.equals("0")){
                 PAYMENT_STATUS = "Awaiting Payment";
@@ -183,7 +185,18 @@ public class CustomerViewOrderHistory extends AppCompatActivity {
             arrow.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(CustomerViewOrderHistory.this,"Hello", Toast.LENGTH_LONG).show();
+                    //Take user to activity where they can view meals that they ordered within this order.
+                    Intent goToViewOrderContents = new Intent(CustomerViewOrderHistory.this,ViewOrderContents.class);
+                    //Pass data to Add Item to Cart page:
+                    goToViewOrderContents.putExtra("ORDER_ID",ORDER_ID);
+                    goToViewOrderContents.putExtra("ORDER_COST",ORDER_COST);
+                    goToViewOrderContents.putExtra("PAYMENT_METHOD",PAYMENT_METHOD);
+                    goToViewOrderContents.putExtra("PAYMENT_STATUS",payment_status_for_next_activity);
+                    goToViewOrderContents.putExtra("DELIVERY_STATUS",DELIVERY_STATUS);
+                    goToViewOrderContents.putExtra("PLACEMENT_DATE",PLACEMENT_DATE);
+                    goToViewOrderContents.putExtra("DELIVERY_DATE",DELIVERY_DATE);
+                    goToViewOrderContents.putExtra("DELIVERY_ADDRESS",DELIVERY_ADDRESS);
+                    startActivity(goToViewOrderContents);
                 }
             });
 
