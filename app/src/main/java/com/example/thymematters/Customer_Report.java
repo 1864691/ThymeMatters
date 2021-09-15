@@ -132,6 +132,7 @@ public class Customer_Report extends AppCompatActivity {
 
         Bar bar = ((Cartesian) vertical).bar(barData);
         bar.labels().format("{%Value} orders");
+        bar.color("#fe9d52");
 
         vertical.yScale().minimum(0d);
 

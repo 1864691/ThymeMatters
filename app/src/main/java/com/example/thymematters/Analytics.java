@@ -1,6 +1,7 @@
 package com.example.thymematters;
 
 import android.os.Bundle;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -13,8 +14,18 @@ public class Analytics extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_analytics);
 
-        WebView view = findViewById(R.id.webviewid);
-        view.setWebViewClient(new WebViewClient());
-        view.loadUrl("https://analytics.google.com/analytics/web/?authuser=0#/p286543659/reports/dashboard?params=_u..nav%3Dmaui%26_u..pageSize%3D25&r=firebase-overview&ruid=firebase-overview,app,firebase&collectionId=app");
+        WebView webView = findViewById(R.id.webviewid);
+        webView.setWebViewClient(new WebViewClient());
+        webView.loadUrl("https://analytics.google.com/analytics/web/?authuser=0#/p286543659/reports/dashboard?params=_u..nav%3Dmaui%26_u..pageSize%3D25&r=firebase-overview&ruid=firebase-overview,app,firebase&collectionId=app");
+
+        WebSettings webSettings = webView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        webSettings.setDomStorageEnabled(true);
+        webSettings.setLoadWithOverviewMode(true);
+        webSettings.setUseWideViewPort(true);
+        webSettings.setBuiltInZoomControls(true);
+        webSettings.setDisplayZoomControls(false);
+        webSettings.setSupportZoom(true);
+        webSettings.setDefaultTextEncodingName("utf-8");
     }
 }

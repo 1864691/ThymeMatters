@@ -221,6 +221,7 @@ public class Sales_Report extends AppCompatActivity {
         }
 
         Column column = cartesian.column(data);
+        column.color("#568f8b");
 
 
         column.tooltip()

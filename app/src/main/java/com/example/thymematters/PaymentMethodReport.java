@@ -126,6 +126,7 @@ public class PaymentMethodReport extends AppCompatActivity {
         }
 
         pie.data(data);
+        String[] colours = {"#33a865","#9ee3bb"};
 
         pie.title("Payment Methods");
 

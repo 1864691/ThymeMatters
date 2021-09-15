@@ -122,6 +122,7 @@ public class Meals_Report extends AppCompatActivity {
 
         pie.data(data);
 
+
         pie.title("Meal Categories");
 
         pie.labels().position("outside");
