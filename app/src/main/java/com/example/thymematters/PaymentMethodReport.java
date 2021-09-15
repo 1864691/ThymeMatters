@@ -144,49 +144,4 @@ public class PaymentMethodReport extends AppCompatActivity {
         anyChartView.setChart(pie);
     }
 
-//    public void pieGraph(String response) throws JSONException {
-//        JSONArray json = new JSONArray(response);
-//
-//        AnyChartView anyChartView = findViewById(R.id.any_chart_view);
-//        anyChartView.setProgressBar(findViewById(R.id.progress_bar));
-//
-//        Pie pie = AnyChart.pie();
-//
-//        pie.setOnClickListener(new ListenersInterface.OnClickListener(new String[]{"x", "value"}) {
-//            @Override
-//            public void onClick(Event event) {
-//                Toast.makeText(PaymentMethodReport.this, event.getData().get("x") + ":" + event.getData().get("value"), Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//
-//        List<DataEntry> data = new ArrayList<>();
-//
-//        for (int i =0 ; i < json.length(); i++){
-//
-//            JSONObject jobject = json.getJSONObject(i);
-//
-//            String category = jobject.getString("Payment_Method");
-//            int total = Integer.parseInt(jobject.getString("Total"));
-//            data.add(new ValueDataEntry(category, total));
-//        }
-//
-//        pie.data(data);
-//
-//        pie.title("Meal Categories");
-//
-//        pie.labels().position("outside");
-//
-//        pie.legend().title().enabled(true);
-//        pie.legend().title()
-//                .text("Categories")
-//                .padding(0d, 0d, 10d, 0d);
-//
-//        pie.legend()
-//                .position("center-bottom")
-//                .itemsLayout(LegendLayout.HORIZONTAL)
-//                .align(Align.CENTER);
-//
-//        anyChartView.setChart(pie);
-//    }
-
 }

@@ -112,7 +112,7 @@ public class Customer_Report extends AppCompatActivity {
         Cartesian vertical = AnyChart.vertical();
 
         vertical.animation(true)
-                .title("Top 15 Customers");
+                .title("Top Customers");
 
         List<DataEntry> data = new ArrayList<>();
 
