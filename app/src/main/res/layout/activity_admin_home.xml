@@ -46,7 +46,7 @@
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
         android:backgroundTint="@color/light_green"
-        android:text="view orders"
+        android:text="manage order payments"
         android:textSize="15dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/imageView2"
@@ -62,7 +62,7 @@
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
         android:backgroundTint="@color/light_green"
-        android:text="Edit Menu"
+        android:text="Manage Menu"
         android:textSize="15dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/imageView2"
@@ -90,13 +90,13 @@
         app:layout_constraintVertical_bias="0.6" />
 
     <Button
-        android:id="@+id/Update_delivery_status"
+        android:id="@+id/manage_deliveries"
         android:layout_width="275dp"
         android:layout_height="70dp"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
         android:backgroundTint="@color/light_green"
-        android:text="Update Customer Delivery Status"
+        android:text="Manage Deliveries"
         android:textSize="15dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/imageView2"

@@ -5,15 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -35,12 +32,12 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class View_Orders extends AppCompatActivity {
+public class ManageDeliveries extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_orders);
+        setContentView(R.layout.activity_manage_deliveries);
         load();
     }
 
@@ -55,18 +52,18 @@ public class View_Orders extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.logout:
                 //onLogoutClick();
-                startActivity(new Intent(View_Orders.this, MainActivity.class));
+                startActivity(new Intent(ManageDeliveries.this, MainActivity.class));
                 Toast.makeText(getApplicationContext(),"Logout Successful",Toast.LENGTH_SHORT).show();
                 finish();
                 return true;
 
             case R.id.return_to_home://create account page
-                startActivity(new Intent(View_Orders.this, AdminHome.class));
+                startActivity(new Intent(ManageDeliveries.this, AdminHome.class));
                 finish();
                 return true;
 
             case R.id.View_Admin_Account:
-                startActivity(new Intent(View_Orders.this, AdminAccountDetails.class));
+                startActivity(new Intent(ManageDeliveries.this, AdminAccountDetails.class));
                 finish();
                 return true;
 
@@ -77,17 +74,17 @@ public class View_Orders extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent i = new Intent(View_Orders.this, AdminHome.class);
+        Intent i = new Intent(ManageDeliveries.this, AdminHome.class);
         finish();
         startActivity(i);
     }
 
     public void load(){
-        HttpUrl.Builder urlBuilder = HttpUrl.parse("https://thymematters.000webhostapp.com/LoadPaymentOrders.php").newBuilder();
+        HttpUrl.Builder urlBuilder = HttpUrl.parse("https://thymematters.000webhostapp.com/LoadDeliveryOrders.php").newBuilder();
 
         String url = urlBuilder.build().toString();
         boolean networkAvailable = isNetworkAvailable();
-        if(!networkAvailable){ StyleableToast.makeText(View_Orders.this, "No Internet Connection", Toast.LENGTH_LONG, R.style.noInternet).show(); return;}
+        if(!networkAvailable){ StyleableToast.makeText(ManageDeliveries.this, "No Internet Connection", Toast.LENGTH_LONG, R.style.noInternet).show(); return;}
 
         //Send Request
         final ProgressDialog progressDialog = ProgressDialog.show(this, "Fetching Orders", "Please wait...");
@@ -108,7 +105,7 @@ public class View_Orders extends AppCompatActivity {
                 if (response.isSuccessful()){
                     final String myResponse = response.body().string();
 
-                    View_Orders.this.runOnUiThread(new Runnable() {
+                    ManageDeliveries.this.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
 
@@ -180,24 +177,24 @@ public class View_Orders extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     //Payment status change confirmation activity
-                    Intent goConfirmPaymentUpdate = new Intent(View_Orders.this,Update_Payment_Status.class);
+                    Intent goConfirmDeliveryUpdate = new Intent(ManageDeliveries.this,Update_Delivery_Status.class);
                     //Pass data to Add Item to Cart page:
-                    goConfirmPaymentUpdate.putExtra("ORDER_ID",ORDER_ID);
-                    goConfirmPaymentUpdate.putExtra("ORDER_COST",ORDER_COST);
-                    goConfirmPaymentUpdate.putExtra("PAYMENT_METHOD",PAYMENT_METHOD);
-                    goConfirmPaymentUpdate.putExtra("PAYMENT_STATUS",payment_status_for_next_activity);
-                    goConfirmPaymentUpdate.putExtra("DELIVERY_STATUS",DELIVERY_STATUS);
-                    goConfirmPaymentUpdate.putExtra("PLACEMENT_DATE",PLACEMENT_DATE);
-                    goConfirmPaymentUpdate.putExtra("DELIVERY_DATE",DELIVERY_DATE);
-                    goConfirmPaymentUpdate.putExtra("DELIVERY_ADDRESS",DELIVERY_ADDRESS);
-                    startActivity(goConfirmPaymentUpdate);
+                    goConfirmDeliveryUpdate.putExtra("ORDER_ID",ORDER_ID);
+                    goConfirmDeliveryUpdate.putExtra("ORDER_COST",ORDER_COST);
+                    goConfirmDeliveryUpdate.putExtra("PAYMENT_METHOD",PAYMENT_METHOD);
+                    goConfirmDeliveryUpdate.putExtra("PAYMENT_STATUS",payment_status_for_next_activity);
+                    goConfirmDeliveryUpdate.putExtra("DELIVERY_STATUS",DELIVERY_STATUS);
+                    goConfirmDeliveryUpdate.putExtra("PLACEMENT_DATE",PLACEMENT_DATE);
+                    goConfirmDeliveryUpdate.putExtra("DELIVERY_DATE",DELIVERY_DATE);
+                    goConfirmDeliveryUpdate.putExtra("DELIVERY_ADDRESS",DELIVERY_ADDRESS);
+                    startActivity(goConfirmDeliveryUpdate);
                 }
             });
 
             CustOrderHistoryLayout order = new CustOrderHistoryLayout(this,arrow,ORDER_ID,ORDER_COST,PAYMENT_METHOD,
                     PAYMENT_STATUS,DELIVERY_STATUS,PLACEMENT_DATE,DELIVERY_DATE,DELIVERY_ADDRESS);
 
-           main_layout.addView(order);
+            main_layout.addView(order);
 
         }
 

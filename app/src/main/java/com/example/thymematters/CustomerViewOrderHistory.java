@@ -178,7 +178,6 @@ public class CustomerViewOrderHistory extends AppCompatActivity {
                 PAYMENT_STATUS = "Payment Received";
             }
 
-
             //Create ARROW image view:
             ImageView arrow = new ImageView(this);
             arrow.setImageResource(R.drawable.ic_order_details);
