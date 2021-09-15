@@ -176,7 +176,10 @@ public class View_Orders extends AppCompatActivity {
             ImageView arrow = new ImageView(this);
             arrow.setImageResource(R.drawable.ic_order_details);
 
-            arrow.setOnClickListener(new View.OnClickListener() {
+            CustOrderHistoryLayout order = new CustOrderHistoryLayout(this,arrow,ORDER_ID,ORDER_COST,PAYMENT_METHOD,
+                    PAYMENT_STATUS,DELIVERY_STATUS,PLACEMENT_DATE,DELIVERY_DATE,DELIVERY_ADDRESS);
+
+            order.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     //Payment status change confirmation activity
@@ -194,8 +197,7 @@ public class View_Orders extends AppCompatActivity {
                 }
             });
 
-            CustOrderHistoryLayout order = new CustOrderHistoryLayout(this,arrow,ORDER_ID,ORDER_COST,PAYMENT_METHOD,
-                    PAYMENT_STATUS,DELIVERY_STATUS,PLACEMENT_DATE,DELIVERY_DATE,DELIVERY_ADDRESS);
+
 
            main_layout.addView(order);
 
