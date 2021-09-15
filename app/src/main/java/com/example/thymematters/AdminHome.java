@@ -15,6 +15,7 @@ public class AdminHome extends AppCompatActivity {
     Button view_orders;
     Button view_reports;
     Button edit_menu;
+    Button manage_deliveries;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +26,8 @@ public class AdminHome extends AppCompatActivity {
         view_orders = findViewById(R.id.view_orders);
         view_reports = findViewById(R.id.view_reports);
         edit_menu = findViewById(R.id.edit_menu);
+        manage_deliveries = findViewById(R.id.manage_deliveries);
+
 
         view_orders.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,6 +52,14 @@ public class AdminHome extends AppCompatActivity {
                 finish();
             }
         });
+
+        manage_deliveries.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(AdminHome.this, ManageDeliveries.class));
+                finish();
+            }
+        });
     }
 
     @Override
@@ -67,7 +78,7 @@ public class AdminHome extends AppCompatActivity {
                 finish();
                 return true;
 
-            case R.id.view_orders://create account page
+            case R.id.view_orders://view orders activity
                 startActivity(new Intent(AdminHome.this, View_Orders.class));
                 finish();
                 return true;

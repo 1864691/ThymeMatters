@@ -11,7 +11,16 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.ThymeMatters">
-        <activity android:name=".ViewOrderContents"></activity>
+        <activity
+            android:name=".Update_Delivery_Status"
+            android:exported="true" />
+        <activity
+            android:name=".ManageDeliveries"
+            android:exported="true" />
+        <activity
+            android:name=".Update_Payment_Status"
+            android:exported="true" />
+        <activity android:name=".ViewOrderContents" />
         <activity android:name=".CustomerViewOrderHistory" />
         <activity android:name=".Checkout" />
         <activity android:name=".Add_Item_To_Cart" />
