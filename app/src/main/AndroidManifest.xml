@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ThymeMatters">
         <activity
+            android:name=".Adapter.Analytics"
+            android:exported="true" />
+        <activity
             android:name=".AnalyticsApplication"
             android:exported="true"
             tools:ignore="Instantiatable" />

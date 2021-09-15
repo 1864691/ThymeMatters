@@ -9,6 +9,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.thymematters.Adapter.Analytics;
+
 public class View_Reports extends AppCompatActivity {
 
     Button sales;
@@ -16,6 +18,7 @@ public class View_Reports extends AppCompatActivity {
     Button customer;
     Button report;
     Button paymentMethod;
+    Button analytics;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +30,7 @@ public class View_Reports extends AppCompatActivity {
         customer = findViewById(R.id.customerReportbtn);
         report = findViewById(R.id.reportbtn);
         paymentMethod = findViewById(R.id.paymentMethodReportbtn);
+        analytics = findViewById(R.id.reportbtn);
 
         sales.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,6 +60,14 @@ public class View_Reports extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(View_Reports.this, PaymentMethodReport.class));
+                finish();
+            }
+        });
+
+        analytics.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(View_Reports.this, Analytics.class));
                 finish();
             }
         });
