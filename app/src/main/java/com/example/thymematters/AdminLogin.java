@@ -37,6 +37,7 @@ public class AdminLogin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_login);
 
+
         admin_email = (EditText) findViewById(R.id.TV_Admin_email);
         admin_password = (EditText) findViewById(R.id.TV_Admin_password);
         btn_Admin_Login = findViewById(R.id.btn_Admin_Login);
