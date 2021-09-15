@@ -1,12 +1,10 @@
-package com.example.thymematters.Adapter;
+package com.example.thymematters;
 
 import android.os.Bundle;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.thymematters.R;
 
 public class Analytics extends AppCompatActivity {
 
