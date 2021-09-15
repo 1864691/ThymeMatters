@@ -34,26 +34,24 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class Meals_Report extends AppCompatActivity {
+public class PaymentMethodReport extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_meals_report);
+        setContentView(R.layout.activity_payment_method_report);
 
-        //Send request to fetch all meat meals from meals table:
-        //Send network request to 000webhost:
-        //Define URL:
-        HttpUrl.Builder urlBuilder = HttpUrl.parse("https://thymematters.000webhostapp.com/REPORTS/MealsReport.php").newBuilder();
+
+        HttpUrl.Builder urlBuilder2 = HttpUrl.parse("https://thymematters.000webhostapp.com/REPORTS/SalesReport2.php").newBuilder();
 
         //If you want to add query parameters:
         //urlBuilder.addQueryParameter("meal_category_name","Meat");
         //urlBuilder.addQueryParameter("password",Password);
 
-        String url = urlBuilder.build().toString();
+        String url2 = urlBuilder2.build().toString();
         //Check if network is available: https://stackoverflow.com/questions/4238921/detect-whether-there-is-an-internet-connection-available-on-android
-        boolean networkAvailable = isNetworkAvailable();
-        if(!networkAvailable){ StyleableToast.makeText(Meals_Report.this, "No Internet Connection", Toast.LENGTH_LONG, R.style.noInternet).show(); return;}
+        boolean networkAvailable2 = isNetworkAvailable();
+        if(!networkAvailable2){ StyleableToast.makeText(PaymentMethodReport.this, "No Internet Connection", Toast.LENGTH_LONG, R.style.noInternet).show(); return;}
 
         //Send Request
 
@@ -61,12 +59,12 @@ public class Meals_Report extends AppCompatActivity {
         //Progress Bar Functions: https://www.journaldev.com/9652/android-progressdialog-example
         //final ProgressDialog progressDialog = ProgressDialog.show(this, "Fetching Meat Meals", "Please wait...");
 
-        OkHttpClient client = new OkHttpClient();
-        Request request = new Request.Builder()
-                .url(url)
+        OkHttpClient client2 = new OkHttpClient();
+        Request request2 = new Request.Builder()
+                .url(url2)
                 .build();
 
-        client.newCall(request).enqueue(new Callback() {
+        client2.newCall(request2).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 e.printStackTrace();
@@ -77,7 +75,7 @@ public class Meals_Report extends AppCompatActivity {
                 if (response.isSuccessful()){
                     final String myResponse = response.body().string();
 
-                    Meals_Report.this.runOnUiThread(new Runnable() {
+                    PaymentMethodReport.this.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
                             try {
@@ -91,7 +89,13 @@ public class Meals_Report extends AppCompatActivity {
                 }
             }
         });
+    }
 
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
     public void pieGraph(String response) throws JSONException {
@@ -101,11 +105,12 @@ public class Meals_Report extends AppCompatActivity {
         anyChartView.setProgressBar(findViewById(R.id.progress_bar));
 
         Pie pie = AnyChart.pie();
+        pie.bounds(0, 0, "100%", "100%");
 
         pie.setOnClickListener(new ListenersInterface.OnClickListener(new String[]{"x", "value"}) {
             @Override
             public void onClick(Event event) {
-                Toast.makeText(Meals_Report.this, event.getData().get("x") + ":" + event.getData().get("value"), Toast.LENGTH_SHORT).show();
+                Toast.makeText(PaymentMethodReport.this, event.getData().get("x") + ":" + event.getData().get("value"), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -115,14 +120,14 @@ public class Meals_Report extends AppCompatActivity {
 
             JSONObject jobject = json.getJSONObject(i);
 
-            String category = jobject.getString("Category_Name");
-            int total = Integer.parseInt(jobject.getString("Totals"));
+            String category = jobject.getString("Payment_Method");
+            int total = Integer.parseInt(jobject.getString("Total"));
             data.add(new ValueDataEntry(category, total));
         }
 
         pie.data(data);
 
-        pie.title("Meal Categories");
+        pie.title("Payment Methods");
 
         pie.labels().position("outside");
 
@@ -139,10 +144,49 @@ public class Meals_Report extends AppCompatActivity {
         anyChartView.setChart(pie);
     }
 
-    private boolean isNetworkAvailable() {
-        ConnectivityManager connectivityManager
-                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
-    }
+//    public void pieGraph(String response) throws JSONException {
+//        JSONArray json = new JSONArray(response);
+//
+//        AnyChartView anyChartView = findViewById(R.id.any_chart_view);
+//        anyChartView.setProgressBar(findViewById(R.id.progress_bar));
+//
+//        Pie pie = AnyChart.pie();
+//
+//        pie.setOnClickListener(new ListenersInterface.OnClickListener(new String[]{"x", "value"}) {
+//            @Override
+//            public void onClick(Event event) {
+//                Toast.makeText(PaymentMethodReport.this, event.getData().get("x") + ":" + event.getData().get("value"), Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//
+//        List<DataEntry> data = new ArrayList<>();
+//
+//        for (int i =0 ; i < json.length(); i++){
+//
+//            JSONObject jobject = json.getJSONObject(i);
+//
+//            String category = jobject.getString("Payment_Method");
+//            int total = Integer.parseInt(jobject.getString("Total"));
+//            data.add(new ValueDataEntry(category, total));
+//        }
+//
+//        pie.data(data);
+//
+//        pie.title("Meal Categories");
+//
+//        pie.labels().position("outside");
+//
+//        pie.legend().title().enabled(true);
+//        pie.legend().title()
+//                .text("Categories")
+//                .padding(0d, 0d, 10d, 0d);
+//
+//        pie.legend()
+//                .position("center-bottom")
+//                .itemsLayout(LegendLayout.HORIZONTAL)
+//                .align(Align.CENTER);
+//
+//        anyChartView.setChart(pie);
+//    }
+
 }

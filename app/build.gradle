@@ -69,9 +69,11 @@ dependencies {
     compileOnly 'com.mcxiaoke.volley:library-aar:1.0.0'
 
     implementation 'com.squareup.okhttp3:okhttp:4.1.0'
-    //Stylable toasts:
-    implementation 'com.muddzdev:styleabletoast:2.2.3'
 
-    androidTestCompile 'junit:junit:4.12'
-    testCompile 'junit:junit:4.12'
+
+    //Stylable toasts:
+    //implementation 'com.muddzdev:styleabletoast:2.2.3'
+    implementation 'io.github.muddz:styleabletoast:2.4.0'
+//    androidTestCompile 'junit:junit:4.12'
+//    testCompile 'junit:junit:4.12'
 }

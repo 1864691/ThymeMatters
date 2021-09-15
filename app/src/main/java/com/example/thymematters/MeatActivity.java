@@ -1,7 +1,5 @@
 package com.example.thymematters;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -16,7 +14,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.muddzdev.styleabletoast.StyleableToast;
+import androidx.appcompat.app.AppCompatActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -26,12 +24,15 @@ import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import io.github.muddz.styleabletoast.StyleableToast;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+
+//import com.muddzdev.styleabletoast.StyleableToast;
 
 public class MeatActivity extends AppCompatActivity {
 
@@ -179,6 +180,7 @@ public class MeatActivity extends AppCompatActivity {
         LinearLayout MAIN_LAYOUT = (LinearLayout)findViewById(R.id.ll_mainbox) ;
         //This method creates imageviews for all the meals along with onclicks for each to order them:
         JSONArray myJSONArray = new JSONArray(json_string);
+
         for(int i = 0 ; i < myJSONArray.length();i++){
             JSONObject myJSONObject = myJSONArray.getJSONObject(i);
             String MEAL_ID = myJSONObject.getString("MEAL_ID");

@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.muddzdev.styleabletoast.StyleableToast;
+//import com.muddzdev.styleabletoast.StyleableToast;
 
 public class HomeActivity extends AppCompatActivity {
 

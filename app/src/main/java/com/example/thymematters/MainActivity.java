@@ -5,32 +5,27 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.IOException;
-import java.util.HashMap;
-
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.muddzdev.styleabletoast.StyleableToast;
+import java.io.IOException;
 
+import io.github.muddz.styleabletoast.StyleableToast;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+
+//import com.muddzdev.styleabletoast.StyleableToast;
 
 //import com.techyourchance.threadposter.UiThreadPoster;
 
@@ -147,14 +142,14 @@ public class MainActivity extends AppCompatActivity {
                             //If reponse is "Invalid Login", toast to say invalid login:
                             if(myResponse.equals("Invalid Login")){
                                 progressDialog.dismiss();
-                                StyleableToast.makeText(MainActivity.this, "Invalid Login", Toast.LENGTH_LONG, R.style.invalidLogin).show();
+                                //StyleableToast.makeText(MainActivity.this, "Invalid Login", Toast.LENGTH_LONG, R.style.invalidLogin).show();
 
                             }
 
                             //Else the login is succesful and the user's unique id is outputted, user is logged in
                             else{
                                 progressDialog.dismiss();
-                                StyleableToast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_LONG, R.style.success).show();
+                                //StyleableToast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_LONG, R.style.success).show();
 
                                 //Then navigate customer to home activity with his/her unique id passed to the new activity with an intent:
                                 Intent customerHome = new Intent(MainActivity.this,HomeActivity.class);

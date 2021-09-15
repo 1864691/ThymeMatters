@@ -15,6 +15,7 @@ public class View_Reports extends AppCompatActivity {
     Button meals;
     Button customer;
     Button report;
+    Button paymentMethod;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +26,7 @@ public class View_Reports extends AppCompatActivity {
         meals = findViewById(R.id.mealsReportBtn);
         customer = findViewById(R.id.customerReportbtn);
         report = findViewById(R.id.reportbtn);
+        paymentMethod = findViewById(R.id.paymentMethodReportbtn);
 
         sales.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,13 +52,13 @@ public class View_Reports extends AppCompatActivity {
             }
         });
 
-//        report.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(View_Reports.this, Sales_Report.class));
-//                finish();
-//            }
-//        });
+        paymentMethod.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(View_Reports.this, PaymentMethodReport.class));
+                finish();
+            }
+        });
     }
 
     @Override

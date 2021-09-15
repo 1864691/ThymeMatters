@@ -1,7 +1,5 @@
 package com.example.thymematters;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -19,12 +17,11 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.muddzdev.styleabletoast.StyleableToast;
-
-import org.json.JSONException;
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.IOException;
 
+import io.github.muddz.styleabletoast.StyleableToast;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.HttpUrl;

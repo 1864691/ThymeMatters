@@ -1,7 +1,5 @@
 package com.example.thymematters;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -14,10 +12,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.muddzdev.styleabletoast.StyleableToast;
+import androidx.appcompat.app.AppCompatActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -27,6 +24,7 @@ import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import io.github.muddz.styleabletoast.StyleableToast;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.HttpUrl;

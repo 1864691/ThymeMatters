@@ -12,9 +12,12 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.ThymeMatters">
-        <activity android:name=".Checkout"></activity>
-        <activity android:name=".Add_Item_To_Cart"/>
-        <activity android:name=".Customer_Report"/>
+        <activity
+            android:name=".PaymentMethodReport"
+            android:exported="true" />
+        <activity android:name=".Checkout" />
+        <activity android:name=".Add_Item_To_Cart" />
+        <activity android:name=".Customer_Report" />
         <activity android:name=".Meals_Report" />
         <activity android:name=".Sales_Report" />
         <activity android:name=".favorites" />
