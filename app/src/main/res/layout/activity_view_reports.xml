@@ -8,64 +8,88 @@
 
 
     <Button
-        android:id="@+id/reportbtn"
-        android:layout_width="155dp"
-        android:layout_height="45dp"
-        android:text="Google Analytics"
-        android:textColor="@color/black"
+        android:id="@+id/paymentMethodReportbtn"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:text="Payment Method Report"
+        android:textColor="@color/white"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.851"
+        app:layout_constraintHorizontal_bias="0.524"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.454" />
+        app:layout_constraintVertical_bias="0.808" />
 
     <Button
         android:id="@+id/salesReportbtn"
-        android:layout_width="148dp"
-        android:layout_height="50dp"
-        android:text="Sales Report"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:text="Revenue Report"
+        android:textColor="@color/white"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.129"
+        app:layout_constraintHorizontal_bias="0.251"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.252" />
-
-    <Button
-        android:id="@+id/customerReportbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Customer Report"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.132"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.453" />
-
-    <Button
-        android:id="@+id/paymentMethodReportbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Payment Method Report"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.641" />
+        app:layout_constraintVertical_bias="0.331" />
 
     <Button
         android:id="@+id/mealsReportBtn"
-        android:layout_width="150dp"
-        android:layout_height="47dp"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
         android:text="Meals Report"
+        android:textColor="@color/white"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.854"
+        app:layout_constraintHorizontal_bias="0.758"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.254" />
+        app:layout_constraintVertical_bias="0.331" />
+
+    <Button
+        android:id="@+id/customerReportbtn"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:text="Customer Report"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.251"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.569" />
+
+    <Button
+        android:id="@+id/reportbtn"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:text="Google Analytics"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.758"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.569" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="cursive"
+        android:text="Reports"
+        android:textColor="@color/dark_green"
+        android:textFontWeight="@android:integer/config_longAnimTime"
+        android:textSize="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.117" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
