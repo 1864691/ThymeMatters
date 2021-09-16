@@ -49,7 +49,7 @@ public class AdminLogin extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(AdminLogin.this, AdminRegistration.class));
-                finish();
+                //finish();
             }
         });
 

@@ -15,8 +15,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.analytics.Tracker;
-
 import java.io.IOException;
 
 import io.github.muddz.styleabletoast.StyleableToast;
@@ -57,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, Register.class));
-                finish();
+                //finish();
             }
         });
 
@@ -65,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, AdminLogin.class));
-                finish();
+                //finish();
             }
         });
     }
