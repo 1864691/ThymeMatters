@@ -59,6 +59,9 @@
         <activity android:name=".FishActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".Register" />
+        <activity android:name=".Update_Payment_Status" />
+        <activity android:name=".Update_Delivery_Status" />
+        <activity android:name=".ManageDeliveries" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

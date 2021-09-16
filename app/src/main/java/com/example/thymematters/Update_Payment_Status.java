@@ -108,20 +108,22 @@ public class Update_Payment_Status extends AppCompatActivity {
                                 @Override
                                 public void run() {
 
-                                    try {
-                                        JSON_update(myResponse);
+                                    //try {
 
-                                       Intent i = new Intent(Update_Payment_Status.this, View_Orders.class);
+                                        StyleableToast.makeText(Update_Payment_Status.this, "Payment Status Updated Successfully", Toast.LENGTH_LONG, R.style.success).show();
+                                        //JSON_update(myResponse);
+
+                                        Intent i = new Intent(Update_Payment_Status.this, View_Orders.class);
                                         finish();
-                                        overridePendingTransition(0, 0);
+                                        //overridePendingTransition(0, 0);
                                         startActivity(i);
-                                        overridePendingTransition(0, 0);
+                                        //overridePendingTransition(0, 0);
 
                                         //recreate();
 
-                                    } catch (JSONException e) {
-                                        e.printStackTrace();
-                                    }
+                                   // } catch (JSONException e) {
+                                       // e.printStackTrace();
+                                   // }
 
                                 }
                             });

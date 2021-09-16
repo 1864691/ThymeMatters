@@ -116,20 +116,22 @@ public class Update_Delivery_Status extends AppCompatActivity {
                                 @Override
                                 public void run() {
 
-                                    try {
-                                        JSON_update(myResponse);
+                                    //try {
+
+                                        StyleableToast.makeText(Update_Delivery_Status.this, "Delivery Status Updated Successfully", Toast.LENGTH_LONG, R.style.success).show();
+                                        //JSON_update(myResponse);
 
                                         Intent i = new Intent(Update_Delivery_Status.this, ManageDeliveries.class);
                                         finish();
-                                        overridePendingTransition(0, 0);
+                                        //overridePendingTransition(0, 0);
                                         startActivity(i);
-                                        overridePendingTransition(0, 0);
+                                        //overridePendingTransition(0, 0);
 
                                         //recreate();
 
-                                    } catch (JSONException e) {
-                                        e.printStackTrace();
-                                    }
+                                    //} catch (JSONException e) {
+                                    //    e.printStackTrace();
+                                    //}
 
                                 }
                             });

@@ -3,20 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/seshn/AndroidStudioProjects/ThymeMatters/app/src/main/res/drawable/ic_order_details.xml" value="0.2203125" />
-        <entry key="..\:/Users/seshn/AndroidStudioProjects/ThymeMatters/app/src/main/res/layout/activity_admin_account_details.xml" value="0.13333333333333333" />
-        <entry key="..\:/Users/seshn/AndroidStudioProjects/ThymeMatters/app/src/main/res/layout/activity_admin_home.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/seshn/AndroidStudioProjects/ThymeMatters/app/src/main/res/layout/activity_admin_login.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/seshn/AndroidStudioProjects/ThymeMatters/app/src/main/res/layout/activity_customer_view_order_history.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/seshn/AndroidStudioProjects/ThymeMatters/app/src/main/res/layout/activity_home.xml" value="0.22" />
-        <entry key="..\:/Users/seshn/AndroidStudioProjects/ThymeMatters/app/src/main/res/layout/activity_manage_deliveries.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/seshn/AndroidStudioProjects/ThymeMatters/app/src/main/res/layout/activity_soup.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/seshn/AndroidStudioProjects/ThymeMatters/app/src/main/res/layout/activity_track_order.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/seshn/AndroidStudioProjects/ThymeMatters/app/src/main/res/layout/activity_update_delivery_status.xml" value="0.2" />
-        <entry key="..\:/Users/seshn/AndroidStudioProjects/ThymeMatters/app/src/main/res/layout/activity_update_payment_status.xml" value="0.22" />
-        <entry key="..\:/Users/seshn/AndroidStudioProjects/ThymeMatters/app/src/main/res/layout/activity_view_order_contents.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/seshn/AndroidStudioProjects/ThymeMatters/app/src/main/res/layout/activity_view_orders.xml" value="0.33" />
-        <entry key="..\:/Users/seshn/AndroidStudioProjects/ThymeMatters/app/src/main/res/menu/admin_menu.xml" value="0.25" />
+        <entry key="..\:/Users/theal/Desktop/TM - RUSHIL/app/src/main/res/layout/activity_admin_home.xml" value="0.15625" />
+        <entry key="..\:/Users/theal/Desktop/TM - RUSHIL/app/src/main/res/layout/activity_admin_login.xml" value="0.15625" />
+        <entry key="..\:/Users/theal/Desktop/TM - RUSHIL/app/src/main/res/layout/activity_main.xml" value="0.15625" />
+        <entry key="..\:/Users/theal/Desktop/TM - RUSHIL/app/src/main/res/layout/activity_manage_deliveries.xml" value="0.18020833333333333" />
+        <entry key="..\:/Users/theal/Desktop/TM - RUSHIL/app/src/main/res/layout/activity_update_payment_status.xml" value="0.18020833333333333" />
       </map>
     </option>
   </component>

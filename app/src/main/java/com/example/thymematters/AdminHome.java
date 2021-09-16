@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.analytics.Tracker;
+//import com.google.android.gms.analytics.Tracker;
 
 public class AdminHome extends AppCompatActivity {
 
@@ -34,7 +34,7 @@ public class AdminHome extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(AdminHome.this, View_Orders.class));
-                finish();
+                //finish();
             }
         });
 
@@ -42,7 +42,7 @@ public class AdminHome extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(AdminHome.this, View_Reports.class));
-                finish();
+                //finish();
             }
         });
 
@@ -50,7 +50,7 @@ public class AdminHome extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(AdminHome.this, Edit_Menu.class));
-                finish();
+                //finish();
             }
         });
 
@@ -58,7 +58,7 @@ public class AdminHome extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(AdminHome.this, ManageDeliveries.class));
-                finish();
+                //finish();
             }
         });
     }
