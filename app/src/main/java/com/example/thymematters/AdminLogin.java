@@ -53,13 +53,13 @@ public class AdminLogin extends AppCompatActivity {
             }
         });
 
-        /*btn_Admin_Login.setOnClickListener(new View.OnClickListener() {
+        btn_Admin_Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(AdminLogin.this, AdminHome.class));
                 finish();
             }
-        });*/
+        });
     }
 
 
