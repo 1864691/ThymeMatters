@@ -11,11 +11,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.IOException;
 
+import io.github.muddz.styleabletoast.StyleableToast;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.HttpUrl;
@@ -53,13 +55,7 @@ public class AdminLogin extends AppCompatActivity {
             }
         });
 
-        btn_Admin_Login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(AdminLogin.this, AdminHome.class));
-                finish();
-            }
-        });
+
     }
 
 
@@ -103,7 +99,7 @@ public class AdminLogin extends AppCompatActivity {
 
         //Check if network is available: https://stackoverflow.com/questions/4238921/detect-whether-there-is-an-internet-connection-available-on-android
         boolean networkAvailable = isNetworkAvailable();
-        //if(!networkAvailable){ StyleableToast.makeText(AdminLogin.this, "No Internet Connection", Toast.LENGTH_LONG, R.style.noInternet).show(); return;}
+        if(!networkAvailable){ StyleableToast.makeText(AdminLogin.this, "No Internet Connection", Toast.LENGTH_LONG, R.style.noInternet).show(); return;}
 
         //Send Request
 
@@ -136,18 +132,18 @@ public class AdminLogin extends AppCompatActivity {
                             //If reponse is "Invalid Login", toast to say invalid login:
                             if(myResponse.equals("Invalid Login")){
                                 progressDialog.dismiss();
-                                //StyleableToast.makeText(AdminLogin.this, "Invalid Login", Toast.LENGTH_LONG, R.style.invalidLogin).show();
+                                StyleableToast.makeText(AdminLogin.this, "Invalid Login", Toast.LENGTH_LONG, R.style.invalidLogin).show();
 
                             }
                             else if(myResponse.equals("Not certified but is an admin")){
                                 progressDialog.dismiss();
-                                //StyleableToast.makeText(AdminLogin.this, "Not yet certified as Administrator", Toast.LENGTH_LONG, R.style.adminAwaitingCertification).show();
+                                StyleableToast.makeText(AdminLogin.this, "Not yet certified as Administrator", Toast.LENGTH_LONG, R.style.adminAwaitingCertification).show();
                             }
 
                             //Else the login is succesful and the user's unique id is outputted, user is logged in
                             else{
                                 progressDialog.dismiss();
-                                //StyleableToast.makeText(AdminLogin.this, "Login Successful", Toast.LENGTH_LONG, R.style.success).show();
+                                StyleableToast.makeText(AdminLogin.this, "Login Successful", Toast.LENGTH_LONG, R.style.success).show();
 
                                 //Then navigate admin to admin home activity with his/her unique id passed to the new activity with an intent:
                                 Intent adminHome = new Intent(AdminLogin.this,AdminHome.class);
