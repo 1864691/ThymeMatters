@@ -3,13 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Rusheel/StudioProjects/ThymeMatters/app/src/main/res/layout/activity_admin_home.xml" value="0.209375" />
-        <entry key="..\:/Users/Rusheel/StudioProjects/ThymeMatters/app/src/main/res/layout/activity_view_reports.xml" value="0.25" />
-        <entry key="..\:/Users/theal/Desktop/TM - RUSHIL/app/src/main/res/layout/activity_admin_home.xml" value="0.15625" />
-        <entry key="..\:/Users/theal/Desktop/TM - RUSHIL/app/src/main/res/layout/activity_admin_login.xml" value="0.15625" />
-        <entry key="..\:/Users/theal/Desktop/TM - RUSHIL/app/src/main/res/layout/activity_main.xml" value="0.15625" />
-        <entry key="..\:/Users/theal/Desktop/TM - RUSHIL/app/src/main/res/layout/activity_manage_deliveries.xml" value="0.18020833333333333" />
-        <entry key="..\:/Users/theal/Desktop/TM - RUSHIL/app/src/main/res/layout/activity_update_payment_status.xml" value="0.18020833333333333" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.26458333333333334" />
       </map>
     </option>
   </component>

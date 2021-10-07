@@ -142,14 +142,14 @@ public class MainActivity extends AppCompatActivity {
                             //If reponse is "Invalid Login", toast to say invalid login:
                             if(myResponse.equals("Invalid Login")){
                                 progressDialog.dismiss();
-                                //StyleableToast.makeText(MainActivity.this, "Invalid Login", Toast.LENGTH_LONG, R.style.invalidLogin).show();
+                                StyleableToast.makeText(MainActivity.this, "Invalid Login", Toast.LENGTH_LONG, R.style.invalidLogin).show();
 
                             }
 
                             //Else the login is succesful and the user's unique id is outputted, user is logged in
                             else{
                                 progressDialog.dismiss();
-                                //StyleableToast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_LONG, R.style.success).show();
+                                StyleableToast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_LONG, R.style.success).show();
 
                                 //Then navigate customer to home activity with his/her unique id passed to the new activity with an intent:
                                 Intent customerHome = new Intent(MainActivity.this,HomeActivity.class);
