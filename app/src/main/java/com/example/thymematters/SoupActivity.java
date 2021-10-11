@@ -10,8 +10,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -218,7 +220,15 @@ public class SoupActivity extends AppCompatActivity {
                 }
             });
 
+            Button favButton = new Button(this);
+            favButton.setText("Add "+MEAL_NAME+" to favourites");
+            favButton.setBackgroundResource(R.color.cart_item_background);
+            RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(PIC_OF_FOOD_ITEM.getLayoutParams());
+            lp.setMargins(0, dpToPx(40,this), 0, 0);
+            PIC_OF_FOOD_ITEM.setLayoutParams(lp);
+
             MAIN_LAYOUT.addView(PIC_OF_FOOD_ITEM);
+            MAIN_LAYOUT.addView(favButton);
         }
 
         long delayInMillis = 4000;
@@ -231,5 +241,10 @@ public class SoupActivity extends AppCompatActivity {
         }, delayInMillis);
 
 
+    }
+
+    public static int dpToPx(int dp, Context context) {
+        float density = context.getResources().getDisplayMetrics().density;
+        return Math.round((float) dp * density);
     }
 }
