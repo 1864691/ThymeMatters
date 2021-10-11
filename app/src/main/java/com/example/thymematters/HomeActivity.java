@@ -132,9 +132,11 @@ public class HomeActivity extends AppCompatActivity {
 
             case R.id.favorites:
                 // Need to pass customer unique id to favourites activity
+                Intent fav = new Intent(HomeActivity.this,favorites.class);
+                //Pass data to customer home screen:
+                fav.putExtra("CUST_ID",CustID_FromIntent);
+                startActivity(fav);
 
-                startActivity(new Intent(HomeActivity.this, favorites.class));
-                finish();
                 return true;
 
             case R.id.cart:

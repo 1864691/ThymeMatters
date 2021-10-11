@@ -140,8 +140,12 @@ public class FishActivity extends AppCompatActivity {
                 return true;
 
             case R.id.favorites:
-                startActivity(new Intent(FishActivity.this, favorites.class));
-                finish();
+                // Need to pass customer unique id to favourites activity
+                Intent fav = new Intent(FishActivity.this,favorites.class);
+                //Pass data to customer home screen:
+                fav.putExtra("CUST_ID",CustID_FromIntent);
+                startActivity(fav);
+
                 return true;
 
             case R.id.cart:
