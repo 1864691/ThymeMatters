@@ -29,6 +29,18 @@
 
 
     </style>
+
+    <style name="favourite">
+        <item name="stColorBackground">@color/white </item>
+        <item name="stTextBold">true</item>
+        <item name="stTextColor">@color/black</item>
+        <item name="stStrokeWidth">1dp</item>
+        <item name="stStrokeColor">@color/white</item>
+        <item name="stRadius">30dp</item>
+        <item name="stIconStart">@drawable/favorite</item>
+
+
+    </style>
     <style name="noInternet">
         <item name="stColorBackground">@color/black </item>
         <item name="stTextBold">true</item>
