@@ -131,6 +131,8 @@ public class HomeActivity extends AppCompatActivity {
                 return true;
 
             case R.id.favorites:
+                // Need to pass customer unique id to favourites activity
+
                 startActivity(new Intent(HomeActivity.this, favorites.class));
                 finish();
                 return true;
