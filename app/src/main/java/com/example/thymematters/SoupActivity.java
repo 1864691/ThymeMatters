@@ -3,6 +3,7 @@ package com.example.thymematters;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -221,11 +222,23 @@ public class SoupActivity extends AppCompatActivity {
             });
 
             Button favButton = new Button(this);
+            favButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    //Add this particular meal to favourites for this particular customer
+                }
+            });
             favButton.setText("Add "+MEAL_NAME+" to favourites");
             favButton.setBackgroundResource(R.color.cart_item_background);
+            RelativeLayout.LayoutParams button_params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            favButton.setLayoutParams(button_params);
             RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(PIC_OF_FOOD_ITEM.getLayoutParams());
             lp.setMargins(0, dpToPx(40,this), 0, 0);
             PIC_OF_FOOD_ITEM.setLayoutParams(lp);
+
+
+            favButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_baseline_favorite_24, 0, 0, 0);
+
 
             MAIN_LAYOUT.addView(PIC_OF_FOOD_ITEM);
             MAIN_LAYOUT.addView(favButton);
