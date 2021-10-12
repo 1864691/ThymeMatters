@@ -58,7 +58,6 @@ public class View_Reports extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(View_Reports.this, PaymentMethodReport.class));
-                //finish();
             }
         });
 
