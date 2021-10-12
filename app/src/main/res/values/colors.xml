@@ -17,6 +17,10 @@
     <color name="medium_purple">#8467D7</color>
     <color name="background_green">#c1d57b</color>
     <color name="background2">#f2fccf</color>
+    <color name="error_red">#FF0000</color>
+    <color name="correct_color">#71DB00</color>
+    <color name="cart_item_background">#338AA347</color>
+
 
 //cee1b7
 </resources>

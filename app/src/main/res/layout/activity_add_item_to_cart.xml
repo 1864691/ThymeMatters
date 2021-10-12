@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content"
+    tools:context=".Add_Item_To_Cart">
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/dark_green"
+        android:fontFamily="cursive"
+        android:textSize="40dp"
+        android:layout_marginLeft="11dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginRight="11dp"
+        android:layout_marginBottom="16dp"
+        android:text="Add Item to Cart" />
+
+    <TextView
+        android:id="@+id/textView89"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/dark_green"
+        android:fontFamily="sans-serif-light"
+        android:textSize="18dp"
+        android:layout_marginRight="11dp"
+        android:layout_marginLeft="11dp"
+        android:layout_marginBottom="9dp"
+        android:text="You have selected the following meal:" />
+
+    <TextView
+        android:id="@+id/txtMealName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/dark_purple"
+        android:fontFamily="sans-serif-light"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:layout_marginRight="11dp"
+        android:layout_marginLeft="11dp"
+        android:layout_marginBottom="30dp"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/textView90"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/dark_green"
+        android:fontFamily="sans-serif-light"
+        android:textSize="18dp"
+        android:layout_marginRight="11dp"
+        android:layout_marginLeft="11dp"
+        android:layout_marginBottom="9dp"
+        android:text="Please select your desired serving size:" />
+
+    <Spinner
+        android:id="@+id/spinnerServingSize"
+        android:layout_width="match_parent"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_height="wrap_content"
+        android:spinnerMode="dropdown"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:background="@android:drawable/btn_dropdown"
+        android:textSize="15dp"/>
+
+    <TextView
+        android:id="@+id/NotePrices"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/error_red"
+        android:fontFamily="sans-serif-light"
+        android:textSize="15dp"
+        android:gravity="center_horizontal"
+        android:layout_marginRight="11dp"
+        android:layout_marginLeft="11dp"
+        android:layout_marginBottom="30dp"
+        android:text="Prices:\n* 2 Servings - R345\n* 4 Servings - R495\n* 6 Servings - R645 " />
+
+    <TextView
+        android:id="@+id/textView91"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/dark_green"
+        android:fontFamily="sans-serif-light"
+        android:textSize="18dp"
+        android:layout_marginRight="11dp"
+        android:layout_marginLeft="11dp"
+        android:layout_marginBottom="9dp"
+        android:text="Additional Notes (Optional) :" />
+
+    <EditText
+        android:id="@+id/et_Additional_Notes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="11dp"
+        android:layout_marginRight="11dp"
+        android:layout_marginBottom="30dp"
+        android:hint="Additional Notes"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="" />
+
+    <Button
+        android:id="@+id/btn_addMeal_toCart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layout1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="11dp"
+        android:layout_marginRight="11dp"
+        android:background="@drawable/customizations"
+        android:backgroundTint="@color/light_purple"
+        android:onClick="doAddToCustomersCart"
+        android:text="Add meal to cart"
+        android:textColor="@color/dark_purple"
+        android:textSize="18dp" />
+</LinearLayout>

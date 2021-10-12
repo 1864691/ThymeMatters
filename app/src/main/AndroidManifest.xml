@@ -1,14 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.thymematters">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.ThymeMatters">
+        <activity
+            android:name=".Analytics"
+            android:exported="true" />
+        <activity
+            android:name=".AnalyticsApplication"
+            android:exported="true"
+            tools:ignore="Instantiatable" />
+
+        <meta-data
+            android:name="com.google.android.actions"
+            android:resource="@xml/global_tracker" />
+
+        <activity
+            android:name=".PaymentMethodReport"
+            android:exported="true" />
+        <activity android:name=".Checkout" />
+        <activity android:name=".Add_Item_To_Cart" />
+        <activity android:name=".Customer_Report" />
+        <activity android:name=".Meals_Report" />
+        <activity android:name=".Sales_Report" />
+        <activity android:name=".favorites" />
+        <activity android:name=".CustomerViewOrderHistory" />
+        <activity android:name=".UserAccountDetails" />
+        <activity android:name=".AdminAccountDetails" />
+        <activity android:name=".AdminLogin" />
+        <activity android:name=".help_other" />
+        <activity android:name=".help_change_account_details" />
+        <activity android:name=".help_delivery_date" />
+        <activity android:name=".help_delivery_address" />
+        <activity android:name=".help_page" />
+        <activity android:name=".View_Reports" />
+        <activity android:name=".Edit_Menu" />
+        <activity android:name=".View_Orders" />
+        <activity android:name=".AdminRegistration" />
+        <activity android:name=".AdminHome" />
         <activity android:name=".TrackOrder" />
         <activity android:name=".Order_Confirmed" />
         <activity android:name=".PlaceOrderActivity" />
@@ -21,6 +60,10 @@
         <activity android:name=".FishActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".Register" />
+        <activity android:name=".Update_Payment_Status" />
+        <activity android:name=".Update_Delivery_Status" />
+        <activity android:name=".ViewOrderContents" />
+        <activity android:name=".ManageDeliveries" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

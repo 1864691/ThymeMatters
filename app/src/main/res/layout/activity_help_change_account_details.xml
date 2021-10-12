@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".help_change_account_details">
+
+
+    <TextView
+        android:id="@+id/txt_help3"
+        android:layout_width="252dp"
+        android:layout_height="160dp"
+        android:fontFamily="sans-serif-light"
+        android:text="1. Click on the menu button at the top right of this page\n\n2. Scroll down and select the 'view my account details' option\n\n3. Edit your details"
+        android:textAlignment="center"
+        android:textColor="@color/light_purple"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.498" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="18dp"
+        android:layout_marginTop="36dp"
+        android:text="Need to update your personal information?"
+        android:textColor="@color/light_green"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.115"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_help2" />
+
+    <TextView
+        android:id="@+id/txt_help"
+        android:layout_width="354dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:text="Below are steps you can follow to update your personal details:"
+        android:textColor="@color/dark_green"
+        android:textSize="12dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.28"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.27" />
+
+    <TextView
+        android:id="@+id/txt_help2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="cursive"
+        android:gravity="center_horizontal"
+        android:text="We are here to help"
+        android:textAlignment="center"
+        android:textColor="@color/dark_green"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.107" />
+
+
+    <TextView
+        android:id="@+id/TV_User_Account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="68dp"
+        android:text="Click here to go view your account details"
+        android:textColor="@color/dark_purple"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_help3" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="510dp"
+        android:layout_height="134dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.521"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/banner" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

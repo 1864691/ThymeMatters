@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".Checkout">
+
+    <TextView
+        android:id="@+id/txtActualPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:textColor="@color/dark_green"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="11dp"
+        android:layout_toRightOf="@+id/txtPriceLabel"
+        android:layout_below="@+id/heading"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:text="R 0" />
+
+    <TextView
+        android:id="@+id/heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="11dp"
+        android:padding="3dp"
+        android:textStyle="bold"
+        android:fontFamily="cursive"
+        android:text="Place your order here:"
+        android:background="@color/cart_item_background"
+        android:textSize="32dp"
+        android:textColor="@color/dark_green" />
+
+    <TextView
+        android:id="@+id/txtPriceLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:textColor="@color/dark_green"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="11dp"
+        android:textSize="20dp"
+        android:layout_below="@+id/heading"
+        android:text="Total Order Cost: " />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/txtPriceLabel"
+        android:layout_marginTop="10dp"
+        android:layout_above="@id/btn_Order">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:textColor="@color/dark_green"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="12dp"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:text="Select date for delivery:" />
+
+            <Button
+                android:id="@+id/date"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="11dp"
+                android:layout_marginBottom="11dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@color/light_purple"
+                android:padding="5dp"
+                android:textSize="15dp"
+                android:text="SELECT DELIVERY DATE"
+                android:textColor="@color/dark_purple" />
+
+            <TextView
+                android:id="@+id/txtPaymentMethodLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:textColor="@color/dark_green"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="12dp"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:text="Select payment method:" />
+
+            <RadioGroup
+                android:id="@+id/radGroupPaymentMethod"
+                android:layout_width="match_parent"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="11dp"
+                android:layout_height="wrap_content" >
+
+                <RadioButton
+                    android:id="@+id/radCash"
+                    android:onClick="doCashRadClicked"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:textSize="15dp"
+                    android:textColor="@color/dark_purple"
+                    android:text="Cash on delivery" />
+
+                <RadioButton
+                    android:id="@+id/radEFT"
+                    android:onClick="doEftRadClicked"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:textSize="15dp"
+                    android:textColor="@color/dark_purple"
+                    android:text="EFT" />
+
+
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/txtDeliveryAddressLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:textColor="@color/dark_green"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="12dp"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:text="Select delivery address:" />
+
+            <RadioGroup
+                android:id="@+id/radGroupDeliveryAddress"
+                android:layout_width="match_parent"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="11dp"
+                android:layout_height="wrap_content" >
+
+                <RadioButton
+                    android:id="@+id/radNormalAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:textSize="15dp"
+                    android:onClick="doHomeRadClicked"
+                    android:textColor="@color/dark_purple"
+                    android:text="Home" />
+
+                <RadioButton
+                    android:id="@+id/radDifferentSpecifiedAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:textSize="15dp"
+                    android:textColor="@color/dark_purple"
+                    android:onClick="doOtherRadClicked"
+                    android:text="Other" />
+
+
+            </RadioGroup>
+
+            <EditText
+                android:id="@+id/et_Address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView21"
+                        android:textStyle="bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-light"
+                        android:textColor="@color/dark_green"
+                        android:textSize="15dp"
+                        android:text="If you selected cash:" />
+
+                    <TextView
+                        android:id="@+id/cashNote"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-light"
+                        android:textColor="@color/dark_green"
+                        android:textSize="15dp"
+                        android:text="Kindly pay exact amount\nupon delivery." />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView22"
+                        android:textStyle="bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-light"
+                        android:textColor="@color/dark_green"
+                        android:textSize="15dp"
+                        android:text="If you selected EFT:" />
+
+                    <TextView
+                        android:id="@+id/bank"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-light"
+                        android:textColor="@color/dark_green"
+                        android:textSize="15dp"
+                        android:text="Bank: Standard Bank" />
+
+                    <TextView
+                        android:id="@+id/accNo"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-light"
+                        android:textColor="@color/dark_green"
+                        android:textSize="15dp"
+                        android:text="Account Number:" />
+
+                    <TextView
+                        android:id="@+id/branchCode"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-light"
+                        android:textColor="@color/dark_green"
+                        android:textSize="15dp"
+                        android:text="Branch Code:" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btn_Order"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="0dp"
+        android:backgroundTint="@color/light_purple"
+
+        android:onClick="doPlaceOrder"
+        android:text="ORDER"
+        android:textColor="@color/dark_purple"
+        android:textSize="20dp" />
+
+</RelativeLayout>

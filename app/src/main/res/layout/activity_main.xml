@@ -10,26 +10,7 @@
 
 
     <EditText
-        android:id="@+id/password"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:hint="Password"
-        android:inputType="textPassword"
-        android:drawableLeft="@drawable/ic_baseline_lock_24"
-        android:layout_marginRight="15dp"
-        android:layout_marginLeft="15dp"
-        android:drawablePadding="10dp"
-        android:padding="8dp"
-        android:background="@drawable/rounded_edit_text"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.419"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.56" />
-
-    <EditText
-        android:id="@+id/email"
+        android:id="@+id/TV_email"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginLeft="15dp"
@@ -42,24 +23,29 @@
         android:padding="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.526"
+        app:layout_constraintHorizontal_bias="0.551"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.459" />
+        app:layout_constraintVertical_bias="0.396" />
 
-    <Button
-        android:id="@+id/btn_Login"
-        android:layout_width="141dp"
-        android:layout_height="40dp"
-        android:text="Login"
-        android:backgroundTint="@color/dark_green"
-        android:background="@drawable/customizations"
-        android:textColor="@color/background_green"
+    <EditText
+        android:id="@+id/TV_password"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/rounded_edit_text"
+        android:drawableLeft="@drawable/ic_baseline_lock_24"
+        android:drawablePadding="10dp"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:padding="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.551"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.698" />
+        app:layout_constraintVertical_bias="0.499" />
 
     <TextView
         android:id="@+id/ForgotPasswordView"
@@ -67,13 +53,28 @@
         android:layout_height="wrap_content"
         android:text="Forgot Password?"
         android:textColor="#000000"
-        android:textSize="18sp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.925"
+        app:layout_constraintHorizontal_bias="0.94"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.62" />
+        app:layout_constraintVertical_bias="0.575" />
+
+    <Button
+        android:id="@+id/btn_Login"
+        android:layout_width="141dp"
+        android:layout_height="40dp"
+        android:background="@drawable/customizations"
+        android:backgroundTint="@color/dark_green"
+        android:onClick="doLogin"
+        android:text="Login"
+        android:textColor="@color/background_green"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.641" />
 
     <TextView
         android:id="@+id/tRegister"
@@ -82,12 +83,28 @@
         android:fontFamily="sans-serif-black"
         android:text="Not yet with us? Register here"
         android:textColor="@color/light_green"
-        android:textSize="20dp"
+        android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.765" />
+        app:layout_constraintVertical_bias="0.703" />
+
+    <TextView
+        android:id="@+id/tAdminLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:text="Login as admin"
+        android:textColor="@color/dark_green"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.754" />
 
     <TextView
         android:id="@+id/textView14"
@@ -106,20 +123,20 @@
 
     <TextView
         android:id="@+id/slogan"
-        android:layout_width="306dp"
-        android:layout_height="87dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:fontFamily="sans-serif-light"
         android:gravity="center"
-        android:text="Thyme to unleash your inner chef"
+        android:text="Thyme to unleash your inner\n chef"
         android:textColor="@color/light_green"
         android:textFontWeight="@android:integer/config_longAnimTime"
-        android:textSize="30dp"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.312" />
+        app:layout_constraintVertical_bias="0.291" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -130,7 +147,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/logo_2" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -143,6 +160,20 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/banner" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="328dp"
+        android:layout_marginBottom="584dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

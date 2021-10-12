@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "59802233426",
+    "project_id": "thymematters-403c4",
+    "storage_bucket": "thymematters-403c4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:59802233426:android:14d9db159a28639677cd8b",
+        "android_client_info": {
+          "package_name": "com.example.thymematters"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "59802233426-lqqhckge8rlh24s7hg6c5jd6mgl0j63a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3lTBFjDMXDTRF_8UcUfKUOVuxFVRaaSI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "59802233426-lqqhckge8rlh24s7hg6c5jd6mgl0j63a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
