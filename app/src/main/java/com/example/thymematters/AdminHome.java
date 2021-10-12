@@ -86,7 +86,7 @@ public class AdminHome extends AppCompatActivity {
 
             case R.id.View_Admin_Account:
                 startActivity(new Intent(AdminHome.this, AdminAccountDetails.class));
-                finish();
+                 finish();
                 return true;
 
         }
