@@ -38,12 +38,3 @@ jobs:
       - name: Checkout the code
         uses: actions/checkout@v2
 
-      - name: Instrumentation Tests
-        uses: reactivecircus/android-emulator-runner@v2
-        with:
-          api-level: ${{ matrix.api-level }}
-          target: ${{ matrix.target }}
-          arch: x86
-          profile: Nexus 6
-          script: ./gradlew connectedCheck --stacktrac
-
