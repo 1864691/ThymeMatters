@@ -8,6 +8,11 @@ android {
         abortOnError false
     }
 
+    testOptions {
+        animationsDisabled = true
+
+    }
+
     defaultConfig {
         applicationId "com.example.thymematters"
         minSdkVersion 23
@@ -16,6 +21,7 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
     }
 
     buildTypes {
@@ -84,5 +90,15 @@ dependencies {
     //For Google Analytics
     implementation 'com.google.android.gms:play-services-analytics:17.0.1'
     implementation 'com.google.firebase:firebase-analytics:17.4.1'
+
+    //Unit testing
+    androidTestImplementation 'com.android.support.test:rules:1.0.2'
+
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    androidTestImplementation 'androidx.test:runner:1.4.0'
+    androidTestImplementation 'androidx.test:rules:1.4.0'
+    androidTestImplementation 'com.21buttons:fragment-test-rule:2.0.1'
+    debugImplementation 'com.21buttons:fragment-test-rule-extras:2.0.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.4.0'
 
 }
