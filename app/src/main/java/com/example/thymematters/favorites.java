@@ -90,7 +90,7 @@ public class favorites extends AppCompatActivity {
                             //Process Response Here:
                             try{
                                 if(myResponse.equals("no_favourites_items")){
-                                    Toast.makeText(favorites.this,"Nothing favourited",Toast.LENGTH_LONG).show();
+                                    Toast.makeText(favorites.this,"You have not Added any meal as a Favourite",Toast.LENGTH_LONG).show();
                                 }
                                 else{
                                     JSON_favourites_output(myResponse);
@@ -141,9 +141,12 @@ public class favorites extends AppCompatActivity {
                 return true;
 
             case R.id.favorites:
-                startActivity(new Intent(favorites.this, favorites.class));
+                // Need to pass customer unique id to favourites activity
+                Intent fav = new Intent(favorites.this,favorites.class);
+                //Pass data to customer home screen:
+                fav.putExtra("CUST_ID",CustID_FromIntent);
                 finish();
-                return true;
+                startActivity(fav);
         }
         return false;
     }
