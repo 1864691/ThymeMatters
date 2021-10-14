@@ -3,6 +3,7 @@ package com.example.thymematters;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -10,8 +11,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -136,8 +139,10 @@ public class SoupActivity extends AppCompatActivity {
                 return true;
 
             case R.id.Order_History:
-                startActivity(new Intent(SoupActivity.this, CartActivity.class));
+                Intent order_history = new Intent(SoupActivity.this,CustomerViewOrderHistory.class);
+                order_history.putExtra("CUST_ID",CustID_FromIntent);
                 finish();
+                startActivity(order_history);
                 return true;
 
             case R.id.help:
@@ -146,8 +151,12 @@ public class SoupActivity extends AppCompatActivity {
                 return true;
 
             case R.id.favorites:
-                startActivity(new Intent(SoupActivity.this, favorites.class));
-                finish();
+                // Need to pass customer unique id to favourites activity
+                Intent fav = new Intent(SoupActivity.this,favorites.class);
+                //Pass data to customer home screen:
+                fav.putExtra("CUST_ID",CustID_FromIntent);
+                startActivity(fav);
+
                 return true;
 
             case R.id.cart:
@@ -218,7 +227,28 @@ public class SoupActivity extends AppCompatActivity {
                 }
             });
 
+            Button favButton = new Button(this);
+            favButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    //Add this particular meal to favourites for this particular customer
+                    addMealToFavorites(CustID_FromIntent,MEAL_ID, MEAL_NAME);
+                }
+            });
+            favButton.setText("Add "+MEAL_NAME+" to favourites");
+            favButton.setBackgroundResource(R.color.cart_item_background);
+            RelativeLayout.LayoutParams button_params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            favButton.setLayoutParams(button_params);
+            RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(PIC_OF_FOOD_ITEM.getLayoutParams());
+            lp.setMargins(0, dpToPx(40,this), 0, 0);
+            PIC_OF_FOOD_ITEM.setLayoutParams(lp);
+
+
+            favButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_baseline_favorite_24, 0, 0, 0);
+
+
             MAIN_LAYOUT.addView(PIC_OF_FOOD_ITEM);
+            MAIN_LAYOUT.addView(favButton);
         }
 
         long delayInMillis = 4000;
@@ -230,6 +260,77 @@ public class SoupActivity extends AppCompatActivity {
             }
         }, delayInMillis);
 
+
+    }
+
+    public static int dpToPx(int dp, Context context) {
+        float density = context.getResources().getDisplayMetrics().density;
+        return Math.round((float) dp * density);
+    }
+
+    public void addMealToFavorites(String Customer_ID, String Meal_ID, String meal_name){
+
+        //Now we send request to insert favourite:
+        //Send network request to 000webhost for insertion of favourite entry.
+        //Define URL:
+        HttpUrl.Builder urlBuilder = HttpUrl.parse("https://thymematters.000webhostapp.com/CUSTOMER_FAVOURITES/ADD_MEAL_AS_FAVOURITE.php").newBuilder();
+
+        //If you want to add query parameters:
+        urlBuilder.addQueryParameter("cust_id", Customer_ID);
+        urlBuilder.addQueryParameter("meal_id", Meal_ID);
+
+        String url = urlBuilder.build().toString();
+
+        //Check if network is available: https://stackoverflow.com/questions/4238921/detect-whether-there-is-an-internet-connection-available-on-android
+        boolean networkAvailable = isNetworkAvailable();
+        if(!networkAvailable){ StyleableToast.makeText(SoupActivity.this, "No Internet Connection", Toast.LENGTH_LONG, R.style.noInternet).show(); return;}
+
+        //Send Request
+
+        //Initialise progree bar: https://stackoverflow.com/questions/15083226/waiting-progress-bar-in-android
+        //Progress Bar Functions: https://www.journaldev.com/9652/android-progressdialog-example
+        final ProgressDialog progressDialog = ProgressDialog.show(this, "Adding "+meal_name+ " to favourites", "Please wait...");
+
+        OkHttpClient client = new OkHttpClient();
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse( Call call,  Response response) throws IOException {
+                if (response.isSuccessful()){
+                    final String myResponse = response.body().string();
+
+                    SoupActivity.this.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+
+
+                            progressDialog.dismiss();
+
+                            if(myResponse.equals("inserted")){
+                                StyleableToast.makeText(SoupActivity.this, "Added to Favourites", Toast.LENGTH_LONG, R.style.favourite).show();
+                            }
+                            else if(myResponse.equals("Already favourited")){
+                                StyleableToast.makeText(SoupActivity.this, "You have already added this item as a Favourite", Toast.LENGTH_LONG, R.style.invalidLogin).show();
+                            }
+                            else{
+                                StyleableToast.makeText(SoupActivity.this, "Something went wrong", Toast.LENGTH_LONG, R.style.invalidLogin).show();
+                            }
+
+
+                        }
+                    });
+                }
+
+            }
+        });
 
     }
 }

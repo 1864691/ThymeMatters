@@ -1,10 +1,14 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.ThymeMatters" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="Theme.ThymeMatters" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
+        <item name="colorPrimary">@color/light_green</item>
         <item name="colorPrimaryDark">@color/dark_green</item>
-        <item name="colorAccent">@color/dark_purple</item>
+        <item name="colorAccent">@color/green</item>
+        <item name="android:colorBackground">@color/white</item>
+        <item name="colorButtonNormal">@color/light_green</item>
+        <item name="colorError">@color/error_red</item>
+        <item name="android:textColor">@color/black</item>
         <!-- Customize your theme here. -->
     </style>
 </resources>

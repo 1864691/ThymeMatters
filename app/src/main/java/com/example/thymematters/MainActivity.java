@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
         //user gets logged in and data gets saved
         //Send network request to 000webhost for login of customer:
         //Define URL:
-        HttpUrl.Builder urlBuilder = HttpUrl.parse("https://thymematters.000webhostapp.com/LOGIN/CUSTOMER_LOGIN.php").newBuilder();
+        HttpUrl.Builder urlBuilder = HttpUrl.parse("https://thymematters.000webhostapp.com/LOGIN/tmp_cust_login.php").newBuilder();
 
         //If you want to add query parameters:
         urlBuilder.addQueryParameter("email",Email);

@@ -231,8 +231,10 @@ public class CustomerViewOrderHistory extends AppCompatActivity {
                 return true;
 
             case R.id.Order_History:
-                startActivity(new Intent(CustomerViewOrderHistory.this, CartActivity.class));
+                Intent order_history = new Intent(CustomerViewOrderHistory.this,CustomerViewOrderHistory.class);
+                order_history.putExtra("CUST_ID",CustID_FromIntent);
                 finish();
+                startActivity(order_history);
                 return true;
 
             case R.id.help:
@@ -241,8 +243,22 @@ public class CustomerViewOrderHistory extends AppCompatActivity {
                 return true;
 
             case R.id.favorites:
-                startActivity(new Intent(CustomerViewOrderHistory.this, favorites.class));
+                // Need to pass customer unique id to favourites activity
+                Intent fav = new Intent(CustomerViewOrderHistory.this,favorites.class);
+                //Pass data to customer home screen:
+                fav.putExtra("CUST_ID",CustID_FromIntent);
                 finish();
+                startActivity(fav);
+
+                return true;
+
+            case R.id.cart:
+                Intent goToCart = new Intent(CustomerViewOrderHistory.this,CartActivity.class);
+                goToCart.putExtra("CUST_ID",CustID_FromIntent);
+                finish();
+                startActivity(goToCart);
+
+
                 return true;
         }
         return false;
