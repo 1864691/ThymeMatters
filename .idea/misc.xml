@@ -3,8 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Rusheel/StudioProjects/ThymeMatters/app/src/main/res/layout/activity_home.xml" value="0.1" />
+        <entry key="..\:/Users/Rusheel/StudioProjects/ThymeMatters/app/src/main/res/layout/activity_add_item_to_cart.xml" value="0.25" />
+        <entry key="..\:/Users/Rusheel/StudioProjects/ThymeMatters/app/src/main/res/layout/activity_cart.xml" value="0.21" />
+        <entry key="..\:/Users/Rusheel/StudioProjects/ThymeMatters/app/src/main/res/layout/activity_customer_view_order_history.xml" value="0.11354166666666667" />
+        <entry key="..\:/Users/Rusheel/StudioProjects/ThymeMatters/app/src/main/res/layout/activity_dessert.xml" value="0.11354166666666667" />
+        <entry key="..\:/Users/Rusheel/StudioProjects/ThymeMatters/app/src/main/res/layout/activity_favorites.xml" value="0.11354166666666667" />
+        <entry key="..\:/Users/Rusheel/StudioProjects/ThymeMatters/app/src/main/res/layout/activity_fish.xml" value="0.6444662095984329" />
+        <entry key="..\:/Users/Rusheel/StudioProjects/ThymeMatters/app/src/main/res/layout/activity_help_delivery_address.xml" value="0.33" />
+        <entry key="..\:/Users/Rusheel/StudioProjects/ThymeMatters/app/src/main/res/layout/activity_help_page.xml" value="0.21" />
+        <entry key="..\:/Users/Rusheel/StudioProjects/ThymeMatters/app/src/main/res/layout/activity_home.xml" value="0.25" />
         <entry key="..\:/Users/Rusheel/StudioProjects/ThymeMatters/app/src/main/res/layout/activity_main.xml" value="0.209375" />
+        <entry key="..\:/Users/Rusheel/StudioProjects/ThymeMatters/app/src/main/res/layout/activity_meat.xml" value="0.17239583333333333" />
+        <entry key="..\:/Users/Rusheel/StudioProjects/ThymeMatters/app/src/main/res/layout/activity_soup.xml" value="0.209375" />
+        <entry key="..\:/Users/Rusheel/StudioProjects/ThymeMatters/app/src/main/res/layout/activity_user_account_details.xml" value="0.21" />
+        <entry key="..\:/Users/Rusheel/StudioProjects/ThymeMatters/app/src/main/res/layout/activity_view_reports.xml" value="0.1484375" />
         <entry key="app/src/main/res/layout/activity_admin_login.xml" value="0.26458333333333334" />
         <entry key="app/src/main/res/layout/activity_admin_registration.xml" value="0.26458333333333334" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.26458333333333334" />

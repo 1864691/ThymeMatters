@@ -42,6 +42,10 @@ public class MainActivityTest {
     @Test
     public void uiItems() throws Exception{
         onView(withId(R.id.TV_email)).check(matches((isDisplayed())));
+        onView(withId(R.id.TV_password)).check(matches((isDisplayed())));
+        onView(withId(R.id.btn_Login)).check(matches((isDisplayed())));
+        onView(withId(R.id.tRegister)).check(matches((isDisplayed())));
+        onView(withId(R.id.tAdminLogin)).check(matches((isDisplayed())));
     }
 
     @After
