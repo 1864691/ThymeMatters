@@ -9,13 +9,13 @@ public class SharedPrefManager {
 
     //the constants
     private static final String SHARED_PREF_NAME = "sharedpreference";
-    private static final String KEY_USER_ID = "user_id";
+    private static final String KEY_USER_ID = "customer_id";
     private static final String KEY_ORDER_ID = "order_id";
-    private static final String KEY_FNAME = "fname";
-    private static final String KEY_LNAME = "lname";
+    private static final String KEY_FNAME = "first_name";
+    private static final String KEY_LNAME = "last_name";
     private static final String KEY_EMAIL = "email";
     private static final String KEY_PHONE = "phone";
-    private static final String KEY_ADDRESS = "address";
+    private static final String KEY_ADDRESS = "del_address";
 
     private static final String KEY_ADMIN_ID = "admin_id";
     private static final String KEY_ADMIN_FNAME = "admin_fname";
@@ -64,7 +64,11 @@ public class SharedPrefManager {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putInt(KEY_USER_ID, user.getUserId());
+        editor.putString(KEY_FNAME, user.getFName());
+        editor.putString(KEY_LNAME, user.getLName());
+        editor.putString(KEY_ADDRESS, user.getAddress());
         editor.putString(KEY_EMAIL, user.getEmail_Address());
+        editor.putString(KEY_PHONE, user.getContact_Number());
         editor.apply();
     }
 

@@ -89,8 +89,6 @@ public class Checkout extends AppCompatActivity {
 
         //Send Request
 
-        //Initialise progree bar: https://stackoverflow.com/questions/15083226/waiting-progress-bar-in-android
-        //Progress Bar Functions: https://www.journaldev.com/9652/android-progressdialog-example
         final ProgressDialog progressDialog = ProgressDialog.show(this, "Loading", "Please wait...");
 
         OkHttpClient client = new OkHttpClient();

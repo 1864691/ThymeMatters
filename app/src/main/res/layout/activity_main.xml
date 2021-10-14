@@ -67,7 +67,6 @@
         android:layout_height="40dp"
         android:background="@drawable/customizations"
         android:backgroundTint="@color/dark_green"
-        android:onClick="doLogin"
         android:text="Login"
         android:textColor="@color/background_green"
         app:layout_constraintBottom_toBottomOf="parent"

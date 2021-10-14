@@ -13,6 +13,7 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.ThymeMatters">
+        <activity android:name=".ChangeUserPassword"></activity>
         <activity
             android:name=".Analytics"
             android:exported="true" />

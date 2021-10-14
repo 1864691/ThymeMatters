@@ -14,7 +14,6 @@
         android:background="@drawable/customizations"
         android:backgroundTint="@color/dark_green"
         android:text="Register"
-        android:onClick="doClickRegister"
         android:textColor="@color/background_green"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
