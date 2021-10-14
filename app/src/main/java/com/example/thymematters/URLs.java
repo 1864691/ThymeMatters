@@ -1,8 +1,10 @@
 package com.example.thymematters;
 
 public class URLs {
-    public static final String URL_REGISTER = "https://thymematters.000webhostapp.com/ThymeMattersApi.php?apicall=signup";
-    public static final String URL_LOGIN = "https://thymematters.000webhostapp.com/ThymeMattersApi.php?apicall=login";
+    public static final String URL_REGISTER = "https://thymematters.000webhostapp.com/API.php?apicall=register";
+    public static final String URL_LOGIN = "https://thymematters.000webhostapp.com/API.php?apicall=login";
+    public static final String URL_UPDATE = "https://thymematters.000webhostapp.com/API.php?apicall=update";
+
     //make php file for check in
     public static final String URL_USER = " ";
 

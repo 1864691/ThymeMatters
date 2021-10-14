@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.text.method.HideReturnsTransformationMethod;
@@ -16,11 +17,16 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
+import java.util.HashMap;
 
 import io.github.muddz.styleabletoast.StyleableToast;
 import okhttp3.Call;
@@ -35,7 +41,7 @@ public class Register extends AppCompatActivity {
     EditText FName, LName, Delivery_Address, Email, Phone, Password, ConfirmPassword;
     CheckBox Show_Password;
     Button btn_Register, btn_return;
-
+    int CUSTOMER_ID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +62,14 @@ public class Register extends AppCompatActivity {
         ConfirmPassword = (EditText) findViewById(R.id.et_ConfirmPassword);
         Show_Password = (CheckBox) findViewById(R.id.checkBoxPwd);
 
+        findViewById(R.id.btn_Register).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //if user pressed on button register
+                //here we will register the user to server
+                registerUser();
+            }
+        });
 
         //Set show password checkbox to make passwords visible if clicked and hidden if clicked again:
         Show_Password.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -72,14 +86,9 @@ public class Register extends AppCompatActivity {
                 }
             }
         });
-
-
-
-
-
     }
 
-    public void doClickRegister(View v){
+    private void registerUser() {
         final String FNAME = FName.getText().toString();
         final String LNAME = LName.getText().toString();
         final String EMAIL = Email.getText().toString();
@@ -130,7 +139,7 @@ public class Register extends AppCompatActivity {
             ConfirmPassword.requestFocus();
             return;
         }
-        if(!TextUtils.equals(CONFIRM_PASSWORD, PASSWORD)){
+        if (!TextUtils.equals(CONFIRM_PASSWORD, PASSWORD)) {
             //Passwords dont match:
             Password.setError("Passwords do not match");
             Password.requestFocus();
@@ -140,105 +149,98 @@ public class Register extends AppCompatActivity {
         //if it passes all the validations
         //Send network request to 000webhost for insertion of new user (Customer)
         //Define URL:
-        HttpUrl.Builder urlBuilder = HttpUrl.parse("https://thymematters.000webhostapp.com/REGISTER/CUSTOMER_REGISTER.php").newBuilder();
+        class RegisterUser extends AsyncTask<Void, Void, String> {
 
-        //If you want to add query parameters:
-        urlBuilder.addQueryParameter("first_name", FNAME);
-        urlBuilder.addQueryParameter("last_name", LNAME);
-        urlBuilder.addQueryParameter("del_address", DELIVERY_ADDRESS);
-        urlBuilder.addQueryParameter("email", EMAIL);
-        urlBuilder.addQueryParameter("cust_contact_no", PHONE);
-        urlBuilder.addQueryParameter("cust_password", PASSWORD);
+            private ProgressBar progressBar;
 
-        String url = urlBuilder.build().toString();
-
-        //Check if network is available: https://stackoverflow.com/questions/4238921/detect-whether-there-is-an-internet-connection-available-on-android
-        boolean networkAvailable = isNetworkAvailable();
-        if(!networkAvailable){ StyleableToast.makeText(Register.this, "No Internet Connection", Toast.LENGTH_LONG, R.style.noInternet).show(); return;}
-
-        //Send Request
-
-        //Initialise progree bar: https://stackoverflow.com/questions/15083226/waiting-progress-bar-in-android
-        //Progress Bar Functions: https://www.journaldev.com/9652/android-progressdialog-example
-        final ProgressDialog progressDialog = ProgressDialog.show(this, "Registering", "Please wait...");
-
-
-        OkHttpClient client = new OkHttpClient();
-        Request request = new Request.Builder()
-                .url(url)
-                .build();
-
-        client.newCall(request).enqueue(new Callback() {
             @Override
-            public void onFailure(Call call, IOException e) {
-                e.printStackTrace();
+            protected String doInBackground(Void... voids) {
+                //creating request handler object
+                RequestHandler requestHandler = new RequestHandler();
+
+                //creating request parameters
+                HashMap<String, String> params = new HashMap<>();
+                params.put("first_name", FNAME);
+                params.put("last_name", LNAME);
+                params.put("del_address", DELIVERY_ADDRESS);
+                params.put("email", EMAIL);
+                params.put("cust_contact_no", PHONE);
+                params.put("password", PASSWORD);
+
+
+                //returning the response
+                return requestHandler.sendPostRequest(URLs.URL_REGISTER, params);
             }
 
             @Override
-            public void onResponse( Call call,  Response response) throws IOException {
-                if (response.isSuccessful()){
-                    final String myResponse = response.body().string();
+            protected void onPreExecute() {
+                super.onPreExecute();
+                //displaying the progress bar while user registers on the server
+                progressBar = (ProgressBar) findViewById(R.id.progressBar);
+                progressBar.setVisibility(View.VISIBLE);
+            }
 
-                    Register.this.runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
+            @Override
+            protected void onPostExecute(String s) {
+                super.onPostExecute(s);
+                //hiding the progressbar after completion
+                progressBar.setVisibility(View.GONE);
 
-                            //Process Response Here:
-
-                            //If reponse is "Email not available", toast to say not available:
-                            if(myResponse.equals("Email not available")){
-                                progressDialog.dismiss();
-                                StyleableToast.makeText(Register.this, "This Email is Already in Use", Toast.LENGTH_LONG, R.style.invalidLogin).show();
-                                Email.setError("This Email is already in use");
-                                Email.requestFocus();
-                            }
-
-                            //Else the response will say "Registration Success", user is added
-                            else{
-                                progressDialog.dismiss();
-                                StyleableToast.makeText(Register.this, "Registration Successful", Toast.LENGTH_LONG, R.style.success).show();
-                                new AlertDialog.Builder(Register.this,R.style.AlertDialogTheme)
-                                        .setTitle("Registered")
-                                        .setMessage("You have successfully registered as a new customer. You may now sign in.")
-                                        .setCancelable(false)
-
-                                        //.setNegativeButton("NO",null)
-                                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-
-                                            public void onClick(DialogInterface arg0, int arg1) {
-                                                //customer_home_screen.super.onBackPressed();
-                                                Intent back_to_login = new Intent(Register.this,MainActivity.class);
-                                                startActivity(back_to_login); finish();
-                                            }
-                                        }).create().show();
-                            }
+                try {
+                    //converting response to json object
+                    JSONObject obj = new JSONObject(s);
 
 
+                    //if no error in response
+                    if (!obj.getBoolean("error")) {
+                        Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
 
-                        }
-                    });
+                        //getting the user from the response
+                        JSONObject userJson = obj.getJSONObject("user");
+
+                        //creating a new user object
+                        User user = new User(
+                                userJson.getInt("customer_id"),
+                                userJson.getString("first_name"),
+                                userJson.getString("last_name"),
+                                userJson.getString("del_address"),
+                                userJson.getString("email"),
+                                userJson.getString("cust_contact_no")
+                        );
+
+                        //storing the user in shared preferences
+                        SharedPrefManager.getInstance(getApplicationContext()).userLogin(user);
+
+                        //starting the profile activity (when register button is clicked)
+                        finish();
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Some error occurred", Toast.LENGTH_SHORT).show();
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
-
             }
-        });
-
-    }
-    public void doReturn_to_Login(View v){
-        Intent backToLogin = new Intent(Register.this,MainActivity.class);
-        finish();
-        startActivity(backToLogin);
-
+        }
+        //executing the async task
+        RegisterUser ru = new RegisterUser();
+        ru.execute();
     }
 
+        public void doReturn_to_Login(View v){
+            Intent backToLogin = new Intent(Register.this, MainActivity.class);
+            finish();
+            startActivity(backToLogin);
 
+        }
 
-    private boolean isNetworkAvailable() {
+    private boolean isNetworkAvailable(){
         ConnectivityManager connectivityManager
                 = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
-
 }
 
 

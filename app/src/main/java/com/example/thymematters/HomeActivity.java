@@ -21,8 +21,7 @@ public class HomeActivity extends AppCompatActivity {
     TextView Meat;
     TextView Vegetarian;
     TextView Dessert;
-    String CustID_FromIntent;
-
+    String customer_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,11 +29,8 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         //Initially retrieve customer unique id from intent:
-        CustID_FromIntent = fetchCustID();
-        Toast.makeText(this,CustID_FromIntent, Toast.LENGTH_LONG).show();
-
-
-
+        customer_id = fetchCustID();
+        Toast.makeText(this,customer_id, Toast.LENGTH_LONG).show();
 
 
         Soup = findViewById(R.id.soup);
@@ -47,7 +43,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent fish = new Intent(HomeActivity.this,FishActivity.class);
-                fish.putExtra("CUST_ID",CustID_FromIntent);
+                fish.putExtra("CUST_ID",customer_id);
                 startActivity(fish);
 
             }
@@ -57,7 +53,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent meat = new Intent(HomeActivity.this,MeatActivity.class);
-                meat.putExtra("CUST_ID",CustID_FromIntent);
+                meat.putExtra("CUST_ID",customer_id);
                 startActivity(meat);
 
             }
@@ -67,7 +63,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent soup = new Intent(HomeActivity.this,SoupActivity.class);
-                soup.putExtra("CUST_ID",CustID_FromIntent);
+                soup.putExtra("CUST_ID",customer_id);
                 startActivity(soup);
 
             }
@@ -77,7 +73,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent vegetarian = new Intent(HomeActivity.this,VegetarianActivity.class);
-                vegetarian.putExtra("CUST_ID",CustID_FromIntent);
+                vegetarian.putExtra("CUST_ID",customer_id);
                 startActivity(vegetarian);
 
             }
@@ -87,7 +83,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent dessert = new Intent(HomeActivity.this,DessertActivity.class);
-                dessert.putExtra("CUST_ID",CustID_FromIntent);
+                dessert.putExtra("CUST_ID",customer_id);
                 startActivity(dessert);
             }
         });
@@ -121,7 +117,7 @@ public class HomeActivity extends AppCompatActivity {
             case R.id.Order_History:
 
                 Intent order_history = new Intent(HomeActivity.this,CustomerViewOrderHistory.class);
-                order_history.putExtra("CUST_ID",CustID_FromIntent);
+                order_history.putExtra("CUST_ID",customer_id);
                 startActivity(order_history);
                 return true;
 
@@ -137,7 +133,7 @@ public class HomeActivity extends AppCompatActivity {
 
             case R.id.cart:
                 Intent goToCart = new Intent(HomeActivity.this,CartActivity.class);
-                goToCart.putExtra("CUST_ID",CustID_FromIntent);
+                goToCart.putExtra("CUST_ID",customer_id);
                 startActivity(goToCart);
 
 
@@ -149,8 +145,8 @@ public class HomeActivity extends AppCompatActivity {
     //Initially, this method is called upon opening this acity to rtrieve customers unique id from intent
     public String fetchCustID(){
 
-        Intent getIntent = getIntent();
-        String custID = getIntent.getStringExtra("CUST_ID");
+        User user = SharedPrefManager.getInstance(this).getUser();
+        String custID = String.valueOf(user.getUserId());
         return custID;
     }
 
