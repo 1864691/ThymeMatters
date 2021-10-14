@@ -129,8 +129,10 @@ public class DessertActivity extends AppCompatActivity {
                 return true;
 
             case R.id.Order_History:
-                startActivity(new Intent(DessertActivity.this, CartActivity.class));
+                Intent order_history = new Intent(DessertActivity.this,CustomerViewOrderHistory.class);
+                order_history.putExtra("CUST_ID",CustID_FromIntent);
                 finish();
+                startActivity(order_history);
                 return true;
 
             case R.id.help:

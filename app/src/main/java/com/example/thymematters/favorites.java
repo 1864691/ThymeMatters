@@ -147,6 +147,14 @@ public class favorites extends AppCompatActivity {
                 fav.putExtra("CUST_ID",CustID_FromIntent);
                 finish();
                 startActivity(fav);
+
+            case R.id.cart:
+                Intent goToCart = new Intent(favorites.this,CartActivity.class);
+                goToCart.putExtra("CUST_ID",CustID_FromIntent);
+                startActivity(goToCart);
+
+
+                return true;
         }
         return false;
     }

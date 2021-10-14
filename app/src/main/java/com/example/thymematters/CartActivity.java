@@ -199,8 +199,10 @@ public class CartActivity extends AppCompatActivity {
                 return true;
 
             case R.id.Order_History:
-                startActivity(new Intent(CartActivity.this, CartActivity.class));
+                Intent order_history = new Intent(CartActivity.this,CustomerViewOrderHistory.class);
+                order_history.putExtra("CUST_ID",CustID_FromIntent);
                 finish();
+                startActivity(order_history);
                 return true;
 
             case R.id.help:
@@ -213,6 +215,7 @@ public class CartActivity extends AppCompatActivity {
                 Intent fav = new Intent(CartActivity.this,favorites.class);
                 //Pass data to customer home screen:
                 fav.putExtra("CUST_ID",CustID_FromIntent);
+                finish();
                 startActivity(fav);
         }
         return false;

@@ -139,8 +139,10 @@ public class SoupActivity extends AppCompatActivity {
                 return true;
 
             case R.id.Order_History:
-                startActivity(new Intent(SoupActivity.this, CartActivity.class));
+                Intent order_history = new Intent(SoupActivity.this,CustomerViewOrderHistory.class);
+                order_history.putExtra("CUST_ID",CustID_FromIntent);
                 finish();
+                startActivity(order_history);
                 return true;
 
             case R.id.help:

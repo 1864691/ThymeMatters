@@ -131,8 +131,10 @@ public class MeatActivity extends AppCompatActivity {
                 return true;
 
             case R.id.Order_History:
-                startActivity(new Intent(MeatActivity.this, CartActivity.class));
+                Intent order_history = new Intent(MeatActivity.this,CustomerViewOrderHistory.class);
+                order_history.putExtra("CUST_ID",CustID_FromIntent);
                 finish();
+                startActivity(order_history);
                 return true;
 
             case R.id.help:
