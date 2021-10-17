@@ -194,8 +194,11 @@ public class CartActivity extends AppCompatActivity {
                 return true;
 
             case R.id.View_Account://create account page
-                startActivity(new Intent(CartActivity.this, UserAccountDetails.class));
-                finish();
+                Intent user_acc = new Intent(CartActivity.this,UserAccountDetails.class);
+
+                user_acc.putExtra("CUST_ID",CustID_FromIntent);
+
+                startActivity(user_acc); finish();
                 return true;
 
             case R.id.Order_History:
@@ -217,6 +220,15 @@ public class CartActivity extends AppCompatActivity {
                 fav.putExtra("CUST_ID",CustID_FromIntent);
                 finish();
                 startActivity(fav);
+
+            case R.id.cart:
+                Intent goToCart = new Intent(CartActivity.this,CartActivity.class);
+                goToCart.putExtra("CUST_ID",CustID_FromIntent);
+                finish();
+                startActivity(goToCart);
+
+
+                return true;
         }
         return false;
     }
@@ -397,6 +409,7 @@ public class CartActivity extends AppCompatActivity {
         check_out.putExtra("CUST_ID",CustID_FromIntent);
         check_out.putExtra("TOTALPRICE",Integer.toString(TOTALPRICE));
         startActivity(check_out);
+        finish();
 
 
 

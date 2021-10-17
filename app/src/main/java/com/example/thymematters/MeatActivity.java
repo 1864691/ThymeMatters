@@ -126,8 +126,11 @@ public class MeatActivity extends AppCompatActivity {
                 return true;
 
             case R.id.View_Account://create account page
-                startActivity(new Intent(MeatActivity.this, UserAccountDetails.class));
-                finish();
+                Intent user_acc = new Intent(MeatActivity.this,UserAccountDetails.class);
+
+                user_acc.putExtra("CUST_ID",CustID_FromIntent);
+
+                startActivity(user_acc); finish();
                 return true;
 
             case R.id.Order_History:

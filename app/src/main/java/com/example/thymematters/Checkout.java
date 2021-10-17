@@ -355,13 +355,18 @@ public class Checkout extends AppCompatActivity {
                 return true;
 
             case R.id.View_Account://create account page
-                startActivity(new Intent(Checkout.this, UserAccountDetails.class));
-                finish();
+                Intent user_acc = new Intent(Checkout.this,UserAccountDetails.class);
+
+                user_acc.putExtra("CUST_ID",CustID_FromIntent);
+
+                startActivity(user_acc); finish();
                 return true;
 
             case R.id.Order_History:
-                startActivity(new Intent(Checkout.this, CartActivity.class));
+                Intent order_history = new Intent(Checkout.this,CustomerViewOrderHistory.class);
+                order_history.putExtra("CUST_ID",CustID_FromIntent);
                 finish();
+                startActivity(order_history);
                 return true;
 
             case R.id.help:
@@ -370,9 +375,24 @@ public class Checkout extends AppCompatActivity {
                 return true;
 
             case R.id.favorites:
-                startActivity(new Intent(Checkout.this, favorites.class));
+                // Need to pass customer unique id to favourites activity
+                Intent fav = new Intent(Checkout.this,favorites.class);
+                //Pass data to customer home screen:
+                fav.putExtra("CUST_ID",CustID_FromIntent);
                 finish();
+                startActivity(fav);
+
                 return true;
+
+            case R.id.cart:
+                Intent goToCart = new Intent(Checkout.this,CartActivity.class);
+                goToCart.putExtra("CUST_ID",CustID_FromIntent);
+                finish();
+                startActivity(goToCart);
+
+
+                return true;
+
         }
         return false;
     }

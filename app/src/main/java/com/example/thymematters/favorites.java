@@ -126,13 +126,19 @@ public class favorites extends AppCompatActivity {
                 return true;
 
             case R.id.View_Account://create account page
-                startActivity(new Intent(favorites.this, UserAccountDetails.class));
-                finish();
+                Intent user_acc = new Intent(favorites.this,UserAccountDetails.class);
+
+                user_acc.putExtra("CUST_ID",CustID_FromIntent);
+
+                startActivity(user_acc); finish();
                 return true;
 
             case R.id.Order_History:
-                startActivity(new Intent(favorites.this, CartActivity.class));
-                finish();
+                Intent orderHist = new Intent(favorites.this,CustomerViewOrderHistory.class);
+
+                orderHist.putExtra("CUST_ID",CustID_FromIntent);
+
+                startActivity(orderHist); finish();
                 return true;
 
             case R.id.help:
