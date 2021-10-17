@@ -44,9 +44,7 @@ public class UserAccountDetails extends AppCompatActivity {
     EditText FName, LName, Delivery_Address, Email, Phone, Password, ConfirmPassword;
     Button btn_UpdateDetails, btn_Cancel, btnChangePassword;
 
-
-    String CustID_FromIntent;
-    String Fname, Lname, DeliveryAddress, Email_Address, Contact_No;
+    String Customer_id;
 
 
     @Override
@@ -65,7 +63,7 @@ public class UserAccountDetails extends AppCompatActivity {
         btnChangePassword = findViewById(R.id.btn_ChangePassword);
 
         User user = SharedPrefManager.getInstance(this).getUser();
-
+        Customer_id = fetchCustID(); //this should be used to access the user and update their details
         FName.setText(String.valueOf(user.getFName()));
         LName.setText(String.valueOf(user.getLName()));
         Delivery_Address.setText(String.valueOf(user.getAddress()));
@@ -104,13 +102,22 @@ public class UserAccountDetails extends AppCompatActivity {
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
+    public String fetchCustID(){
+
+        User user = SharedPrefManager.getInstance(this).getUser();
+        Customer_id = String.valueOf(user.getUserId());
+        return Customer_id;
+    }
+
     //updating the details
-    private void UpdateDetails(){
+    private void UpdateDetails() {
         final String FNAME = FName.getText().toString();
         final String LNAME = LName.getText().toString();
         final String EMAIL = Email.getText().toString();
         final String DELIVERY_ADDRESS = Delivery_Address.getText().toString();
         final String PHONE = Phone.getText().toString();
+
+        final String cust_id = Customer_id;
 
         //first we will do the validations
 
@@ -143,10 +150,97 @@ public class UserAccountDetails extends AppCompatActivity {
             return;
         }
 
+
+        Customer_id = fetchCustID();
+        //Toast.makeText(this,CustID_FromIntent, Toast.LENGTH_LONG).show();
+
+
+        //Send request to fetch all favourite meals from favourites table:
+        //Send network request to 000webhost:
+        //Define URL:
+        HttpUrl.Builder urlBuilder = HttpUrl.parse("https://thymematters.000webhostapp.com/API.php?apicall=update").newBuilder();
+
+        //If you want to add query parameters:
+        urlBuilder.addQueryParameter("cust_id",Customer_id);
+
+        String url = urlBuilder.build().toString();
+        //Check if network is available: https://stackoverflow.com/questions/4238921/detect-whether-there-is-an-internet-connection-available-on-android
+        boolean networkAvailable = isNetworkAvailable();
+        if(!networkAvailable){ StyleableToast.makeText(UserAccountDetails.this, "No Internet Connection", Toast.LENGTH_LONG, R.style.noInternet).show(); return;}
+
+        //Send Request
+
+        //Initialise progree bar: https://stackoverflow.com/questions/15083226/waiting-progress-bar-in-android
+        //Progress Bar Functions: https://www.journaldev.com/9652/android-progressdialog-example
+        final ProgressDialog progressDialog = ProgressDialog.show(this, "Loading Details", "Please wait...");
+
+        OkHttpClient client = new OkHttpClient();
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse( Call call, Response response) throws IOException {
+                if (response.isSuccessful()){
+                    final String myResponse = response.body().string();
+
+                    UserAccountDetails.this.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            //Process Response Here:
+                            try{
+                                //converting response to json object
+                                JSONObject obj = new JSONObject(myResponse);
+
+
+                                //if no error in response
+                                if (!obj.getBoolean("error")) {
+                                    Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
+
+                                    //getting the user from the response
+                                    JSONObject userJson = obj.getJSONObject("user");
+
+                                    //creating a new user object
+                                    User user = new User(
+                                            userJson.getInt("cust_id"),
+                                            userJson.getString("first_name"),
+                                            userJson.getString("last_name"),
+                                            userJson.getString("del_address"),
+                                            userJson.getString("email"),
+                                            userJson.getString("cust_contact_no")
+                                    );
+
+                                    //storing the user in shared preferences
+                                    SharedPrefManager.getInstance(getApplicationContext()).userLogin(user);
+
+                                    //starting the profile activity (when register button is clicked)
+                                    finish();
+                                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+
+                                } else {
+                                    Toast.makeText(getApplicationContext(), "Some error occurred", Toast.LENGTH_SHORT).show();
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+
+                            progressDialog.dismiss();
+                        }
+                    });
+                }
+
+            }
+        });
         //if it passes all the validations
         //Send network request to 000webhost for insertion of new user (Customer)
         //Define URL:
-        class UpdateUser extends AsyncTask<Void, Void, String> {
+        /*class UpdateUser extends AsyncTask<Void, Void, String> {
 
             private ProgressBar progressBar;
 
@@ -157,12 +251,12 @@ public class UserAccountDetails extends AppCompatActivity {
 
                 //creating request parameters
                 HashMap<String, String> params = new HashMap<>();
+                params.put("customer_id", cust_id);
                 params.put("first_name", FNAME);
                 params.put("last_name", LNAME);
                 params.put("del_address", DELIVERY_ADDRESS);
                 params.put("email", EMAIL);
                 params.put("cust_contact_no", PHONE);
-
 
                 //returning the response
                 return requestHandler.sendPostRequest(URLs.URL_UPDATE, params);
@@ -221,6 +315,7 @@ public class UserAccountDetails extends AppCompatActivity {
         //executing the async task
         UpdateUser ru = new UpdateUser();
         ru.execute();
+    }*/
     }
 
     @Override

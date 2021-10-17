@@ -9,7 +9,7 @@ public class User {
     private final String Contact_Number;
     private final String Email_Address;
 
-    public User(int User_id, String FName, String LName, String Delivery_Address, String Contact_Number, String Email_Address) {
+    public User( int User_id, String FName, String LName, String Delivery_Address, String Contact_Number, String Email_Address) {
         this.User_id = User_id;
         this.FName = FName;
         this.LName = LName;
