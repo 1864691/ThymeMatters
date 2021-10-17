@@ -60,10 +60,13 @@ public class PaymentActivity extends AppCompatActivity {
                 finish();
                 return true;
 
-            case R.id.help:
+            /*
+                case R.id.help:
                 startActivity(new Intent(PaymentActivity.this, help_page.class));
                 finish();
                 return true;
+
+             */
 
             case R.id.favorites:
                 startActivity(new Intent(PaymentActivity.this, favorites.class));

@@ -141,10 +141,13 @@ public class favorites extends AppCompatActivity {
                 startActivity(orderHist); finish();
                 return true;
 
-            case R.id.help:
+            /*
+                case R.id.help:
                 startActivity(new Intent(favorites.this, help_page.class));
                 finish();
                 return true;
+
+             */
 
             case R.id.favorites:
                 // Need to pass customer unique id to favourites activity

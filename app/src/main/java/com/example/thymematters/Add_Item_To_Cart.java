@@ -128,28 +128,41 @@ public class Add_Item_To_Cart extends AppCompatActivity {
                 return true;
 
             case R.id.View_Account://create account page
-                startActivity(new Intent(Add_Item_To_Cart.this, UserAccountDetails.class));
+                Intent view_account = new Intent(Add_Item_To_Cart.this,UserAccountDetails.class);
+                view_account.putExtra("CUST_ID",cust_id);
                 finish();
+                startActivity(view_account);
                 return true;
 
             case R.id.Order_History:
-                startActivity(new Intent(Add_Item_To_Cart.this, CartActivity.class));
+                Intent order_history = new Intent(Add_Item_To_Cart.this,CustomerViewOrderHistory.class);
+                order_history.putExtra("CUST_ID",cust_id);
                 finish();
+                startActivity(order_history);
                 return true;
 
-            case R.id.help:
+            /*
+                case R.id.help:
                 startActivity(new Intent(Add_Item_To_Cart.this, help_page.class));
                 finish();
                 return true;
 
+             */
+
             case R.id.favorites:
-                startActivity(new Intent(Add_Item_To_Cart.this, favorites.class));
+                // Need to pass customer unique id to favourites activity
+                Intent fav = new Intent(Add_Item_To_Cart.this,favorites.class);
+                //Pass data to customer home screen:
+                fav.putExtra("CUST_ID",cust_id);
                 finish();
+                startActivity(fav);
+
                 return true;
 
             case R.id.cart:
                 Intent goToCart = new Intent(Add_Item_To_Cart.this,CartActivity.class);
                 goToCart.putExtra("CUST_ID",cust_id);
+                finish();
                 startActivity(goToCart);
 
 

@@ -95,10 +95,13 @@ public class UserAccountDetails extends AppCompatActivity {
                 startActivity(orderHist); finish();
                 return true;
 
-            case R.id.help:
+            /*
+                case R.id.help:
                 startActivity(new Intent(UserAccountDetails.this, help_page.class));
                 finish();
                 return true;
+
+             */
 
             case R.id.favorites:
                 Intent fav = new Intent(UserAccountDetails.this,favorites.class);

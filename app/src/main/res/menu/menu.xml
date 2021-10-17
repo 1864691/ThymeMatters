@@ -17,9 +17,10 @@
         android:title="My favorites"
         android:icon="@drawable/favorite"/>
 
-    <item
+    ! -- Help page commented out-->
+    <!--<item
         android:id="@+id/help"
-        android:title="Help"/>
+        android:title="Help"/>-->
 
     <item
         android:id="@+id/cart"

@@ -55,10 +55,13 @@ public class Order_Confirmed extends AppCompatActivity {
                 finish();
                 return true;
 
-            case R.id.help:
+            /*
+                case R.id.help:
                 startActivity(new Intent(Order_Confirmed.this, help_page.class));
                 finish();
                 return true;
+
+             */
 
             case R.id.favorites:
                 startActivity(new Intent(Order_Confirmed.this, favorites.class));

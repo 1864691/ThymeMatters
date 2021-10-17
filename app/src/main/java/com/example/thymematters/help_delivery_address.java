@@ -42,10 +42,13 @@ public class help_delivery_address extends AppCompatActivity {
                 finish();
                 return true;
 
-            case R.id.help:
+            /*
+                case R.id.help:
                 startActivity(new Intent(help_delivery_address.this, help_page.class));
                 finish();
                 return true;
+
+             */
 
             case R.id.favorites:
                 startActivity(new Intent(help_delivery_address.this, favorites.class));

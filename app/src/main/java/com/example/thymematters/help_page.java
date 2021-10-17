@@ -94,10 +94,13 @@ public class help_page extends AppCompatActivity {
                 finish();
                 return true;
 
-            case R.id.help:
+            /*
+                case R.id.help:
                 startActivity(new Intent(help_page.this, help_page.class));
                 finish();
                 return true;
+
+             */
 
             case R.id.favorites:
                 startActivity(new Intent(help_page.this, favorites.class));

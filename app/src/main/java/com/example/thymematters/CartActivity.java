@@ -208,10 +208,13 @@ public class CartActivity extends AppCompatActivity {
                 startActivity(order_history);
                 return true;
 
-            case R.id.help:
+            /*
+                case R.id.help:
                 startActivity(new Intent(CartActivity.this, help_page.class));
                 finish();
                 return true;
+
+             */
 
             case R.id.favorites:
                 // Need to pass customer unique id to favourites activity

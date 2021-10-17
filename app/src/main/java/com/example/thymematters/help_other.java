@@ -42,10 +42,13 @@ public class help_other extends AppCompatActivity {
                 finish();
                 return true;
 
-            case R.id.help:
+            /*
+                case R.id.help:
                 startActivity(new Intent(help_other.this, help_page.class));
                 finish();
                 return true;
+
+             */
 
             case R.id.favorites:
                 startActivity(new Intent(help_other.this, favorites.class));
