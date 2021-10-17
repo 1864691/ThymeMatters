@@ -114,8 +114,9 @@ public class HomeActivity extends AppCompatActivity {
                 return true;
 
             case R.id.View_Account://create account page
-                startActivity(new Intent(HomeActivity.this, UserAccountDetails.class));
-                finish();
+                Intent view_account = new Intent(HomeActivity.this,UserAccountDetails.class);
+                view_account.putExtra("CUST_ID",CustID_FromIntent);
+                startActivity(view_account);
                 return true;
 
             case R.id.Order_History:

@@ -6,8 +6,10 @@
         <entry key="app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.346875" />
         <entry key="app/src/main/res/layout/activity_cart.xml" value="0.24114583333333334" />
         <entry key="app/src/main/res/layout/activity_favorites.xml" value="0.21666666666666667" />
+        <entry key="app/src/main/res/layout/activity_help_change_account_details.xml" value="0.20208333333333334" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.21666666666666667" />
         <entry key="app/src/main/res/layout/activity_soup.xml" value="0.28489583333333335" />
+        <entry key="app/src/main/res/layout/activity_user_account_details.xml" value="0.20208333333333334" />
       </map>
     </option>
   </component>
