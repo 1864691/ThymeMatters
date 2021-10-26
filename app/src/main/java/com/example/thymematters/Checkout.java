@@ -354,22 +354,22 @@ public class Checkout extends AppCompatActivity {
 
             case R.id.View_Account://create account page
                 startActivity(new Intent(Checkout.this, UserAccountDetails.class));
-                finish();
+                //finish();
                 return true;
 
             case R.id.Order_History:
                 startActivity(new Intent(Checkout.this, CartActivity.class));
-                finish();
+                //finish();
                 return true;
 
             case R.id.help:
                 startActivity(new Intent(Checkout.this, help_page.class));
-                finish();
+                //finish();
                 return true;
 
             case R.id.favorites:
                 startActivity(new Intent(Checkout.this, favorites.class));
-                finish();
+                //finish();
                 return true;
         }
         return false;

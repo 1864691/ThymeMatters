@@ -195,19 +195,19 @@ public class CartActivity extends AppCompatActivity {
 
             case R.id.View_Account://create account page
                 startActivity(new Intent(CartActivity.this, UserAccountDetails.class));
-                finish();
+                //finish();
                 return true;
 
             case R.id.Order_History:
                 Intent order_history = new Intent(CartActivity.this,CustomerViewOrderHistory.class);
                 order_history.putExtra("CUST_ID",CustID_FromIntent);
-                finish();
+                //finish();
                 startActivity(order_history);
                 return true;
 
             case R.id.help:
                 startActivity(new Intent(CartActivity.this, help_page.class));
-                finish();
+                //finish();
                 return true;
 
             case R.id.favorites:
@@ -215,7 +215,7 @@ public class CartActivity extends AppCompatActivity {
                 Intent fav = new Intent(CartActivity.this,favorites.class);
                 //Pass data to customer home screen:
                 fav.putExtra("CUST_ID",CustID_FromIntent);
-                finish();
+                //finish();
                 startActivity(fav);
         }
         return false;

@@ -1,15 +1,14 @@
 package com.example.thymematters;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class PaymentActivity extends AppCompatActivity {
 
@@ -52,22 +51,22 @@ public class PaymentActivity extends AppCompatActivity {
 
             case R.id.View_Account://create account page
                 startActivity(new Intent(PaymentActivity.this, UserAccountDetails.class));
-                finish();
+                //finish();
                 return true;
 
             case R.id.Order_History:
                 startActivity(new Intent(PaymentActivity.this, CartActivity.class));
-                finish();
+                //finish();
                 return true;
 
             case R.id.help:
                 startActivity(new Intent(PaymentActivity.this, help_page.class));
-                finish();
+                //finish();
                 return true;
 
             case R.id.favorites:
                 startActivity(new Intent(PaymentActivity.this, favorites.class));
-                finish();
+                //finish();
                 return true;
         }
         return false;

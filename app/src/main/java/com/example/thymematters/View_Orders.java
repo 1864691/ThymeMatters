@@ -60,12 +60,12 @@ public class View_Orders extends AppCompatActivity {
 
             case R.id.return_to_home://create account page
                 startActivity(new Intent(View_Orders.this, AdminHome.class));
-                finish();
+                //finish();
                 return true;
 
             case R.id.View_Admin_Account:
                 startActivity(new Intent(View_Orders.this, AdminAccountDetails.class));
-                finish();
+                //finish();
                 return true;
 
         }

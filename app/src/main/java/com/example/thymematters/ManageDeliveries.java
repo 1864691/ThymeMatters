@@ -61,12 +61,12 @@ public class ManageDeliveries extends AppCompatActivity {
 
             case R.id.return_to_home://create account page
                 startActivity(new Intent(ManageDeliveries.this, AdminHome.class));
-                finish();
+                //finish();
                 return true;
 
             case R.id.View_Admin_Account:
                 startActivity(new Intent(ManageDeliveries.this, AdminAccountDetails.class));
-                finish();
+                //finish();
                 return true;
 
         }

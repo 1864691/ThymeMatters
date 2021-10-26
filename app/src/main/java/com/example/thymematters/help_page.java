@@ -1,9 +1,5 @@
 package com.example.thymematters;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -11,6 +7,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class help_page extends AppCompatActivity {
 
@@ -47,7 +45,7 @@ public class help_page extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(help_page.this, help_delivery_date.class));
-                finish();
+                //finish();
             }
         });
 
@@ -55,7 +53,7 @@ public class help_page extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(help_page.this, help_change_account_details.class));
-                finish();
+                //finish();
             }
         });
 
@@ -63,7 +61,7 @@ public class help_page extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(help_page.this, help_other.class));
-                finish();
+                //finish();
             }
         });
     }
@@ -86,22 +84,22 @@ public class help_page extends AppCompatActivity {
 
             case R.id.View_Account://create account page
                 startActivity(new Intent(help_page.this, UserAccountDetails.class));
-                finish();
+                //finish();
                 return true;
 
             case R.id.Order_History:
                 startActivity(new Intent(help_page.this, CartActivity.class));
-                finish();
+                //finish();
                 return true;
 
             case R.id.help:
                 startActivity(new Intent(help_page.this, help_page.class));
-                finish();
+                //finish();
                 return true;
 
             case R.id.favorites:
                 startActivity(new Intent(help_page.this, favorites.class));
-                finish();
+                //finish();
                 return true;
         }
         return false;

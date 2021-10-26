@@ -311,12 +311,12 @@ public class Update_Delivery_Status extends AppCompatActivity {
 
             case R.id.return_to_home://create account page
                 startActivity(new Intent(Update_Delivery_Status.this, AdminHome.class));
-                finish();
+                //finish();
                 return true;
 
             case R.id.View_Admin_Account:
                 startActivity(new Intent(Update_Delivery_Status.this, AdminAccountDetails.class));
-                finish();
+                //finish();
                 return true;
 
         }

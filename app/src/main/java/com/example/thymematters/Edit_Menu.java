@@ -1,12 +1,12 @@
 package com.example.thymematters;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class Edit_Menu extends AppCompatActivity {
 
@@ -34,12 +34,12 @@ public class Edit_Menu extends AppCompatActivity {
 
             case R.id.view_orders://create account page
                 startActivity(new Intent(Edit_Menu.this, View_Orders.class));
-                finish();
+                //finish();
                 return true;
 
             case R.id.View_Admin_Account:
                 startActivity(new Intent(Edit_Menu.this, AdminAccountDetails.class));
-                finish();
+                //finish();
                 return true;
 
         }

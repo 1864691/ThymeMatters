@@ -3,7 +3,6 @@ package com.example.thymematters;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -135,19 +134,19 @@ public class SoupActivity extends AppCompatActivity {
 
             case R.id.View_Account://create account page
                 startActivity(new Intent(SoupActivity.this, UserAccountDetails.class));
-                finish();
+                //finish();
                 return true;
 
             case R.id.Order_History:
                 Intent order_history = new Intent(SoupActivity.this,CustomerViewOrderHistory.class);
                 order_history.putExtra("CUST_ID",CustID_FromIntent);
-                finish();
+                //finish();
                 startActivity(order_history);
                 return true;
 
             case R.id.help:
                 startActivity(new Intent(SoupActivity.this, help_page.class));
-                finish();
+                //finish();
                 return true;
 
             case R.id.favorites:

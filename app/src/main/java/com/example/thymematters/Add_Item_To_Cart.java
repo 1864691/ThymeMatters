@@ -129,22 +129,22 @@ public class Add_Item_To_Cart extends AppCompatActivity {
 
             case R.id.View_Account://create account page
                 startActivity(new Intent(Add_Item_To_Cart.this, UserAccountDetails.class));
-                finish();
+                //finish();
                 return true;
 
             case R.id.Order_History:
                 startActivity(new Intent(Add_Item_To_Cart.this, CartActivity.class));
-                finish();
+                //finish();
                 return true;
 
             case R.id.help:
                 startActivity(new Intent(Add_Item_To_Cart.this, help_page.class));
-                finish();
+                //finish();
                 return true;
 
             case R.id.favorites:
                 startActivity(new Intent(Add_Item_To_Cart.this, favorites.class));
-                finish();
+                //finish();
                 return true;
 
             case R.id.cart:

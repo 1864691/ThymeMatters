@@ -222,24 +222,24 @@ public class CustomerViewOrderHistory extends AppCompatActivity {
                 //onLogoutClick();
                 startActivity(new Intent(CustomerViewOrderHistory.this, MainActivity.class));
                 Toast.makeText(getApplicationContext(),"Logout Successful",Toast.LENGTH_SHORT).show();
-                finish();
+                //finish();
                 return true;
 
             case R.id.View_Account://create account page
                 startActivity(new Intent(CustomerViewOrderHistory.this, UserAccountDetails.class));
-                finish();
+                //finish();
                 return true;
 
             case R.id.Order_History:
                 Intent order_history = new Intent(CustomerViewOrderHistory.this,CustomerViewOrderHistory.class);
                 order_history.putExtra("CUST_ID",CustID_FromIntent);
-                finish();
+                //finish();
                 startActivity(order_history);
                 return true;
 
             case R.id.help:
                 startActivity(new Intent(CustomerViewOrderHistory.this, help_page.class));
-                finish();
+                //finish();
                 return true;
 
             case R.id.favorites:
@@ -247,7 +247,7 @@ public class CustomerViewOrderHistory extends AppCompatActivity {
                 Intent fav = new Intent(CustomerViewOrderHistory.this,favorites.class);
                 //Pass data to customer home screen:
                 fav.putExtra("CUST_ID",CustID_FromIntent);
-                finish();
+                //finish();
                 startActivity(fav);
 
                 return true;
@@ -255,7 +255,7 @@ public class CustomerViewOrderHistory extends AppCompatActivity {
             case R.id.cart:
                 Intent goToCart = new Intent(CustomerViewOrderHistory.this,CartActivity.class);
                 goToCart.putExtra("CUST_ID",CustID_FromIntent);
-                finish();
+                //finish();
                 startActivity(goToCart);
 
 

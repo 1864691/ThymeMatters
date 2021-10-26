@@ -125,19 +125,19 @@ public class DessertActivity extends AppCompatActivity {
 
             case R.id.View_Account://create account page
                 startActivity(new Intent(DessertActivity.this, UserAccountDetails.class));
-                finish();
+                //finish();
                 return true;
 
             case R.id.Order_History:
                 Intent order_history = new Intent(DessertActivity.this,CustomerViewOrderHistory.class);
                 order_history.putExtra("CUST_ID",CustID_FromIntent);
-                finish();
+                //finish();
                 startActivity(order_history);
                 return true;
 
             case R.id.help:
                 startActivity(new Intent(DessertActivity.this, help_page.class));
-                finish();
+                //finish();
                 return true;
 
             case R.id.favorites:

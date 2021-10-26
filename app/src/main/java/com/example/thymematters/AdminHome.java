@@ -81,12 +81,12 @@ public class AdminHome extends AppCompatActivity {
 
             case R.id.view_orders://view orders activity
                 startActivity(new Intent(AdminHome.this, View_Orders.class));
-                finish();
+                //finish();
                 return true;
 
             case R.id.View_Admin_Account:
                 startActivity(new Intent(AdminHome.this, AdminAccountDetails.class));
-                 finish();
+                 //finish();
                 return true;
 
         }

@@ -1,7 +1,5 @@
 package com.example.thymematters;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +10,8 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Calendar;
 
@@ -69,22 +69,22 @@ public class help_delivery_date extends AppCompatActivity {
 
             case R.id.View_Account://create account page
                 startActivity(new Intent(help_delivery_date.this, UserAccountDetails.class));
-                finish();
+                //finish();
                 return true;
 
             case R.id.Order_History:
                 startActivity(new Intent(help_delivery_date.this, CartActivity.class));
-                finish();
+                //finish();
                 return true;
 
             case R.id.help:
                 startActivity(new Intent(help_delivery_date.this, help_page.class));
-                finish();
+                //finish();
                 return true;
 
             case R.id.favorites:
                 startActivity(new Intent(help_delivery_date.this, favorites.class));
-                finish();
+                //finish();
                 return true;
         }
         return false;

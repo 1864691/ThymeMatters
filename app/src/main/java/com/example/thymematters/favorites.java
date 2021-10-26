@@ -1,7 +1,5 @@
 package com.example.thymematters;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -16,8 +14,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -127,17 +126,17 @@ public class favorites extends AppCompatActivity {
 
             case R.id.View_Account://create account page
                 startActivity(new Intent(favorites.this, UserAccountDetails.class));
-                finish();
+                //finish();
                 return true;
 
             case R.id.Order_History:
                 startActivity(new Intent(favorites.this, CartActivity.class));
-                finish();
+                //finish();
                 return true;
 
             case R.id.help:
                 startActivity(new Intent(favorites.this, help_page.class));
-                finish();
+                //finish();
                 return true;
 
             case R.id.favorites:
@@ -145,7 +144,7 @@ public class favorites extends AppCompatActivity {
                 Intent fav = new Intent(favorites.this,favorites.class);
                 //Pass data to customer home screen:
                 fav.putExtra("CUST_ID",CustID_FromIntent);
-                finish();
+                //finish();
                 startActivity(fav);
 
             case R.id.cart:

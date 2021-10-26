@@ -218,22 +218,22 @@ public class ViewOrderContents extends AppCompatActivity {
 
             case R.id.View_Account://create account page
                 startActivity(new Intent(ViewOrderContents.this, UserAccountDetails.class));
-                finish();
+                //finish();
                 return true;
 
             case R.id.Order_History:
                 startActivity(new Intent(ViewOrderContents.this, CartActivity.class));
-                finish();
+                //finish();
                 return true;
 
             case R.id.help:
                 startActivity(new Intent(ViewOrderContents.this, help_page.class));
-                finish();
+                //finish();
                 return true;
 
             case R.id.favorites:
                 startActivity(new Intent(ViewOrderContents.this, favorites.class));
-                finish();
+                //finish();
                 return true;
         }
         return false;

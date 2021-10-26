@@ -1,7 +1,5 @@
 package com.example.thymematters;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -9,6 +7,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class Order_Confirmed extends AppCompatActivity {
 
@@ -47,22 +47,22 @@ public class Order_Confirmed extends AppCompatActivity {
 
             case R.id.View_Account://create account page
                 startActivity(new Intent(Order_Confirmed.this, UserAccountDetails.class));
-                finish();
+                //finish();
                 return true;
 
             case R.id.Order_History:
                 startActivity(new Intent(Order_Confirmed.this, CartActivity.class));
-                finish();
+                //finish();
                 return true;
 
             case R.id.help:
                 startActivity(new Intent(Order_Confirmed.this, help_page.class));
-                finish();
+                //finish();
                 return true;
 
             case R.id.favorites:
                 startActivity(new Intent(Order_Confirmed.this, favorites.class));
-                finish();
+                //finish();
                 return true;
         }
         return false;

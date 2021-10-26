@@ -1,6 +1,6 @@
 package com.example.thymematters;
 
-import androidx.appcompat.app.AppCompatActivity;
+import static com.example.thymematters.URLs.URL_MEALS;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
@@ -8,16 +8,16 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -29,9 +29,6 @@ import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-
-import static com.example.thymematters.URLs.URL_CATEGORIES;
-import static com.example.thymematters.URLs.URL_MEALS;
 
 public class PlaceOrderActivity extends AppCompatActivity {
 
@@ -183,22 +180,22 @@ public class PlaceOrderActivity extends AppCompatActivity {
 
             case R.id.View_Account://create account page
                 startActivity(new Intent(PlaceOrderActivity.this, UserAccountDetails.class));
-                finish();
+                //finish();
                 return true;
 
             case R.id.Order_History:
                 startActivity(new Intent(PlaceOrderActivity.this, CartActivity.class));
-                finish();
+                //finish();
                 return true;
 
             case R.id.help:
                 startActivity(new Intent(PlaceOrderActivity.this, help_page.class));
-                finish();
+                //finish();
                 return true;
 
             case R.id.favorites:
                 startActivity(new Intent(PlaceOrderActivity.this, favorites.class));
-                finish();
+                //finish();
                 return true;
         }
         return false;

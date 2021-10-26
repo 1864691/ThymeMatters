@@ -106,12 +106,12 @@ public class HomeActivity extends AppCompatActivity {
                 //onLogoutClick();
                 startActivity(new Intent(HomeActivity.this, MainActivity.class));
                 Toast.makeText(getApplicationContext(),"Logout Successful",Toast.LENGTH_SHORT).show();
-                finish();
+                //finish();
                 return true;
 
             case R.id.View_Account://create account page
                 startActivity(new Intent(HomeActivity.this, UserAccountDetails.class));
-                finish();
+                //finish();
                 return true;
 
             case R.id.Order_History:
@@ -123,7 +123,7 @@ public class HomeActivity extends AppCompatActivity {
 
             case R.id.help:
                 startActivity(new Intent(HomeActivity.this, help_page.class));
-                finish();
+                //finish();
                 return true;
 
             case R.id.favorites:
