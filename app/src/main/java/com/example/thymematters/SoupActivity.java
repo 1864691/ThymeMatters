@@ -53,7 +53,7 @@ public class SoupActivity extends AppCompatActivity {
 
         //Initially retrieve customer unique id from intent:
         CustID_FromIntent = fetchCustID();
-        Toast.makeText(this,CustID_FromIntent, Toast.LENGTH_LONG).show();
+        //Toast.makeText(this,CustID_FromIntent, Toast.LENGTH_LONG).show();
 
         //Send request to fetch all soup meals from meals table:
         //Send network request to 000webhost:

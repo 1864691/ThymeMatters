@@ -31,7 +31,7 @@ public class HomeActivity extends AppCompatActivity {
 
         //Initially retrieve customer unique id from intent:
         CustID_FromIntent = fetchCustID();
-        Toast.makeText(this,CustID_FromIntent, Toast.LENGTH_LONG).show();
+        //Toast.makeText(this,CustID_FromIntent, Toast.LENGTH_LONG).show();
 
 
 
